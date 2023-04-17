@@ -2,13 +2,13 @@ import {connect} from'react-redux'
 
 function Footer() {
     return(
-        <nav>
+        <div>
            Footer
-        </nav>
+        </div>
     )
 }
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = state => ({
 
 })
 

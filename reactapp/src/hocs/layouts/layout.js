@@ -1,5 +1,4 @@
-import connect from 'react-redux/';
-
+import { connect } from 'react-redux';
 function Layout ({ children }) {
     return (
         <div>
@@ -8,8 +7,10 @@ function Layout ({ children }) {
     )
 }
 
-const mapStateToProps = (state) => {}
+const mapStateToProps = state => ({
+    
+})
 
 export default connect(mapStateToProps,{
     
-})(Layout);
+})(Layout)

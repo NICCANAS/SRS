@@ -2,9 +2,9 @@ import {connect} from'react-redux'
 
 function Navbar() {
     return(
-        <Navbar>
+        <nav>
            Navbar
-        </Navbar>
+        </nav>
     )
 }
 
