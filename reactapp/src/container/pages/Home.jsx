@@ -1,5 +1,5 @@
 import Footer from "../../components/navigation/Footer";
-import Layout from "./reactapp/src/hocs/Layouts";
+import Layout from "../../hocs/layouts/layout"
 import Navbar from "../../components/navigation/Navbar";
 
 function Home () {
