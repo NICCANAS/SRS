@@ -6,7 +6,7 @@ function Home () {
     return (
         <Layout>
             <Navbar />
-
+            <Header />
             <Footer />
         </Layout>
     )

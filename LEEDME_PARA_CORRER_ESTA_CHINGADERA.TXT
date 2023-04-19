@@ -12,3 +12,4 @@ npm i redux-thunk --force
 npm i redux-devtools-extension --force 
 npm i @headlessui/react --force 
 npm i react-spinners --force 
+npm i react-simple-typewriter --force
