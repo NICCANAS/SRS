@@ -88,8 +88,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.oracle', '''NO SE CAMBIA'''
         'NAME': '127.0.0.1:1521/orcl', '''Local Host/ PUEDE SER ex O orcl'''
-        'USER': 'django', '''Credenciales'''
-        'PASSWORD': 'django', '''Credenciales'''
+        'USER': 'ADMIN', '''Credenciales'''
+        'PASSWORD': 'Holaolaola2021=-', '''Credenciales'''
         'TEST': {
             'USER': 'default_test',
             'TBLSPACE': 'default_test_tbls',
