@@ -92,11 +92,6 @@ function Footer(){
         <div className="mx-auto max-w-full py-12 px-4 sm:px-6 lg:py-16 lg:px-8">
           <div className="xl:grid xl:grid-cols-3 xl:gap-8">
             <div className="space-y-8 xl:col-span-1">
-            <img
-                src={'https://bafybeie3dkjdydulam4igwx2hwaepkkyugze2z7bpohekdi2maqrgaaegq.ipfs.w3s.link/idealogo.png'}
-                width={60}
-                height={60}
-                className=""/>
               <div className="flex space-x-6">
                 {navigation.social.map((item) => (
                   <a key={item.name} href={item.href} className="text-gray-400 hover:text-gray-500">
