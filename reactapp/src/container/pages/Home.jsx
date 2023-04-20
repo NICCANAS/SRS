@@ -1,7 +1,12 @@
 import Footer from "../../components/navigation/Footer";
 import Layout from "../../hocs/layouts/layout"
 import Navbar from "../../components/navigation/Navbar";
+<<<<<<< Updated upstream
 
+=======
+import Header from "../../components/home/cambiotext";
+import MyComponent from "../../components/home/testeando";
+>>>>>>> Stashed changes
 function Home () {
     return (
         <Layout>
@@ -18,6 +23,7 @@ function Home () {
                 </div>
             </div>
             <Footer />
+            <MyComponent />
         </Layout>
     )
 
