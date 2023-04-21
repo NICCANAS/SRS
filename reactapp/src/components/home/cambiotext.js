@@ -10,7 +10,7 @@ function Header(){
               <h1 className="text-4xl font-semibold tracking-tight pb-16  sm:text-7xl">
               Busquedas de <span> </span>
                   <Typewriter
-                        words={['Pijas', 'Joldans', 'No manches!']}
+                        words={['Servicios', 'Empresas', 'Pymes']}
                         loop={0}
                         cursor
                         
