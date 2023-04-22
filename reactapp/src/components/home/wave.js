@@ -1,4 +1,3 @@
-import Footer from "../navigation/Footer";
 import { connect } from 'react-redux'
 
 function wave() {

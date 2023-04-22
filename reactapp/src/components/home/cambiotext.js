@@ -1,5 +1,4 @@
 import { Typewriter } from 'react-simple-typewriter'
-import { Link } from 'react-router-dom'
 function Header() {
   return (
     <main>
@@ -25,7 +24,7 @@ function Header() {
                 <div class="relative mb-4 flex w-full align-start">
                   <input
                     type="search"
-                    class="relative mx-0  block  min-w-0 flex-initial w-3/4 rounded-l border border-solid border-neutral-300 bg-transparent bg-clip-padding px-3 py-[0.25rem] text-base font-normal leading-[1.6] text-neutral-700 outline-none transition duration-200 ease-in-out focus:z-[3] focus:border-primary focus:text-neutral-700 focus:shadow-[inset_0_0_0_1px_rgb(59,113,202)] focus:outline-none dark:border-neutral-600 dark:text-neutral-200 dark:placeholder:text-neutral-200 dark:focus:border-primary"
+                    class="relative mx-0  block  min-w-0 flex-initial w-2/5 rounded-l border border-solid border-neutral-300 bg-transparent bg-clip-padding px-3 py-[0.25rem] text-base font-normal leading-[1.6] text-neutral-700 outline-none transition duration-200 ease-in-out focus:z-[3] focus:border-primary focus:text-neutral-700 focus:shadow-[inset_0_0_0_1px_rgb(59,113,202)] focus:outline-none dark:border-neutral-600 dark:text-neutral-200 dark:placeholder:text-neutral-200 dark:focus:border-primary"
                     placeholder="Busca tu servicio o necesidad Aqui!"
                     aria-label="Search"
                     aria-describedby="button-addon3" />
@@ -34,11 +33,14 @@ function Header() {
                     type="button"
                     id="button-addon3"
                     data-te-ripple-init>
-                    Search
+                    Buscar
                   </button>
                 </div>
               </div>
               <p className="mt-16 text-2xl max-w-3xl leading-8 text-black "> Comienza tu busqueda de cualquier tipo de servicios!</p>
+            </div>
+            <div className="absolute inset-x-0 top-[calc(100%-20rem)] -z-10 transform-gpu overflow-hidden bg-white blur-sm lg:top-[calc(100%-45rem)] sm:top-[calc(100%-30rem)]">
+              <img src="https://www.itvibes.com/site/wp-content/uploads/2020/03/Local-Maps-1024x530.jpg" className='w-full h-full object-cover'/>
             </div>
           </div>
         </div>
