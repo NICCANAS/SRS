@@ -129,7 +129,7 @@ function Card() {
                                             </svg>
                                         </div>
 
-                                        <p className="mt-1 text-lg font-medium text-gray-700">Bailey Brooks</p>
+                                        <p className="mt-1 text-lg font-medium text-gray-700">Francisca Czes</p>
                                     </div>
                                 </div>
 
