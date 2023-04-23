@@ -16,7 +16,7 @@ function App() {
           {/*Home*/}
           <Route path="/" element={<Home />}/>
           {/*Login*/}
-          <Route path="/" element={<Login />}/>
+          <Route path="/Login" element={<Login />}/>
         </Routes>
       </Router>
     </Provider>
