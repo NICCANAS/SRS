@@ -34,7 +34,7 @@ function Login() {
                                     </div>
                                     <a href="#" class="text-sm font-medium text-indigo-600 hover:underline dark:text-indigo-500">¿Olvidaste tu Contraseña?</a>
                                 </div>
-                                <button type="submit" class="w-full text-white bg-indigo-600 hover:bg-indigo-700 focus:ring-4 focus:outline-none focus:ring-indigo-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-indigo-600 dark:hover:bg-indigo-700 dark:focus:ring-primary-800">Ingresar</button>
+                                <center><button type="submit" class="w-full text-white bg-indigo-600 hover:bg-indigo-700 focus:ring-4 focus:outline-none focus:ring-indigo-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-indigo-600 dark:hover:bg-indigo-700 dark:focus:ring-primary-800">Ingresar</button></center>
                                 <p class="text-sm font-light text-gray-500 dark:text-gray-400">
                                     ¿No te encuentras registrado? <a href="#" class="font-medium text-indigo-600 hover:underline dark:text-indigo-500">Registrarse</a>
                                 </p>

@@ -7,7 +7,6 @@ import Header from "../../components/home/cambiotext"; */
 function Home () {
     return (
         <Layout>
-            {/* <Login /> */}
             <Register />
                 
         </Layout>
