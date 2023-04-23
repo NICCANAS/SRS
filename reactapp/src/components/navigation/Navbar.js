@@ -2,6 +2,7 @@ import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { ReactComponent as SvgLogoUsado } from '../../components/svg/logo_empresa.svg'
 
+
 function Navbar() {
     window.onscroll = function () { scrollFunction() }
 
@@ -26,7 +27,7 @@ function Navbar() {
                         <SvgLogoUsado />
                     </Link>
                     <div className="ml-4 mt-2 flex-shrink-0 justify-end">
-                        <Link to="#" className="inline-flex ml-12 items-center rounded-md border bg-orange-button px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-gray-900 transition duration-300 ease-in-out focus:outline-none focus:ring-2  focus:ring-offset-2 bg-sky-600">
+                        <Link to="/Login" className="inline-flex ml-12 items-center rounded-md border bg-orange-button px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-gray-900 transition duration-300 ease-in-out focus:outline-none focus:ring-2  focus:ring-offset-2 bg-sky-600">
                             Iniciar sesión
                         </Link>
                     </div>
