@@ -1,4 +1,5 @@
 import { connect } from 'react-redux'
+import { ReactComponent as SvgLogoUsado } from '../../components/svg/logo_empresa.svg'
 import { Link } from 'react-router-dom'
 
 function Login() {
@@ -6,8 +7,9 @@ function Login() {
         <div class='h-screen bg-gradient-to-r from-pink-700 to-purple-900'>
             <section class="bg-gray-50 dark:bg-gray-900 h-screen bg-gradient-to-r from-green-400 to-purple-600">
                 <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
-                    <a href="#" class="flex items-center mb-6 text-2xl font-semibold text-gray-900 dark:text-white">
-                    </a>
+                <a href="#" class="flex items-center mb-6 text-2xl font-semibold text-gray-900 dark:text-white">
+                    <SvgLogoUsado />
+                </a>
                     <div class="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
                         <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
                             <h1 class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
@@ -36,7 +38,7 @@ function Login() {
                                 <button type="submit" class="w-full text-white bg-indigo-600 hover:bg-indigo-700 focus:ring-4 focus:outline-none focus:ring-indigo-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-indigo-600 dark:hover:bg-indigo-700 dark:focus:ring-primary-800">Ingresar</button>
                                 <p class="text-sm font-light text-gray-500 dark:text-gray-400">
                                     ¿No te encuentras registrado? 
-                                    <Link to="/Register" className="font-medium text-indigo-600 hover:underline dark:text-indigo-500">Registrarse</Link>
+                                    <Link to="/Register" className="font-medium text-indigo-600 hover:underline dark:text-indigo-500"> Registrarse</Link>
                                 </p>
                             </form>
                         </div>
