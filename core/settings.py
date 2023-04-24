@@ -37,6 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'catalogo',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
@@ -82,6 +84,17 @@ DATABASES = {
     }
 }
 
+""" DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.oracle',
+        #'NAME': 'OF9IREKMRZ0T3E0R',
+        'NAME': 'adb.sa-santiago-1.oraclecloud.com:1522',
+        'USER': 'ADMIN',
+        'PASSWORD': 'Holaolaola2021=-',
+        #'HOST': 'adb.sa-santiago-1.oraclecloud.com/orcl',
+        #'PORT': '1522',
+    }
+} """
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
@@ -125,3 +138,12 @@ STATICFILES_DIRS=[
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+REST_FRAMEWORK = {
+	'DEFAULT_AUTHENTICATION_CLASSES':[
+		'rest_framework.authentication.TokenAuthentication',
+        #'rest_framework.permissions.IsAuthenticatedOrReadOnly',
+	],
+}
+
+EMAIL_BACKEND ='django.core.mail.backends.console.EmailBackend'
