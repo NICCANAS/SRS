@@ -43,7 +43,6 @@ INSTALLED_APPS = [
     'catalogo',
     'rest_framework',
     'core',
-    'core',
 ]
 
 MIDDLEWARE = [
