@@ -93,13 +93,18 @@ DATABASES = {
         'ENGINE': 'django.db.backends.oracle',
         #'NAME': 'OF9IREKMRZ0T3E0R',
         #'NAME': 'adb.sa-santiago-1.oraclecloud.com:1522',
-        'NAME': '127.0.0.1:1521/orcl',
+        'NAME': '127.0.0.1:1521/xe',
         'USER': 'ADMIN',
         'PASSWORD': 'Holaolaola2021=-',
+                'TEST': {
+            'USER': 'default_test',
+            'TBLSPACE': 'default_test_tbls',
+            'TBLSPACE_TMP': 'default_test_tbls_tmp',
+        },
+    },
+}
         #'HOST': 'adb.sa-santiago-1.oraclecloud.com/orcl',
         #'PORT': '1522',
-    }
-}
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
