@@ -5,6 +5,9 @@ import axios from 'axios';
  const [data, setData] = useState(null);//data es para ocuparlo en el return
 
   useEffect(() => {
+
+    axios.get('http://127.0.0.1:8000/webpayAPI/');
+
     //Hacerle un get a la funcion de webpay
     async function loadWebpay(){
       const res =  await axios.get('http://127.0.0.1:8000/webpayAPI/');
@@ -12,6 +15,7 @@ import axios from 'axios';
       console.log(res.data);
       console.log("restoken: " + res.data.token);
       console.log("resamoun: " + res.data.amount);
+
     }
     
     loadWebpay();

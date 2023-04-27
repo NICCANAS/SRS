@@ -14,7 +14,9 @@ npm i @headlessui/react --force
 npm i react-spinners --force 
 npm i react-simple-typewriter --force
 
-
+//Conexion con base de datos
+Para poder utilizar la base de datos se necesita instalar
+python -m pip install oracledb
 
 ////Paquetes para backend
 Django 4.2 | pip install django

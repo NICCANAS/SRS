@@ -13,6 +13,10 @@ from rest_framework import viewsets
 from .serializers import CategorySerializer
 from .models import datosPrueba
 
+#Oracle connection
+from django.http import HttpResponse
+from catalogo.bdd.oracle import lista
+
 def home(request):
    return render(request, 'index.html') 
 
@@ -82,6 +86,11 @@ def wspMessage(phoneNumber, message):
    response = requests.post('https://graph.facebook.com/v16.0/101238452953735/messages', headers=headers, json=payload)
    ans = response.json()
    return
+
+
+
+def oracle(request):
+    return HttpResponse(json.dumps(lista))
 
 
 

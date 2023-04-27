@@ -88,10 +88,16 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.oracle',
         #'NAME': 'OF9IREKMRZ0T3E0R',
-        'NAME': 'adb.sa-santiago-1.oraclecloud.com:1522',
+        'NAME': 'of9irekmrz0t3e0r:1522',
+        #'NAME': 'adb.sa-santiago-1.oraclecloud.com:1522',
         'USER': 'ADMIN',
         'PASSWORD': 'Holaolaola2021=-',
-        #'HOST': 'adb.sa-santiago-1.oraclecloud.com/orcl',
+        'TEST': {
+            'USER': 'default_test',
+            'TBLSPACE': 'default_test_tbls',
+            'TBLSPACE_TMP': 'default_test_tbls_tmp',
+        },
+        #'HOST': 'adb.sa-santiago-1.oraclecloud.com',
         #'PORT': '1522',
     }
 } """
