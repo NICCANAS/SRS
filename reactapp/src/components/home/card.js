@@ -63,7 +63,7 @@ function Card() {
                                 </div>
 
                                 <p className="line-clamp-2 sm:line-clamp-none mt-4 text-gray-500">
-                                Contraté el servicio de limpieza profesional deluxe para mi hogar a través de la página web y ¡quedé impresionado! El equipo de limpieza llegó puntualmente y con todos los suministros necesarios. Eran amables y profesionales desde el principio, y se mostraron muy respetuosos con mi hogar y pertenencias.
+                                    Contraté el servicio de limpieza profesional deluxe para mi hogar a través de la página web y ¡quedé impresionado! El equipo de limpieza llegó puntualmente y con todos los suministros necesarios. Eran amables y profesionales desde el principio, y se mostraron muy respetuosos con mi hogar y pertenencias.
                                 </p>
                             </blockquote>
 
@@ -134,7 +134,7 @@ function Card() {
                                 </div>
 
                                 <p className="line-clamp-2 sm:line-clamp-none mt-4 text-gray-500">
-                                Contraté un servicio de mantenimiento de jardín a través de la página web para mi hogar, y quedé muy satisfecho con los resultados. El equipo de jardineros llegó a tiempo y estaba bien equipado con todas las herramientas necesarias para el trabajo. Fueron corteses y profesionales desde el principio, y se mostraron interesados en entender mis necesidades y preferencias en cuanto al cuidado de mi jardín.
+                                    Contraté un servicio de mantenimiento de jardín a través de la página web para mi hogar, y quedé muy satisfecho con los resultados. El equipo de jardineros llegó a tiempo y estaba bien equipado con todas las herramientas necesarias para el trabajo. Fueron corteses y profesionales desde el principio, y se mostraron interesados en entender mis necesidades y preferencias en cuanto al cuidado de mi jardín.
                                 </p>
                             </blockquote>
 
@@ -205,17 +205,13 @@ function Card() {
                                 </div>
 
                                 <p className="line-clamp-2 sm:line-clamp-none mt-4 text-gray-500">
-                                Contraté un servicio de reparación de automóvil a través de la página web para solucionar un problema mecánico en mi vehículo. El proceso de reserva en línea fue fácil y conveniente, y el equipo de mecánicos llegó a mi ubicación en el tiempo acordado. Fueron profesionales y me explicaron claramente el diagnóstico y las opciones de reparación.
+                                    Contraté un servicio de reparación de automóvil a través de la página web para solucionar un problema mecánico en mi vehículo. El proceso de reserva en línea fue fácil y conveniente, y el equipo de mecánicos llegó a mi ubicación en el tiempo acordado. Fueron profesionales y me explicaron claramente el diagnóstico y las opciones de reparación.
                                 </p>
                             </blockquote>
                         </div>
                     </div>
                 </section>
             </div>
-            <div class='flex items-center justify-center min-h-screen bg-gradient-to-b from-green-400 to-purple-600'>
-
-            </div>
-
         </main>
     )
 }
