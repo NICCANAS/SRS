@@ -7,7 +7,7 @@ function Home () {
     return (
         <Layout>
             <ListServs/>
-            <CardServs/>
+            {/* <CardServs/> */}
         </Layout>
     )
 }
