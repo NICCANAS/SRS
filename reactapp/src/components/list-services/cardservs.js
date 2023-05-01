@@ -1,9 +1,8 @@
 import { connect } from 'react-redux'
-import { Link } from 'react-router-dom'
 
 function CardServs() {
     return (
-        <div class="w-9/12 items-center">
+        <div class="w-9/12 items-center m-8">
             <article class="flex bg-white transition hover:shadow-xl">
                 <div class="rotate-180 p-2 [writing-mode:_vertical-lr]">
                     <time
