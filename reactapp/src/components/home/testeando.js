@@ -6,10 +6,22 @@ import axios from 'axios';
 
   useEffect(() => {
 
-    axios.get('http://127.0.0.1:8000/webpayAPI/');
+    async function oracle(){
+      const response = await axios.get('/getCSRFToken');
+      axios.defaults.headers.post['X-CSRF-Token'] = response.data.CSRFToken;
+
+      let data = new FormData();
+      data.append("query", "SELECT * FROM jordan") 
+      data.append("csrfmiddlewaretoken", '{{csrf_token}}')
+      const res = await axios.post('http://127.0.0.1:8000/oracleAPI/', data);
+      setData(res.data);
+      console.log(res.data);
+    }
+    
+    oracle();
 
     //Hacerle un get a la funcion de webpay
-    async function loadWebpay(){
+    /* async function loadWebpay(){
       const res =  await axios.get('http://127.0.0.1:8000/webpayAPI/');
       setData(res.data);
       console.log(res.data);
@@ -18,10 +30,10 @@ import axios from 'axios';
 
     }
     
-    loadWebpay();
+    loadWebpay(); */
     //console.log("data: " + data);
     
-    async function createWebpay(){
+    /* async function createWebpay(){
       let data = new FormData();
       data.append("plata", 13201230) 
       data.append("csrfmiddlewaretoken", '{{csrf_token}}')
@@ -31,7 +43,7 @@ import axios from 'axios';
       console.log(res.data);
     }
 
-    createWebpay();
+    createWebpay(); */
 
   }, []);  
 

@@ -15,7 +15,11 @@ from .models import datosPrueba
 
 #Oracle connection
 from django.http import HttpResponse
-from catalogo.bdd.oracle import lista
+import getpass
+import oracledb
+import os
+
+#from catalogo.bdd.oracle import lista
 
 def home(request):
    return render(request, 'index.html') 
@@ -89,20 +93,53 @@ def wspMessage(phoneNumber, message):
 
 
 
-def oracle(request):
-    return HttpResponse(json.dumps(lista))
+class OracleCloudAPI(APIView):
+   permission_classes = (permissions.AllowAny,)
+   def post(self, request):
+      print("/////////////////////Llamando oracle///////////////////////////")
+      Query = request.POST.get('query')
+
+      #Datos de la wallet
+      connection = oracledb.connect(
+      user="ADMIN",
+      password="Holaolaola2021=-",
+      config_dir = "catalogo/bdd", #solo nos recupera el path local
+      dsn=r"(description= (retry_count=20)(retry_delay=3)(address=(protocol=tcps)(port=1522)(host=adb.sa-santiago-1.oraclecloud.com))(connect_data=(service_name=g3e61719689d692_of9irekmrz0t3e0r_low.adb.oraclecloud.com))(security=(ssl_server_dn_match=yes)))",
+      wallet_location= "catalogo/bdd",
+      wallet_password= "Holaolaola2021=-") #si le habian puesto la clave
+      print(f"{46*'-'}\n Conectado con la base de datos Oracle Database \n{46*'-'}")
+
+      # variables
+      counter = 0
+      #lista = []
+      #lista2 = []
+      #lista3 = []
+      #querys = []
+
+      
+
+      with connection.cursor() as cursor:
+         d = cursor.execute(Query)
+         counter += 1
+         for row in cursor:
+            print("/////")
+            print(row)
+            #lista.append(row)       
+         #querys.append(lista)
+
+      return Response({'query': cursor}, status=status.HTTP_200_OK) #Response({'token': '123456789'}, status=status.HTTP_200_OK)
 
 
 
 """ //Oracle connection
 from django.http import JsonResponse
 from django.db import connection
-    
+   
 def process(request):
-    with connection.cursor() as cursor:
-         cursor.execute("select * from YOUR_TABLE")
-         columns = [col[0] for col in cursor.description]
-         return JsonResponse([
-            dict(zip(columns, row))
-            for row in cursor.fetchall()
-         ], safe=False) """
+   with connection.cursor() as cursor:
+      cursor.execute("select * from YOUR_TABLE")
+      columns = [col[0] for col in cursor.description]
+      return JsonResponse([
+         dict(zip(columns, row))
+         for row in cursor.fetchall()
+      ], safe=False) """
