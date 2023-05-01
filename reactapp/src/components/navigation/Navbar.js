@@ -23,6 +23,14 @@ function Navbar() {
             <div className="px-4 sm:px-6">
 
                 <div className="-ml-4 -mt-2 hidden lg:flex flex-wrap items-center justify-between sm:flex-nowrap md:px-14 px-2">
+                    <div className="ml-4 mt-2 flex-shrink-0 justify-end">
+                        <Link to="/ListServs" className="inline-flex ml-12 items-center rounded-md border bg-orange-button px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-gray-900 transition duration-300 ease-in-out focus:outline-none focus:ring-2  focus:ring-offset-2 bg-sky-600">
+                            Servicios
+                        </Link>
+                    </div>
+                </div>
+
+                <div className="-ml-4 -mt-2 hidden lg:flex flex-wrap items-center justify-between sm:flex-nowrap md:px-14 px-2">
                     <Link to='/' className="ml-4 mt-2">
                         <SvgLogoUsado />
                     </Link>

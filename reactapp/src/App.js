@@ -7,6 +7,7 @@ import Home from './container/pages/Home';
 import Login from './container/pages/login';
 import Register from './container/pages/Register';
 import Registeremp from './components/register/registeremp';
+import Listservs from "./container/pages/services"
 
 function App() {
   return (
@@ -22,7 +23,9 @@ function App() {
           {/*Register*/}
           <Route path="/Register" element={<Register />}/>
           {/*Registro Empresa*/}
-          <Route path="Registeremp" element={<Registeremp/>}/>
+          <Route path="/Registeremp" element={<Registeremp/>}/>
+          {/*Listado Servicios*/}
+          <Route path="/Listservs" element={<Listservs/>}/>
         </Routes>
       </Router>
     </Provider>
