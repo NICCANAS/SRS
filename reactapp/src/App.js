@@ -22,7 +22,7 @@ function App() {
           {/*Register*/}
           <Route path="/Register" element={<Register />}/>
           {/*Registro Empresa*/}
-          <Route path="Registeremp" element={<Registeremp/>}/>
+          <Route path="/Registeremp" element={<Registeremp/>}/>
         </Routes>
       </Router>
     </Provider>
