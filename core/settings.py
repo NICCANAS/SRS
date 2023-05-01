@@ -27,7 +27,6 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -151,5 +150,7 @@ REST_FRAMEWORK = {
         #'rest_framework.permissions.IsAuthenticatedOrReadOnly',
 	],
 }
+
+CORS_ORIGIN_ALLOW_ALL = True
 
 EMAIL_BACKEND ='django.core.mail.backends.console.EmailBackend'

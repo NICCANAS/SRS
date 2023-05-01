@@ -7,12 +7,11 @@ import requests #Para probar lo de wsp
 #vista de api y respuestas
 from rest_framework.views import APIView
 from rest_framework.response import Response
-from rest_framework import status
-from rest_framework import permissions
-from rest_framework import viewsets
+from rest_framework import status, permissions, viewsets
 from .serializers import CategorySerializer
 from .models import datosPrueba
-
+from django.utils.decorators import method_decorator
+from django.views.decorators.csrf import ensure_csrf_cookie, csrf_protect
 #Oracle connection
 from django.http import HttpResponse
 import getpass
@@ -91,13 +90,13 @@ def wspMessage(phoneNumber, message):
    ans = response.json()
    return
 
-
-
 class OracleCloudAPI(APIView):
    permission_classes = (permissions.AllowAny,)
-   def post(self, request):
+   def get(self, request):
       print("/////////////////////Llamando oracle///////////////////////////")
-      Query = request.POST.get('query')
+      Query = request.GET.get("query")
+      print(request.GET.get("query"))
+      print(request.GET)
 
       #Datos de la wallet
       connection = oracledb.connect(
@@ -116,19 +115,21 @@ class OracleCloudAPI(APIView):
       #lista3 = []
       #querys = []
 
+      #Crear el cursor
+      #cursor = connection.cursor()
       
 
       with connection.cursor() as cursor:
          d = cursor.execute(Query)
          counter += 1
-         for row in cursor:
-            print("/////")
-            print(row)
+         #for row in cursor:
+          #  print("/////")
+           # print(row)
             #lista.append(row)       
          #querys.append(lista)
-
-      return Response({'query': cursor}, status=status.HTTP_200_OK) #Response({'token': '123456789'}, status=status.HTTP_200_OK)
-
+      #commit hacia la base de datos
+      connection.commit()
+      return Response({'query': 'ola'}, status=status.HTTP_200_OK) #Response({'token': '123456789'}, status=status.HTTP_200_OK)
 
 
 """ //Oracle connection

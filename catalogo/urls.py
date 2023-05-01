@@ -16,6 +16,7 @@ urlpatterns = [
     path('wsp/', views.wspMessage, name="wsp"),
     path('api/v1/', include(router.urls)),
     path('oracleAPI/<query>',views.OracleCloudAPI.as_view()),
+    path('oracleAPI/',views.OracleCloudAPI.as_view()),
 ]
 
 urlpatterns += [re_path(r'^.*', TemplateView.as_view(template_name='index.html'))]
