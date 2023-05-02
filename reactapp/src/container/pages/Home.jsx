@@ -1,23 +1,24 @@
 import Footer from "../../components/navigation/Footer";
 import Layout from "../../hocs/layouts/layout"
 import Navbar from "../../components/navigation/Navbar";
+import Header from "../../components/home/cambiotext";
+import Wave from "../../components/home/wave";
+import Card from "../../components/home/card";
+import Endwave from "../../components/home/endwave";
+import Emprev from "../../components/home/emprev";
+import Endhome from "../../components/home/endhome";
 
 function Home () {
     return (
         <Layout>
             <Navbar />
-            <div className="container">
-                <div className="row justify-content-center">
-                    <div className="col-md-8">
-                        <div className="card">
-                            <div className="card-body">
-                                <h1 className="card-title">Welcome to the Home Page</h1>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <Footer />
+            <Header />
+            <Wave/>
+            <Card/>
+            <Endwave/>
+            <Emprev/>
+            <Endhome/>
+            <Footer/>
         </Layout>
     )
 
