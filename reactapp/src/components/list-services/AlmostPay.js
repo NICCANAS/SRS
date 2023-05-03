@@ -38,7 +38,7 @@ function AlmostPay() {
                                     Limpieza y reparacion acondicionadores
                                 </h1>
 
-                                <p class="text-sm">Highest Rated Product</p>
+                                <p class="text-sm">Empresa JoeMama Se supone que aca deberia dirigir al perfil de la empresa</p>
 
                                 <div class="-ms-0.5 flex">
                                     <svg
@@ -104,10 +104,8 @@ function AlmostPay() {
                         <div class="mt-4">
                             <div class="prose max-w-none">
                                 <p>
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa
-                                    veniam dicta beatae eos ex error culpa delectus rem tenetur,
-                                    architecto quam nesciunt, dolor veritatis nisi minus inventore,
-                                    rerum at recusandae?
+                                    Me robe este peruano de otra pagina en la cual realmente realizaban trabajos
+                                    de limpieza asi que me robe su imagen equisde
                                 </p>
                             </div>
                         </div>
