@@ -1,11 +1,11 @@
 import Layout from "../../hocs/layouts/layout"
-import ListServs from "../../components/list-services/listservs"
+import Casipago from "../../components/list-services/servstart"
+
 
 function Home () {
     return (
         <Layout>
-            <ListServs/>
-            {/* <CardServs/> */}
+            <Casipago/>
         </Layout>
     )
 }

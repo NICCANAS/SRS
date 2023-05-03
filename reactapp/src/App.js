@@ -8,6 +8,7 @@ import Login from './container/pages/login';
 import Register from './container/pages/Register';
 import Registeremp from './components/register/registeremp';
 import Listservs from "./container/pages/services"
+import servsel from "./container/pages/servsel";
 
 function App() {
   return (
@@ -26,6 +27,8 @@ function App() {
           <Route path="/Registeremp" element={<Registeremp/>}/>
           {/*Listado Servicios*/}
           <Route path="/Listservs" element={<Listservs/>}/>
+          {/*Enrutado hacia pagina para pagar.*/}
+          <Route path="/ListoPago" element={<servsel />}/>
         </Routes>
       </Router>
     </Provider>
