@@ -109,38 +109,28 @@ class OracleCloudAPI(APIView):
       print(f"{46*'-'}\n Conectado con la base de datos Oracle Database \n{46*'-'}")
 
       # variables
-      counter = 0
+      #counter = 0
       #lista = []
       #lista2 = []
       #lista3 = []
-      #querys = []
+      querysReturn = []
 
       #Crear el cursor
       #cursor = connection.cursor()
-      
+      #print("Resultado del cursor")
+      #print(cursor.rowcount)
 
       with connection.cursor() as cursor:
          d = cursor.execute(Query)
-         counter += 1
-         #for row in cursor:
-          #  print("/////")
-           # print(row)
+         #print(cursor.rowcount)
+        # counter += 1
+         for row in cursor:
+            print(row)
+            querysReturn.append(row)
+         print("///Return row////")
+         print(querysReturn)
             #lista.append(row)       
          #querys.append(lista)
       #commit hacia la base de datos
       connection.commit()
-      return Response({'query': 'ola'}, status=status.HTTP_200_OK) #Response({'token': '123456789'}, status=status.HTTP_200_OK)
-
-
-""" //Oracle connection
-from django.http import JsonResponse
-from django.db import connection
-   
-def process(request):
-   with connection.cursor() as cursor:
-      cursor.execute("select * from YOUR_TABLE")
-      columns = [col[0] for col in cursor.description]
-      return JsonResponse([
-         dict(zip(columns, row))
-         for row in cursor.fetchall()
-      ], safe=False) """
+      return Response({'query': querysReturn}, status=status.HTTP_200_OK) #Response({'token': '123456789'}, status=status.HTTP_200_OK)

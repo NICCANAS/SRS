@@ -4,6 +4,7 @@ import axios from 'axios';
  function MyComponent() {
  const [data, setData] = useState(null);//data es para ocuparlo en el return
 
+ /*
   useEffect(() => {
 
     async function oracle(){
@@ -47,7 +48,7 @@ import axios from 'axios';
 
     createWebpay(); */
 
-  }, []);  
+  //}, []);  
 
   async function createWebpayButton(){
     const res =  await axios.get('http://127.0.0.1:8000/webpayAPI/');
@@ -57,7 +58,7 @@ import axios from 'axios';
       console.log("resamoun: " + res.data.amount);
   }
 
-  async function oracleButton(){
+  async function oracleButton(string){
     const response = await axios.get('/getCSRFToken');
     axios.defaults.headers.post['X-CSRF-Token'] = response.data.CSRFToken;
 
@@ -67,7 +68,7 @@ import axios from 'axios';
     data.append("query", "SELECT * FROM jordan");
     data.append("csrfmiddlewaretoken", '{{csrf_token}}'); */
     const params  = {
-      query: "INSERT INTO JORDAN (ID_JO,NOM_JO,DESC_JO) VALUES (3, 'joldan3', 'probando desde react/django')",//las query no deben terminar en ";"
+      query: string,//"INSERT INTO JORDAN (ID_JO,NOM_JO,DESC_JO) VALUES (3, 'joldan3', 'probando desde react/django')",//las query no deben terminar en ";"
     }
     const res = await axios.get('http://127.0.0.1:8000/oracleAPI/', {params});
     setData(res.data);
@@ -77,7 +78,7 @@ import axios from 'axios';
   return (
     <div>
       <button onClick={createWebpayButton}>Ejecutar Webpay</button>
-      <button onClick={oracleButton}>SQL Query</button>
+      <button onClick={() => oracleButton("SELECT * FROM jordan")}>SQL Query</button>
         {/* <button onClick={WebpayClickGET}>Ejecutar webpay get</button> 
         <button onClick={WebpayClickPOST}>Ejecutar webpay post</button>  */}
     </div>
