@@ -73,6 +73,7 @@ function ListServs() {
                 <div class="p-4 text-gray-500">
                 <Barbusq/>
                 <CardServs/>
+   
                 </div>
             </div>
 
