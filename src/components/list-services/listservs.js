@@ -1,13 +1,16 @@
 import { connect } from 'react-redux'
 import CardServs from "../../components/list-services/cardservs"
 import Barbusq from '../../components/list-services/barbusq'
+import React from 'react'
+import { useState } from 'react'
 
 function ListServs() {
+    const [IsToggled, setIsToggled] = useState(false)
     return (
         <div class="flex flex-wrap bg-gray-100 w-full h-screen">
             <div class="w-3/12 bg-white rounded p-3 shadow-lg">
                 <div class="flex items-center space-x-4 p-2 mb-5">
-                    <img class="h-12 rounded-full"alt='fotousu' src="https://avatars.githubusercontent.com/u/101841361?s=400&u=0c98e9da99e7f8e1d0d9c954d43d7c02470112bf&v=4"/>
+                    <img class="h-12 rounded-full" alt='fotousu' src="https://avatars.githubusercontent.com/u/101841361?s=400&u=0c98e9da99e7f8e1d0d9c954d43d7c02470112bf&v=4" />
                     <div>
                         <h4 class="font-semibold text-lg text-gray-700 capitalize font-poppins tracking-wide">Nikolai</h4>
                         <span class="text-sm tracking-wide flex items-center space-x-1">
@@ -26,13 +29,13 @@ function ListServs() {
                         </a>
                     </li>
                     <li>
-                        <a href="/" class="flex items-center space-x-3 text-gray-700 p-2 rounded-md font-medium hover:bg-gray-200 focus:bg-gray-200 focus:shadow-outline">
+                        <a href="#" class="flex items-center space-x-3 text-gray-700 p-2 rounded-md font-medium hover:bg-gray-200 focus:bg-gray-200 focus:shadow-outline">
                             <span class="text-gray-600">
                                 <svg class="h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"></path>
                                 </svg>
                             </span>
-                            <span>Seguimiento servicios</span>
+                            <span onClick={() => setIsToggled(!IsToggled)}>Seguimiento servicios</span>
                         </a>
                     </li>
 
@@ -71,9 +74,8 @@ function ListServs() {
 
             <div class="w-9/12">
                 <div class="p-4 text-gray-500">
-                <Barbusq/>
-                <CardServs/>
-   
+                    {IsToggled && <Barbusq/>}
+                    <CardServs />
                 </div>
             </div>
 
@@ -88,3 +90,4 @@ const mapStateToProps = (state) => ({
 export default connect(mapStateToProps, {
 
 })(ListServs)
+

@@ -1,10 +1,6 @@
 import { connect } from 'react-redux'
-
-import { Datepicker, Input, initTE } from "tw-elements";
-
-
-
-
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 /* Se supone que esto es para limitar los dias ya pasados pero no se como hacerlo correr ya que solamente esto deja que la pagina tire al layout en blanco.*/
 
 /*
@@ -14,7 +10,18 @@ import { Datepicker, Input, initTE } from "tw-elements";
   });
 */
 
+
 function AlmostPay() {
+
+    async function createWebpayButton() {
+        const res = await axios.get('http://127.0.0.1:8000/webpayAPI/');
+        setData(res.data);
+        console.log(res.data);
+        console.log("restoken: " + res.data.token);
+        console.log("resamoun: " + res.data.amount);
+    }
+
+    const [data, setData] = useState(null);
 
     return (
         <section>
@@ -115,33 +122,22 @@ function AlmostPay() {
                             <fieldset>
                                 <legend class="mb-1 text-sm font-medium">Elige tu fecha</legend>
 
-                                <div
-                                    class="relative mb-3"
-                                    data-te-datepicker-init
-                                    data-te-input-wrapper-init>
-                                    <input
-                                        type="text"
-                                        class="peer block min-h-[auto] w-full rounded border-0 bg-transparent px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 peer-focus:text-primary data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200 dark:placeholder:text-neutral-200 dark:peer-focus:text-primary [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
-                                        placeholder="Select a date" />
-                                    <label
-                                        for="floatingInput"
-                                        class="pointer-events-none absolute left-3 top-0 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[1.6] text-neutral-500 transition-all duration-200 ease-out peer-focus:-translate-y-[0.9rem] peer-focus:scale-[0.8] peer-focus:text-primary peer-data-[te-input-state-active]:-translate-y-[0.9rem] peer-data-[te-input-state-active]:scale-[0.8] motion-reduce:transition-none dark:text-neutral-200 dark:peer-focus:text-primary"
-                                    >Select a date</label
-                                    >
-                                </div>
 
 
                             </fieldset>
 
-                            <div class="mt-8 flex gap-4">
-                                <button
-                                    type="submit"
-                                    class="block rounded bg-green-600 px-5 py-3 text-xs font-medium text-white hover:bg-green-500"
-                                >
-                                    Dirigir al pago.
-                                </button>
-                            </div>
                         </form>
+
+                        <div class="mt-8 flex gap-4">
+                            <button onClick={createWebpayButton} type="" className='bg-green-600 px-5 py-3 text-xs font-medium text-white hover:bg-green-500"'>Ejecutar Webpay</button>
+
+                            <form method="post" action="{{response.url}}">
+                                <input type="hidden" name="token_ws" value="{{response.token}}" />
+                                <input type="submit" value="Ir a pagar" />
+                            </form>
+                            
+                        </div>
+
                     </div>
                 </div>
             </div>

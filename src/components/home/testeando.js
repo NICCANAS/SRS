@@ -77,7 +77,7 @@ import axios from 'axios';
     
   return (
     <div>
-      <button onClick={createWebpayButton}>Ejecutar Webpay</button>
+      <button onClick={createWebpayButton} type="checkbox" className='block rounded bg-green-600 px-5 py-3 text-xs font-medium text-white hover:bg-green-500"'>Ejecutar Webpay</button>
       <button onClick={() => oracleButton("SELECT * FROM jordan")}>SQL Query</button>
         {/* <button onClick={WebpayClickGET}>Ejecutar webpay get</button> 
         <button onClick={WebpayClickPOST}>Ejecutar webpay post</button>  */}
