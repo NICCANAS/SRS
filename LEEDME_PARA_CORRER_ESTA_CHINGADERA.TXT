@@ -1,10 +1,19 @@
-1- NPM install en SRC para que funcione los scripts de BUILD
-2- para correr el servidor npm run start
-    2.5- Si da error con react-scripts, ejecutar el comando 'npm install react-scripts'
-..- investigar AXIOS DE REDUX DIJO EL CHABON ESTE QUE ES PARA AYUDAR USAR LAS API MAS ¿¿¿FACIL??
+//Instrucciones de instalacion y uso
+1.- Instalacion (el force es por temas de dependencia):
+npm install --force
+2.- Uso:
+    //Si solo quieres front end//
+    npm run start
+    (si da error con react-scripts)
+    npm install react-scripts
 
----- SCRIPTS POR SI LAS MOSCAS ----
+    //Si quieres front-end + back-end//
+    1.- npm run build 
+    2.- python manage.py runserver
 
+
+
+---- Script a ejecutar solo si despues del npm install, alguna dependencia da error (eso pasa si se borra el package.json) ----
 npm i react-router-dom --force 
 npm i react-redux --force 
 npm i redux --force
@@ -15,11 +24,8 @@ npm i react-spinners --force
 npm i react-simple-typewriter --force
 npm i tw-elements --force 
 
-//Conexion con base de datos
-Para poder utilizar la base de datos se necesita instalar
-python -m pip install oracledb
-
 ////Paquetes para backend
 Django 4.2 | pip install django
 Django-cors-headers 3.14.0 | pip install django-cors-headers (para hacer la conexion entre frontend y backend)
 django rest framework 3.14.0 | pip install djangorestframework (para las apis)
+python -m pip install oracledb (Para la conexion con la base de datos, solo por si no funciona)
