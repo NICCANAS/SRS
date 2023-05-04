@@ -13,6 +13,7 @@ npm i redux-devtools-extension --force
 npm i @headlessui/react --force 
 npm i react-spinners --force 
 npm i react-simple-typewriter --force
+npm i tw-elements --force 
 
 //Conexion con base de datos
 Para poder utilizar la base de datos se necesita instalar
