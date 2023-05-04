@@ -9,6 +9,11 @@ import Register from './container/pages/Register';
 import Registeremp from './components/register/registeremp';
 import Listservs from "./container/pages/services";
 import CasiMoney from './container/pages/CasiMoney';
+import Empresa from './container/pages/Empresa';
+import SeguiServ from './components/list-empress/seguimiento';
+import AddServ from './components/list-empress/add-servs';
+import HisEmp from './components/list-empress/history-servs';
+
 
 function App() {
   return (
@@ -29,6 +34,15 @@ function App() {
           <Route path="/Listservs" element={<Listservs/>}/>
           {/*Enrutado hacia pagina para pagar.*/}
           <Route path="/CasiMoney" element={<CasiMoney/>}/>
+          {/*Listado de Empresa*/}
+          <Route path="/Empresa" element={<Empresa/>}/>
+          {/*Seguimiento de servicios en Empresa*/}
+          <Route path="/SeguiServ" element={<SeguiServ/>}/>
+          {/*Agregar servicios en Empresas*/}
+          <Route path="/AddServ" element={<AddServ/>}/>
+          {/*Historial servicios en Empresas*/}
+          <Route path="/HisEmp" element={<HisEmp/>}/>
+
 
         </Routes>
       </Router>
