@@ -1,9 +1,8 @@
 import { connect } from 'react-redux'
-import { Link } from 'react-router-dom'
 
 function CardServs() {
     return (
-        <div class="w-9/12 items-center">
+        <div class="w-9/12 items-center m-8">
             <article class="flex bg-white transition hover:shadow-xl">
                 <div class="rotate-180 p-2 [writing-mode:_vertical-lr]">
                     <time
@@ -19,7 +18,7 @@ function CardServs() {
                 <div class="hidden sm:block sm:basis-56">
                     <img
                         alt="Guitar"
-                        src="https://images.unsplash.com/photo-1609557927087-f9cf8e88de18?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80"
+                        src="https://airsolutions.com.pe/wp-content/uploads/2021/02/WhatsApp-Image-2021-02-08-at-1.45.46-PM-1-1.jpeg"
                         class="aspect-square h-full w-full object-cover"
                     />
                 </div>
@@ -28,7 +27,7 @@ function CardServs() {
                     <div class="border-s border-gray-900/10 p-4 sm:border-l-transparent sm:p-6">
                         <a href="#">
                             <h3 class="font-bold uppercase text-gray-900">
-                                Finding the right guitar for your style - 5 tips
+                                Limpieza y reparacion acondicionadores
                             </h3>
                         </a>
 
@@ -43,7 +42,7 @@ function CardServs() {
 
                     <div class="sm:flex sm:items-end sm:justify-end">
                         <a
-                            href="#"
+                            href="/CasiMoney"
                             class="block bg-yellow-300 px-5 py-3 text-center text-xs font-bold uppercase text-gray-900 transition hover:bg-yellow-400"
                         >
                             Read Blog
