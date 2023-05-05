@@ -43,14 +43,12 @@ class WebpayAPI(APIView):
          "return_url": return_url
       }
 
-      #transaction = (Transaction()).create(buy_order, session_id, amount, return_url)
-      #print(transaction)
-      #return Response(transaction, status=status.HTTP_200_OK)
+      transaction = (Transaction()).create(buy_order, session_id, amount, return_url)
 
-      return Response({'token': 500, 'amount': 500}, status=status.HTTP_200_OK)
+      return Response({'token': transaction['token'],'url': transaction['url'], 'amount': amount}, status=status.HTTP_200_OK)
          
 
-   def post(self, request):
+   """ def post(self, request):
       amount = request.POST.get('plata')
       buy_order = 'orden_de_compra_1234'
       return_url = 'http://localhost:8000/'
@@ -68,27 +66,36 @@ class WebpayAPI(APIView):
          "return_url": return_url
       }
 
-      #transaction = (Transaction()).create(buy_order, session_id, amount, return_url)
-      #print(transaction)
+      transaction = (Transaction()).create(buy_order, session_id, amount, return_url)
+      print(transaction)
+      print("hola")
+      print(transaction.token)
+      print(" ")
+      print(transaction.url)
       #return Response(transaction, status=status.HTTP_200_OK)
-      return Response({'token': '123', 'amount': amount}, status=status.HTTP_200_OK)
+      return Response({'token': '123', 'amount': amount}, status=status.HTTP_200_OK) """
+   
+class WspAPI(APIView):
+   permission_classes = (permissions.AllowAny,)
+   def get(self, request):
+      phoneNumber = request.GET.get("phone")
+      message = request.GET.get("message")
 
-class datoPruebaView(viewsets.ModelViewSet):
-   serializer_class = CategorySerializer
-   queryset = datosPrueba.objects.all()
+      print(phoneNumber)
+      print(message)
 
-def wspMessage(phoneNumber, message):
-   headers = {"Authorization": 'Bearer EAABlqEXpZCSMBAMV4v8jcSWZB2m0CDipRPVg7KtTVtYqHRhc5EbBhzPnmtrZBAqTlDEqL5cupzNDojwZAsm3XDwtLMEyiZCrFAdNHG24He4hVzLMciyWtPvLkbcGlG7baghJNDP6Alf2b1dTjVjHkatDZBZAZASsFpVnKzNf8ZBco3Y8hypv1dTAR377yK9ZA0dMSIZAvJCtu0wFPRH5SkeZCnaV'} #aqui va el nombre que pusimos en settings.py
-   payload = {"messaging_product": "whatsapp",
-				"recipient_type": "individual",
-				"to": phoneNumber,
-				"type": "text",
-				"text": {"body": message}
-			  }
-	#wsp_url = lo del settings.py
-   response = requests.post('https://graph.facebook.com/v16.0/101238452953735/messages', headers=headers, json=payload)
-   ans = response.json()
-   return
+      headers = {"Authorization": 'Bearer EAABlqEXpZCSMBAIPmUv0rBPhsxhYONQCRSxHyCZB63i9sdNnL7oOpmFnuWZCfjUvTES9CaOW4QCv4hx2PQ5MtxTAIkUMZBixwcPnrA10YK5aZBOZBzgWb5RtEF6LdjqsJ9YukrJJZCOq0pC8seqmQuRunZCOgZA88s6YNq4FSTZBpJSXMMjmcGc2umYNsLDSzfh6ZAuHpIjNXawRNRbHygSFBuO'} #aqui va el nombre que pusimos en settings.py
+      payload = {"messaging_product": "whatsapp",
+               "recipient_type": "individual",
+               "to": phoneNumber,
+               "type": "text",
+               "text": {"body": message}
+            }
+	   #wsp_url = lo del settings.py
+      response = requests.post('https://graph.facebook.com/v16.0/101238452953735/messages', headers=headers, json=payload)
+      print(response)
+      #ans = response.json()
+      return Response(status=status.HTTP_200_OK)
 
 class OracleCloudAPI(APIView):
    permission_classes = (permissions.AllowAny,)
