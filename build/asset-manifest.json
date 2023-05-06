@@ -1,14 +1,19 @@
 {
   "files": {
-    "main.css": "/static/css/main.22af5d45.css",
-    "main.js": "/static/js/main.f81274ff.js",
+    "main.css": "/static/css/main.a7f4abae.css",
+    "main.js": "/static/js/main.9917bf2a.js",
     "static/media/logo_empresa.svg": "/static/media/logo_empresa.aa5d8bbc6ae787d225a2f35e55095f0a.svg",
+    "static/media/github.svg": "/static/media/github.ae373c89270bb858d730c813db5218bb.svg",
+    "static/media/guasa.svg": "/static/media/guasa.b26fa771584a76e8cc92ee85a7904d8b.svg",
     "index.html": "/index.html",
-    "main.22af5d45.css.map": "/static/css/main.22af5d45.css.map",
-    "main.f81274ff.js.map": "/static/js/main.f81274ff.js.map"
+    "static/media/pajalito.svg": "/static/media/pajalito.f9a58ad2f06826f982fbdde948669119.svg",
+    "static/media/feibu.svg": "/static/media/feibu.bbbd3f398ed0173e5e96ba2641fac469.svg",
+    "static/media/insta.svg": "/static/media/insta.e476b19fcc23ebb64724260406677366.svg",
+    "main.a7f4abae.css.map": "/static/css/main.a7f4abae.css.map",
+    "main.9917bf2a.js.map": "/static/js/main.9917bf2a.js.map"
   },
   "entrypoints": [
-    "static/css/main.22af5d45.css",
-    "static/js/main.f81274ff.js"
+    "static/css/main.a7f4abae.css",
+    "static/js/main.9917bf2a.js"
   ]
 }

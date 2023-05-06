@@ -1,6 +1,11 @@
 import { connect } from 'react-redux'
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
+import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
+import { MobileDatePicker } from '@mui/x-date-pickers/MobileDatePicker';
+import { esES } from '@mui/x-date-pickers/locales';
+
 /* Se supone que esto es para limitar los dias ya pasados pero no se como hacerlo correr ya que solamente esto deja que la pagina tire al layout en blanco.*/
 
 /*
@@ -11,7 +16,9 @@ import axios from 'axios';
 */
 
 
-function AlmostPay() {
+function AlmostPay({ children }) {
+
+    const [fechaseleccionada, CambiarFechSelect] = useState(new Date()) 
 
     async function createWebpayButton() {
         const res = await axios.get('http://127.0.0.1:8000/webpayAPI/');
@@ -22,6 +29,8 @@ function AlmostPay() {
     }
 
     const [data, setData] = useState(null);
+
+    console.log(fechaseleccionada)
 
     return (
         <section>
@@ -121,9 +130,15 @@ function AlmostPay() {
 
                             <fieldset>
                                 <legend class="mb-1 text-sm font-medium">Elige tu fecha</legend>
-
-
-
+                                <LocalizationProvider dateAdapter={AdapterDayjs}
+                                    localeText={esES.components.MuiLocalizationProvider.defaultProps.localeText}
+                                    value={fechaseleccionada}
+                                >
+                                    {children}
+                                    <MobileDatePicker onChange={CambiarFechSelect}
+                                    inputFormat="dd-mm-yyyy"
+                                    />
+                                </LocalizationProvider>
                             </fieldset>
 
                         </form>
@@ -135,7 +150,7 @@ function AlmostPay() {
                                 <input type="hidden" name="token_ws" value="{{response.token}}" />
                                 <input type="submit" value="Ir a pagar" />
                             </form>
-                            
+
                         </div>
 
                     </div>
