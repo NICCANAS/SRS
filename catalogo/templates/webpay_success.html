@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <p>{{response.token}}</p>
+        <p>{{response.url}}</p>
+        <form method="post" action="{{response.url}}">
+            <input type="hidden" name="token_ws" value="{{response.token}}" />
+            <input type="submit" value="Ir a pagar" />
+        </form>
+    </body>
+</html>

@@ -27,7 +27,6 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -37,6 +36,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'catalogo',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
@@ -55,7 +56,7 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
-            os.path.join(BASE_DIR, 'reactapp/build')
+            os.path.join(BASE_DIR, 'build')
         ],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -82,6 +83,23 @@ DATABASES = {
     }
 }
 
+""" DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.oracle',
+        #'NAME': 'OF9IREKMRZ0T3E0R',
+        'NAME': 'of9irekmrz0t3e0r:1522',
+        #'NAME': 'adb.sa-santiago-1.oraclecloud.com:1522',
+        'USER': 'ADMIN',
+        'PASSWORD': 'Holaolaola2021=-',
+        'TEST': {
+            'USER': 'default_test',
+            'TBLSPACE': 'default_test_tbls',
+            'TBLSPACE_TMP': 'default_test_tbls_tmp',
+        },
+        #'HOST': 'adb.sa-santiago-1.oraclecloud.com',
+        #'PORT': '1522',
+    }
+} """
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
@@ -119,9 +137,20 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 STATICFILES_DIRS=[
-     os.path.join(BASE_DIR, 'reactapp/build/static')
+     os.path.join(BASE_DIR, 'build/static')
 ]
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+REST_FRAMEWORK = {
+	'DEFAULT_AUTHENTICATION_CLASSES':[
+		'rest_framework.authentication.TokenAuthentication',
+        #'rest_framework.permissions.IsAuthenticatedOrReadOnly',
+	],
+}
+
+CORS_ORIGIN_ALLOW_ALL = True
+
+EMAIL_BACKEND ='django.core.mail.backends.console.EmailBackend'
