@@ -17,6 +17,8 @@ from django.http import HttpResponse
 import getpass
 import oracledb
 import os
+#transformar blob de la base de datos en file python
+import base64
 
 #from catalogo.bdd.oracle import lista
 
@@ -46,34 +48,6 @@ class WebpayAPI(APIView):
       transaction = (Transaction()).create(buy_order, session_id, amount, return_url)
 
       return Response({'token': transaction['token'],'url': transaction['url'], 'amount': amount}, status=status.HTTP_200_OK)
-         
-
-   """ def post(self, request):
-      amount = request.POST.get('plata')
-      buy_order = 'orden_de_compra_1234'
-      return_url = 'http://localhost:8000/'
-      #final_url = 'http://localhost:8000/payment-success/'
-      buy_order = str(random.randrange(1000000, 99999999))
-      session_id = str(random.randrange(1000000, 99999999))
-      #amount = random.randrange(10000, 1000000)
-      
-      #Este objeto no es necesario para que funcione transbank, lo puse en caso de ser necesario pasarle datos a la pagina
-      #vease para confirmar los datos de la compra como el monto o alguna otra cosa que vaya a poner
-      create_request = {
-         "buy_order": buy_order,
-         "session_id": session_id,
-         "amount": amount,
-         "return_url": return_url
-      }
-
-      transaction = (Transaction()).create(buy_order, session_id, amount, return_url)
-      print(transaction)
-      print("hola")
-      print(transaction.token)
-      print(" ")
-      print(transaction.url)
-      #return Response(transaction, status=status.HTTP_200_OK)
-      return Response({'token': '123', 'amount': amount}, status=status.HTTP_200_OK) """
    
 class WspAPI(APIView):
    permission_classes = (permissions.AllowAny,)
@@ -84,7 +58,7 @@ class WspAPI(APIView):
       print(phoneNumber)
       print(message)
 
-      headers = {"Authorization": 'Bearer EAABlqEXpZCSMBAIPmUv0rBPhsxhYONQCRSxHyCZB63i9sdNnL7oOpmFnuWZCfjUvTES9CaOW4QCv4hx2PQ5MtxTAIkUMZBixwcPnrA10YK5aZBOZBzgWb5RtEF6LdjqsJ9YukrJJZCOq0pC8seqmQuRunZCOgZA88s6YNq4FSTZBpJSXMMjmcGc2umYNsLDSzfh6ZAuHpIjNXawRNRbHygSFBuO'} #aqui va el nombre que pusimos en settings.py
+      headers = {"Authorization": 'Bearer EAABlqEXpZCSMBAL2VdheHBZCWJmiWR5HD757HYWnrhvUD70IR9vKd2JZClRQTsteLbK6MNxEIoFuNHT2xBPdvGZB57gXIZAda97SckAO994lwacKJ9WbxeQArRfEvJEN0raSqxnZAsdlMzkMnwWZCN8ndPwT8rn37OtSq5zhRKh1ZBDaP3KHHjXRLZBARdlVMReLTPWLlmrJjkRiZBshlmfCfv'} #aqui va el nombre que pusimos en settings.py
       payload = {"messaging_product": "whatsapp",
                "recipient_type": "individual",
                "to": phoneNumber,
@@ -133,7 +107,19 @@ class OracleCloudAPI(APIView):
         # counter += 1
          for row in cursor:
             print(row)
-            querysReturn.append(row)
+            blobObject = row[3].read()
+            encoded_content = base64.b64encode(blobObject)
+            url = 'data:application/octet-stream;base64,' + encoded_content.decode('utf-8')
+            fixList = list(row)
+            fixList[3] = url
+            row = tuple(fixList)
+
+
+            print()
+            #print(row[3].read())
+            #blobRead = row[3].read()
+            #row[3] = blobRead
+            querysReturn.append(fixList)
          print("///Return row////")
          print(querysReturn)
             #lista.append(row)       
