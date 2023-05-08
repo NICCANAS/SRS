@@ -1,11 +1,18 @@
 import { connect } from 'react-redux'
 import CardServs from "../../components/list-services/cardservs"
 import Barbusq from '../../components/list-services/barbusq'
+import Seguiserv from './Seguiserv'
 import React from 'react'
 import { useState } from 'react'
 
 function ListServs() {
     const [IsToggled, setIsToggled] = useState(false)
+    const [isShown, setIsShown] = useState(false);
+
+    const handleClick = event => {
+        setIsShown(current => !current);
+    };
+
     return (
         <div class="flex flex-wrap bg-gray-100 w-full h-screen">
             <div class="w-3/12 bg-white rounded p-3 shadow-lg">
@@ -19,17 +26,17 @@ function ListServs() {
                 </div>
                 <ul class="space-y-2 text-sm">
                     <li>
-                        <a href="/" class="flex items-center space-x-3 text-gray-700 p-2 rounded-md font-medium hover:bg-gray-200 bg-gray-200 focus:shadow-outline">
+                        <a  class="flex items-center space-x-3 text-gray-700 p-2 rounded-md font-medium hover:bg-gray-200 bg-gray-200 focus:shadow-outline">
                             <span class="text-gray-600">
                                 <svg class="h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                                 </svg>
                             </span>
-                            <span>Inicio</span>
+                            <span onClick={() => setIsToggled(!IsToggled)}>Inicio</span>
                         </a>
                     </li>
                     <li>
-                        <a href="#" class="flex items-center space-x-3 text-gray-700 p-2 rounded-md font-medium hover:bg-gray-200 focus:bg-gray-200 focus:shadow-outline">
+                        <a class="flex items-center space-x-3 text-gray-700 p-2 rounded-md font-medium hover:bg-gray-200 focus:bg-gray-200 focus:shadow-outline">
                             <span class="text-gray-600">
                                 <svg class="h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"></path>
@@ -40,13 +47,13 @@ function ListServs() {
                     </li>
 
                     <li>
-                        <a href="/" class="flex items-center space-x-3 text-gray-700 p-2 rounded-md font-medium hover:bg-gray-200 focus:bg-gray-200 focus:shadow-outline">
+                        <a class="flex items-center space-x-3 text-gray-700 p-2 rounded-md font-medium hover:bg-gray-200 focus:bg-gray-200 focus:shadow-outline">
                             <span class="text-gray-600">
                                 <svg class="h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
                                 </svg>
                             </span>
-                            <span>Mi Perfil</span>
+                            <span onClick={handleClick} >Mi Perfil</span>
                         </a>
                     </li>
                     <li>
@@ -74,8 +81,9 @@ function ListServs() {
 
             <div class="w-9/12">
                 <div class="p-4 text-gray-500">
-                    {IsToggled && <Barbusq/>}
-                    <CardServs />
+                    <Barbusq />
+                    {IsToggled ? <Seguiserv /> : <CardServs />}
+                    
                 </div>
             </div>
 
