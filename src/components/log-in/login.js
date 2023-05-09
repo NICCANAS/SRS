@@ -1,51 +1,53 @@
 import { connect } from 'react-redux'
 import { ReactComponent as SvgLogoUsado } from '../../components/svg/logo_empresa.svg'
 import { Link } from 'react-router-dom'
-//API
-import React, { useState, useEffect } from 'react';
+//API y ref
+import React, { useState, useRef } from 'react';
 import axios from 'axios';
 
 function Login() {
-const [queryData, setQuery] = useState([]);//Recoger los elementos de sql
+//const [queryData, setQuery] = useState([]);//Recoger los elementos de sql
 const [email, setEmail] = useState('');//Recoger el email del input
 const [password, setPassword] = useState('');//Recoger el password del input
+
+const formRef = useRef(null);//Creo una referencia al formulario, para poder utilizar submit en la funcion onSubmitHandler
+
 //Establece el email a medida que el usuario va escribiendo
 const emailChange = event => {
     setEmail(event.target.value);
-    console.log('email es:', event.target.value);
+    //console.log('email es:', event.target.value);
 };
 //Establece la contraseña a medida que el usuario esta escribiendo
 const passwordChange = event => {
     setPassword(event.target.value);
-    console.log('password es:', event.target.value);
+    //console.log('password es:', event.target.value);
 };
 
 //Consultar oracle sobre la contraseña del usuario
 async function oracleCheckUser(){
-    //console.log("estamos llamando a oracle");
-    //const response = await axios.get('/getCSRFToken');
-    //axios.defaults.headers.post['X-CSRF-Token'] = response.data.CSRFToken;
-
-    //console.log(response.data.CSRFToken);
     const params  = {
       query: "SELECT COALESCE(COUNT(*), 0) FROM CLIENTE WHERE CORREO_CLI='"+email+"' AND CONTRA_CLI='"+password+"'",//las query no deben terminar en ";"
     }
     console.log(params.query)
     const res = await axios.get('http://127.0.0.1:8000/oracleAPI/', {params});
-    setQuery(res.data.query);
-    console.log(res.data.query) 
+
+    return res.data.query[0]//Devuelve un array con un dato, por lo que le pido el primero
 } 
 
   //Evento que maneja la validacion del formulario
- async function onSubmitHandler = (e) =>{
-    
-    //e.preventDefault()
-    console.log("Validando el submit")
-    let res = oracleCheckUser();
+async function onSubmitHandler(e){
+    e.preventDefault();//Evitar que el formulario se envie
+    console.log("Validando el submit");
+    let res = await oracleCheckUser();
     console.log("resultado: "+res);
-    if (res != 1){
-        e.preventDefault()
+    if (res == 1){
+        console.log("se subio el form")
+        //Despues de validar, enviar el formulario manualmente
+        formRef.current.submit();
+    } else {
+        console.log("poner aqui el validador")
     }
+    
 }
 
     return (
@@ -61,7 +63,7 @@ async function oracleCheckUser(){
                                 Inicio de Sesion
                             </h1>
                             {/* Inicio del form */}
-                            <form class="space-y-4 md:space-y-6" action="#" onSubmit={onSubmitHandler}>
+                            <form class="space-y-4 md:space-y-6" action="#" onSubmit={onSubmitHandler} ref={formRef}>
                                 <div>
                                     {/* Email */}
                                     <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Correo</label>
