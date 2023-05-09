@@ -39,7 +39,7 @@ function Login() {
                                     </div>
                                     <Link to="/forgotpass" class="text-sm font-medium text-indigo-600 hover:underline dark:text-indigo-500">¿Olvidaste tu Contraseña?</Link>
                                 </div>
-                                <button type="submit" class="w-full text-white bg-indigo-600 hover:bg-indigo-700 focus:ring-4 focus:outline-none focus:ring-indigo-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-indigo-600 dark:hover:bg-indigo-700 dark:focus:ring-primary-800">Ingresar</button>
+                                <button type="submit" onClick={validarFormulario} class="w-full text-white bg-indigo-600 hover:bg-indigo-700 focus:ring-4 focus:outline-none focus:ring-indigo-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-indigo-600 dark:hover:bg-indigo-700 dark:focus:ring-primary-800">Ingresar</button>
                                 <p class="text-sm font-light text-gray-500 dark:text-gray-400">
                                     ¿No te encuentras registrado?
                                     <Link to="/Register" className="font-medium text-indigo-600 hover:underline dark:text-indigo-500"> Registrarse</Link>
@@ -51,6 +51,25 @@ function Login() {
             </section>
         </div>
     )
+}
+
+function validarFormulario(evento){
+    evento.preventDefault();
+    var email = document.getElementById('email').value;
+    var expr = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3,4})+$/;
+
+    //Validacion Email Vacio
+    if(email == ""){
+        alert('El campo email NO puede estar vacio!')
+        return;
+    }
+    
+    //Validacion Clave Vacia
+    var clave = document.getElementById('password').value;
+    if(clave.length == 0) {
+        alert('El campo clave NO puede estar vacio!')
+        return;
+    } 
 }
 
 const mapStateToProps = (state) => ({

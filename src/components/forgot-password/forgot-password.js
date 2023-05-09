@@ -34,10 +34,10 @@ function forgotPass() {
 
                                 <div class="pb-3">
                                     <label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Confirmar Nueva Contraseña</label>
-                                    <input type="password" name="password" id="password" placeholder="••••••••" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required="" />
+                                    <input type="password" name="password" id="confPassword" placeholder="••••••••" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required="" />
                                 </div>
                                 
-                                <Link to="/login"><button type="submit" class=" mt-3 w-full text-white bg-indigo-600 hover:bg-indigo-700 focus:ring-4 focus:outline-none focus:ring-indigo-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-indigo-600 dark:hover:bg-indigo-700 dark:focus:ring-primary-800">Guardar</button></Link>
+                                <Link to="/login"><button type="submit" onClick={validarFormulario} class=" mt-3 w-full text-white bg-indigo-600 hover:bg-indigo-700 focus:ring-4 focus:outline-none focus:ring-indigo-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-indigo-600 dark:hover:bg-indigo-700 dark:focus:ring-primary-800">Guardar</button></Link>
                             </form>
                         </div>
                     </div>
@@ -46,6 +46,34 @@ function forgotPass() {
         </div>
     )
 
+}
+
+function validarFormulario(evento){
+    evento.preventDefault();
+    var email = document.getElementById('email').value;
+    var expr = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3,4})+$/;
+
+    //Validacion Email Vacio
+    if(email == ""){
+        alert('El campo email NO puede estar vacio!')
+        return;
+    }
+    
+    //Validacion Clave Vacia
+    var clave = document.getElementById('password').value;
+    var cofClave = document.getElementById('confPassword').value;
+    if(clave.length == 0) {
+        alert('El campo clave NO puede estar vacio!')
+        return;
+    }
+
+    //Validacion Confirmar Clave
+    if(cofClave == ""){
+        alert('Debe ingresar confirmar contraseña')
+        return;
+    }else if(cofClave != clave){
+        alert('Las claves NO coinciden')
+    }
 }
 
 const mapStateToProps = (state) => ({
