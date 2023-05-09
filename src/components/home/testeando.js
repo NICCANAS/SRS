@@ -28,7 +28,7 @@ const uploadImage = async () => {
   const GITHUB_TOKEN = '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';
   const REPO_NAME = 'reactImage';
   const FILE_PATH = 'main';
-  const FILE_NAME = 'testFile3.png';
+  const FILE_NAME = 'testFile4.png';
 
   const uploadUrl = `https://api.github.com/repos/${GITHUB_USERNAME}/${REPO_NAME}/contents/${FILE_PATH}/${FILE_NAME}`;
 

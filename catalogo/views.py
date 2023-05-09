@@ -107,19 +107,19 @@ class OracleCloudAPI(APIView):
         # counter += 1
          for row in cursor:
             print(row)
-            blobObject = row[3].read()
+            """ blobObject = row[3].read()
             encoded_content = base64.b64encode(blobObject)
             url = 'data:application/octet-stream;base64,' + encoded_content.decode('utf-8')
             fixList = list(row)
             fixList[3] = url
-            row = tuple(fixList)
+            row = tuple(fixList) """
 
 
             print()
             #print(row[3].read())
             #blobRead = row[3].read()
             #row[3] = blobRead
-            querysReturn.append(fixList)
+            querysReturn.append(row)
          print("///Return row////")
          print(querysReturn)
             #lista.append(row)       
