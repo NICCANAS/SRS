@@ -4,7 +4,7 @@ import Barbusq from '../../components/list-services/barbusq'
 
 
 
-function HisEmp() {
+function ModEmp() {
     return (
 
         <div class="w-9/12">
@@ -25,4 +25,4 @@ const mapStateToProps = (state) => ({
 
 export default connect(mapStateToProps, {
 
-})(HisEmp)
+})(ModEmp)

@@ -1,10 +1,10 @@
 import { connect } from 'react-redux'
-import CardServs from "../../components/list-services/cardservs"
-import Barbusq from '../../components/list-services/barbusq'
+import CardServs from "../list-services/cardservs"
+import Barbusq from '../list-services/barbusq'
 
 
 
-function HisEmp() {
+function IniEmp() {
     return (
 
         <div class="w-9/12">
@@ -25,4 +25,4 @@ const mapStateToProps = (state) => ({
 
 export default connect(mapStateToProps, {
 
-})(HisEmp)
+})(IniEmp)
