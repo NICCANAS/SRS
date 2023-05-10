@@ -10,7 +10,7 @@ function Register() {
 const [cancellUseEffect, setCancel] = useState(false);
 const [comunas, setComunas] = useState([]);//Establecer las comunas del combobox
 //Constantes del formulario
-const [rut, setRut] = useState('');//Rut
+const [rut, setRut] = useState(0);//Rut
 const [email, setEmail] = useState('');//Correo
 const [password, setPassword] = useState('');//contraseña
 const [Confpassword, setConfPassword] = useState('');//confirmar contraseña
@@ -18,8 +18,7 @@ const [name, setName] = useState('');//nombre
 const [lastName, setLastName] = useState('');//apellido
 const [phone, setPhone] = useState('');//celular
 const [comunaId, setComunaId] = useState(0);//id comuna
-//Id del usuario (lo ocupare para el insert, la foto, etc)
-const [userID, setUserID] = useState(0)
+
 //Imagen del formulario
 const [image, setImage] = useState(null);//La imagen que se recojera del input (blob)
 const [imageUrl, setImageUrl] = useState('');//url de la imagen que devolvera github
@@ -58,13 +57,12 @@ useEffect(() => {
     //Establecer las comunas del combobox
     if (!cancellUseEffect)
     {
-        console.log("esta corriendo la cosita")
         setComunasOracle();
         setCancel(true);
     }
     });
 
-//Recojer las comunas desde la base de datos
+//Recoger las comunas desde la base de datos
 async function setComunasOracle(){
     let array = await returnOracle("SELECT ID_COM, NOM_COM FROM COMUNA");
     setComunas(array);
@@ -91,8 +89,8 @@ const uploadImage = async () => {
     const GITHUB_USERNAME = 'Jordan108';
     const GITHUB_TOKEN = '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';//Token de github, se elimina despues de 30 dias desde el 07/05
     const REPO_NAME = 'reactImage';
-    const FILE_PATH = 'main';
-    const FILE_NAME = 'testFile4.png';
+    const FILE_PATH = 'Clientes';
+    const FILE_NAME = 'CliProfile_'+rut+'.png';
   
     const uploadUrl = `https://api.github.com/repos/${GITHUB_USERNAME}/${REPO_NAME}/contents/${FILE_PATH}/${FILE_NAME}`;
   
@@ -109,7 +107,7 @@ const uploadImage = async () => {
       }
     });
     setImageUrl(response.data.content.download_url)
-    console.log(response.data.content.download_url);
+    //console.log(response.data.content.download_url);
   };
 };
 
@@ -119,26 +117,15 @@ async function onSubmitHandler(e){
     
     //Primero tenemos que verificar si no existe un usuario que tenga ese rut o ese correo
     let userExist = await returnOracle("SELECT COALESCE(COUNT(*), 0) FROM CLIENTE WHERE CORREO_CLI='"+email+"' AND RUT_CLI='"+rut+"'");
-    if (userExist){
-        console.log("ese usuario si existe, no sirve")
+    if (userExist > 0){
+        console.log("el usuario con el email: "+email+" y rut: "+rut+" existe, no sirve")
         return //terminar la funcion submit sin subir
     }
 
-    //Ya que se valido que el usuario si se va a subir, rescatar el id que tendra el usuario en el futuro, ocuparlo en la foto
-    let userId = await returnOracle("SELECT MAX ID FROM CLIENTE");//No es asi, pero es una idea
-    setUserID(userId);//establesco la id del usuario
-    //imageUrl = await Script del github
-    //INSERT INTO CLIENTE VALUES(userID,correo, imageUrl.....)
-
-    console.log("resultado: "+res);
-    if (res == 1){
-        console.log("se subio el form")
-        //Despues de validar, enviar el formulario manualmente
-        formRef.current.submit();
-    } else {
-        console.log("poner aqui el validador")
-    }
-    
+    await uploadImage();//El propio script establece el url, con rut como id
+    //Insert del usuario en la base de datos
+    let sqlresponse = await returnOracle("INSERT INTO CLIENTE VALUES("+rut+",'"+name+"','"+lastName+"','"+email+"',"+comunaId+","+phone+",'"+password+"','"+imageUrl+"')");
+    formRef.current.submit();    
 }
 
     return (
@@ -211,7 +198,7 @@ async function onSubmitHandler(e){
                             <div class="grid md:grid-cols-2 md:gap-6">
                                 {/* Input celular */}
                                 <div class="relative z-0 w-full mb-6 group">
-                                    <input onChange={phoneChange} value={phone} type="tel" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" name="floating_phone" id="floating_phone" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
+                                    <input onChange={phoneChange} value={phone} type="text" name="floating_phone" id="floating_phone" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
                                     <label for="floating_phone" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Celular(+56 9 32536765)</label>
                                 </div>
                                 {/* Combobox comunas */}

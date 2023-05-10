@@ -89,11 +89,6 @@ class OracleCloudAPI(APIView):
       wallet_password= "Holaolaola2021=-") #si le habian puesto la clave
       print(f"{46*'-'}\n Conectado con la base de datos Oracle Database \n{46*'-'}")
 
-      # variables
-      #counter = 0
-      #lista = []
-      #lista2 = []
-      #lista3 = []
       querysReturn = []
 
       #Crear el cursor
@@ -102,28 +97,17 @@ class OracleCloudAPI(APIView):
       #print(cursor.rowcount)
 
       with connection.cursor() as cursor:
-         d = cursor.execute(Query)
-         #print(cursor.rowcount)
-        # counter += 1
-         for row in cursor:
-            print(row)
-            """ blobObject = row[3].read()
-            encoded_content = base64.b64encode(blobObject)
-            url = 'data:application/octet-stream;base64,' + encoded_content.decode('utf-8')
-            fixList = list(row)
-            fixList[3] = url
-            row = tuple(fixList) """
+         #Crea el cursor para la coneccion con sql
+         cursor.execute(Query)
+         queryType = Query.split()[0]
 
-
-            print()
-            #print(row[3].read())
-            #blobRead = row[3].read()
-            #row[3] = blobRead
-            querysReturn.append(row)
-         print("///Return row////")
-         print(querysReturn)
-            #lista.append(row)       
-         #querys.append(lista)
+         if (queryType == "SELECT"):
+            for row in cursor:
+               print(row)
+               querysReturn.append(row)
+            print("///Return row////")
+            print(querysReturn)
+            
       #commit hacia la base de datos
       connection.commit()
       return Response({'query': querysReturn}, status=status.HTTP_200_OK) #Response({'token': '123456789'}, status=status.HTTP_200_OK)
