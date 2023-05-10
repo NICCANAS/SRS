@@ -1,26 +1,23 @@
 import { connect } from 'react-redux'
 import { ReactComponent as SvgLogoUsado } from '../../components/svg/logo_empresa.svg'
 import { Link } from 'react-router-dom'
-//API y ref
+//constantes, uso de API y ref para el formulario
 import React, { useState, useRef } from 'react';
 import axios from 'axios';
 
 function Login() {
-//const [queryData, setQuery] = useState([]);//Recoger los elementos de sql
 const [email, setEmail] = useState('');//Recoger el email del input
 const [password, setPassword] = useState('');//Recoger el password del input
 
-const formRef = useRef(null);//Creo una referencia al formulario, para poder utilizar submit en la funcion onSubmitHandler
+const formRef = useRef(null);//Cree una referencia al formulario, para poder utilizar submit en la funcion onSubmitHandler
 
 //Establece el email a medida que el usuario va escribiendo
 const emailChange = event => {
     setEmail(event.target.value);
-    //console.log('email es:', event.target.value);
 };
 //Establece la contraseña a medida que el usuario esta escribiendo
 const passwordChange = event => {
     setPassword(event.target.value);
-    //console.log('password es:', event.target.value);
 };
 
 //Consultar oracle sobre la contraseña del usuario
