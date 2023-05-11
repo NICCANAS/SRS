@@ -9,6 +9,7 @@ import Register from './container/pages/Register';
 import Registeremp from './components/register/registeremp';
 import Listservs from "./container/pages/services";
 import CasiMoney from './container/pages/CasiMoney';
+import Password from './container/pages/forgot-password';
 
 function App() {
   return (
@@ -29,6 +30,8 @@ function App() {
           <Route path="/Listservs" element={<Listservs/>}/>
           {/*Enrutado hacia pagina para pagar.*/}
           <Route path="/CasiMoney" element={<CasiMoney/>}/>
+          {/*Haz olvidado tu contraseña?*/}
+          <Route path="/forgotpass" element={<Password/>}/>
 
         </Routes>
       </Router>

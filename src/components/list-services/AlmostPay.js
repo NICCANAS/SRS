@@ -150,9 +150,8 @@ function AlmostPay({ children }) {
                                 <input type="hidden" name="token_ws" value="{{response.token}}" />
                                 <input type="submit" value="Ir a pagar" />
                             </form>
-
+                            
                         </div>
-
                     </div>
                 </div>
             </div>

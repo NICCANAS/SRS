@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 
 function Registeremp() {
     return (
-        <section class="bg-gradient-to-r from-green-400 to-purple-600">
+        <section class="bg-gradient-to-r from-green-400 to-purple-600 h-auto w-auto">
             <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto lg:py-0">
                 <a href="#" class="flex items-center mb-6 text-2xl font-semibold text-gray-900 dark:text-white">
                     <SvgLogoUsado />
@@ -78,7 +78,7 @@ function Registeremp() {
                             </div>
                             <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="user_avatar">Imagen de Perfil</label>
                             <input class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" aria-describedby="user_avatar_help" id="user_avatar" type="file"></input>
-                            <center><button type="submit" class="text-white bg-indigo-700 hover:bg-indigo-800 focus:ring-4 focus:outline-none focus:ring-indigo-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-indigo-600 dark:hover:bg-indigo-700 dark:focus:ring-indigo-800">Registrarse</button></center>
+                            <center><button type="submit" onClick={validarCampos} class="text-white bg-indigo-700 hover:bg-indigo-800 focus:ring-4 focus:outline-none focus:ring-indigo-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-indigo-600 dark:hover:bg-indigo-700 dark:focus:ring-indigo-800">Registrarse</button></center>
                         </form>
                     </div>
                 </div>
@@ -88,6 +88,34 @@ function Registeremp() {
 
 
     )
+}
+
+function validarCampos(evento){
+    evento.preventDefault();
+    var rut = document.getElementById('floating_rut').value;
+    var clave = document.getElementById('floating_password').value;
+    var conClave = document.getElementById('floating_repeat_password').value;
+    var nombre = document.getElementById('floating_first_name').value;
+    var apellido = document.getElementById('floating_last_name').value;
+    var celular = document.getElementById('floating_phone').value;
+
+    //Validacion RUT Vacio o Más de 9 caracteres
+
+    if(rut == "" || rut.length > 9 || rut.length < 9){
+        alert('Rut ingresado NO valido')
+    }else if(clave == ""){
+        alert('Debe Ingresar Clave')
+    }else if(conClave == ""){
+        alert('Debe Ingresar Confirmar Clave')
+    }else if(conClave == "" || conClave != clave){
+        alert('Claves NO Coinciden')
+    }else if(nombre == ""){
+        alert('Debe Ingresar Nombre')
+    }else if(apellido == ""){
+        alert('Debe Ingresar Apellido')
+    }else if(celular == "" || celular.length < 8 || celular.length > 9){
+        alert('Ingrese Celular Valido')
+    }
 }
 
 const mapStateToProps = (state) => ({

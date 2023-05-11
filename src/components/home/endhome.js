@@ -1,4 +1,5 @@
 import { connect } from 'react-redux'
+import { Link } from 'react-router-dom'
 
 function Endhome() {
     return (
@@ -17,7 +18,7 @@ function Endhome() {
                         />
 
                     </div>
-                    
+
                     <div class="lg:py-24">
                         <h2 class="text-3xl font-bold sm:text-4xl">Interesado en nuestra pagina?</h2>
 
@@ -27,12 +28,9 @@ function Endhome() {
                             Unete Ya!
                         </p>
 
-                        <a
-                            href="#"
-                            class="mt-8 inline-block rounded bg-indigo-600 px-12 py-3 text-sm font-medium text-white transition hover:bg-indigo-700 focus:outline-none focus:ring focus:ring-yellow-400"
-                        >
-                            Registrate hoy!
-                        </a>
+                        <button class="mt-8 inline-block rounded bg-indigo-600 px-12 py-3 text-sm font-medium text-white transition hover:bg-indigo-700 focus:outline-none focus:ring focus:ring-yellow-400">
+                        <Link to="/Register"> Registrate hoy!</Link>
+                        </button>
                     </div>
                 </div>
             </div>
