@@ -8,7 +8,34 @@ import React from 'react'
 import { useState } from 'react'
 
 function ListServs() {
+    const [cancellUseEffect, setCancel] = useState(false);
     const [active, setActive] = useState("Cardserv")
+    const [servicios, setServicios] = useState([]);//Establecer los servicios
+
+    ///////////////////////////////Funciones
+    useEffect(() => {
+        //Establecer los servicios
+        if (!cancellUseEffect) {
+            setServicesOracle();
+            setCancel(true);
+        }
+    });
+
+    //API de oracle
+    async function returnOracle(string) {
+        const params = {
+            query: string,//las query no deben terminar en ";"
+        }
+        const res = await axios.get('http://127.0.0.1:8000/oracleAPI/', { params });
+        return res.data.query;
+    }
+
+    //Recoger las comunas de la base de datos y ponerlas en la constante
+    async function setServicesOracle() {
+        let array = await returnOracle("SELECT * FROM SERVICIO");
+        setServicios(array);
+        console.log(array);
+    }
 
     return (
         <div class="flex flex-wrap bg-gray-100 w-full h-screen">
@@ -79,7 +106,21 @@ function ListServs() {
             <div class="w-9/12">
                 <div class="p-4 text-gray-500">
                     <Barbusq />
-                    {active === "Cardserv" && <CardServs/>}
+                    {/* Recorrer los servicios del array */}
+                    {servicios.map((sv) => (
+                        <CardServs 
+                        id={sv[0]} 
+                        nombre={sv[1]} 
+                        descripcion={sv[2]}
+                        valor={sv[3]}
+                        direccion={sv[4]}
+                        dias={sv[5]}
+                        horas={sv[6]}
+                        tipoId={sv[7]}
+                        empresaRut={sv[8]}
+                        imagenUrl={sv[9]}/>
+                    ))}
+                    {active === "Cardserv" && <CardServs nombre="Juan"/> && <CardServs nombre="Pepe"/>}
                     {active === "SeguirServ" && <Seguiserv/>}
                     {active === "Cambiarperfil" && <PerfilUsu/>}
                     {active === "HistoUsu" && <HistoUsu/>}
