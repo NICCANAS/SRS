@@ -1,9 +1,9 @@
 import { connect } from 'react-redux'
+import { Link } from 'react-router-dom';
 
 function CardServs(props) {
     return (
         <div class="w-9/12 items-center m-8">
-            <h1>Id del servicio {props.id}</h1>
             <article class="flex bg-white transition hover:shadow-xl">
                 <div class="rotate-180 p-2 [writing-mode:_vertical-lr]">
                     <time
@@ -38,12 +38,12 @@ function CardServs(props) {
                     </div>
 
                     <div class="sm:flex sm:items-end sm:justify-end">
-                        <a
-                            href="/CasiMoney"
+                        <Link
+                            to={`/CasiMoney/${props.id}`}
                             class="block bg-yellow-300 px-5 py-3 text-center text-xs font-bold uppercase text-gray-900 transition hover:bg-yellow-400"
                         >
                             Ver
-                        </a>
+                        </Link>
                     </div>
                 </div>
             </article>

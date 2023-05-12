@@ -14,6 +14,7 @@ urlpatterns = [
     path('webpayAPI/', views.WebpayAPI.as_view()),
     path('wspMessage/', views.WspAPI.as_view()),
     path('oracleAPI/',views.OracleCloudAPI.as_view()),
+    path('printAPI/',views.printAPI.as_view()),
 ]
 
 urlpatterns += [re_path(r'^.*', TemplateView.as_view(template_name='index.html'))]

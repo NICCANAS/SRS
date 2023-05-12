@@ -5,17 +5,24 @@ import Seguiserv from './Seguiserv'
 import PerfilUsu from './perfilusu'
 import HistoUsu from './histoServusu'
 import React from 'react'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import axios from 'axios';
 
 function ListServs() {
+    //ID usuario activo
+    const userID = localStorage.getItem('loggedId');
+    const userType = localStorage.getItem('loggedType');
+    const [userData, setUserData] = useState([])
+
     const [cancellUseEffect, setCancel] = useState(false);
     const [active, setActive] = useState("Cardserv")
     const [servicios, setServicios] = useState([]);//Establecer los servicios
 
     ///////////////////////////////Funciones
     useEffect(() => {
-        //Establecer los servicios
+        //Establecer los servicios y los datos del usuario
         if (!cancellUseEffect) {
+            setUserDataOracle();
             setServicesOracle();
             setCancel(true);
         }
@@ -30,6 +37,24 @@ function ListServs() {
         return res.data.query;
     }
 
+    //Recoger los datos del usuario
+    async function setUserDataOracle(){
+        if (userType == "cli"){
+            let data = await returnOracle("SELECT NOM_CLI, IMG_PERF FROM CLIENTE WHERE RUT_CLI="+userID);
+            setUserData(data[0]);
+            console.log(data[0]);
+            
+        } else if (userType == "emp"){
+            let data = await returnOracle("SELECT NOM_EMP, IMG_EMP FROM EMPRESA WHERE RUT_EMP="+userID);
+            setUserData(data[0]);
+            console.log(data[0]);
+            
+        } else{
+            //Aqui devolver a la pagina principal, pues, si no tiene tipo, no esta logeado
+            console.log("No esta logueado")
+        }
+    }
+
     //Recoger las comunas de la base de datos y ponerlas en la constante
     async function setServicesOracle() {
         let array = await returnOracle("SELECT * FROM SERVICIO");
@@ -37,17 +62,35 @@ function ListServs() {
         console.log(array);
     }
 
+    //Recorrer la constante, crear los componentes y almacenarlos dentro de otra constante para poder llamarlo en front-end
+    const carservConst =  servicios.map((sv) => (
+        <CardServs 
+        id={sv[0]} 
+        nombre={sv[1]} 
+        descripcion={sv[2]}
+        valor={sv[3]}
+        direccion={sv[4]}
+        dias={sv[5]}
+        horas={sv[6]}
+        tipoId={sv[7]}
+        empresaRut={sv[8]}
+        imagenUrl={sv[9]}/>
+    ));
+
     return (
         <div class="flex flex-wrap bg-gray-100 w-full h-screen">
             <div class="w-3/12 bg-white rounded p-3 shadow-lg">
                 <div class="flex items-center space-x-4 p-2 mb-5">
-                    <img class="h-12 rounded-full" alt='fotousu' src="https://avatars.githubusercontent.com/u/101841361?s=400&u=0c98e9da99e7f8e1d0d9c954d43d7c02470112bf&v=4" />
+                    {/* Rescatar perfil del usuario */}
+                    <img class="h-12 rounded-full" alt='fotousu' src={userData[1]} />
                     <div>
-                        <h4 class="font-semibold text-lg text-gray-700 capitalize font-poppins tracking-wide">Nikolai</h4>
+                    {/* Rescatar nombre del usuario */}
+                        <h4 class="font-semibold text-lg text-gray-700 capitalize font-poppins tracking-wide">{userData[0]}</h4>
                         <span class="text-sm tracking-wide flex items-center space-x-1">
                         </span>
                     </div>
                 </div>
+                {/* Listado de opciones */}
                 <ul class="space-y-2 text-sm">
                     <li>
                         <a onClick={() => setActive("Cardserv")} class="flex items-center space-x-3 text-gray-700 p-2 rounded-md font-medium hover:bg-gray-200 bg-gray-200 focus:shadow-outline">
@@ -103,24 +146,12 @@ function ListServs() {
                 </ul>
             </div>
 
+            {/* Componentes a mostrar */}
             <div class="w-9/12">
                 <div class="p-4 text-gray-500">
+                    {/* La barra de busqueda */}
                     <Barbusq />
-                    {/* Recorrer los servicios del array */}
-                    {servicios.map((sv) => (
-                        <CardServs 
-                        id={sv[0]} 
-                        nombre={sv[1]} 
-                        descripcion={sv[2]}
-                        valor={sv[3]}
-                        direccion={sv[4]}
-                        dias={sv[5]}
-                        horas={sv[6]}
-                        tipoId={sv[7]}
-                        empresaRut={sv[8]}
-                        imagenUrl={sv[9]}/>
-                    ))}
-                    {active === "Cardserv" && <CardServs nombre="Juan"/> && <CardServs nombre="Pepe"/>}
+                    {active === "Cardserv" && carservConst}
                     {active === "SeguirServ" && <Seguiserv/>}
                     {active === "Cambiarperfil" && <PerfilUsu/>}
                     {active === "HistoUsu" && <HistoUsu/>}

@@ -16,19 +16,17 @@ import { esES } from '@mui/x-date-pickers/locales';
 */
 
 
-function AlmostPay({ children }) {
-
+function AlmostPay(props, { children }) {
     const [fechaseleccionada, CambiarFechSelect] = useState(new Date()) 
+    const [webpayData, setWebpay] = useState("");
 
     async function createWebpayButton() {
-        const res = await axios.get('http://127.0.0.1:8000/webpayAPI/');
-        setData(res.data);
-        console.log(res.data);
-        console.log("restoken: " + res.data.token);
-        console.log("resamoun: " + res.data.amount);
+        const params  = {
+            amount: props.valor,//recoger el valor del prop para pasarlo a la funcion webpay
+          }
+        const res = await axios.get('http://127.0.0.1:8000/webpayAPI/', { params });
+        setWebpay(res.data);
     }
-
-    const [data, setData] = useState(null);
 
     console.log(fechaseleccionada)
 
@@ -39,7 +37,7 @@ function AlmostPay({ children }) {
                     <div class="grid grid-cols-2 gap-4 md:grid-cols-1">
                         <img
                             alt="Les Paul"
-                            src="https://airsolutions.com.pe/wp-content/uploads/2021/02/WhatsApp-Image-2021-02-08-at-1.45.46-PM-1-1.jpeg"
+                            src={props.imgURL}
                             class="aspect-square w-full rounded-xl object-cover"
                         />
 
@@ -51,10 +49,10 @@ function AlmostPay({ children }) {
                         <div class="mt-8 flex justify-between">
                             <div class="max-w-[35ch] space-y-2">
                                 <h1 class="text-xl font-bold sm:text-2xl">
-                                    Limpieza y reparacion acondicionadores
+                                    {props.nombre}
                                 </h1>
 
-                                <p class="text-sm">Empresa JoeMama Se supone que aca deberia dirigir al perfil de la empresa</p>
+                                <p class="text-sm">{props.empresaRut}</p>
 
                                 <div class="-ms-0.5 flex">
                                     <svg
@@ -114,14 +112,13 @@ function AlmostPay({ children }) {
                                 </div>
                             </div>
 
-                            <p class="text-lg font-bold">$120.000 CLP</p>
+                            <p class="text-lg font-bold">${props.valor} CLP</p>
                         </div>
 
                         <div class="mt-4">
                             <div class="prose max-w-none">
                                 <p>
-                                    Me robe este peruano de otra pagina en la cual realmente realizaban trabajos
-                                    de limpieza asi que me robe su imagen equisde
+                                    {props.descripcion}
                                 </p>
                             </div>
                         </div>
@@ -146,10 +143,11 @@ function AlmostPay({ children }) {
                         <div class="mt-8 flex gap-4">
                             <button onClick={createWebpayButton} type="" className='bg-green-600 px-5 py-3 text-xs font-medium text-white hover:bg-green-500"'>Ejecutar Webpay</button>
 
-                            <form method="post" action="{{response.url}}">
-                                <input type="hidden" name="token_ws" value="{{response.token}}" />
-                                <input type="submit" value="Ir a pagar" />
+                            <form method="post" action={webpayData.url}>
+                                <input type="hidden" name="token_ws" value={webpayData.token}/>
+                                <input type="submit" value={'Ir a pagar: $'+webpayData.amount}/>
                             </form>
+
                             
                         </div>
                     </div>

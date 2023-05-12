@@ -25,12 +25,19 @@ import base64
 def home(request):
    return render(request, 'index.html') 
 
+class printAPI(APIView):
+   permission_classes = (permissions.AllowAny,)
+   def get(self, request):
+      string = request.GET.get("string")
+      print()
+      print(string)
+      return Response(status=status.HTTP_200_OK)
 class WebpayAPI(APIView):
    permission_classes = (permissions.AllowAny,)
    def get(self, request):
-      amount = 1000
+      amount = request.GET.get("amount")
       buy_order = 'orden_de_compra_1234'
-      return_url = 'http://localhost:8000/'
+      return_url = 'http://127.0.0.1:8000'
       #final_url = 'http://localhost:8000/payment-success/'
       buy_order = str(random.randrange(1000000, 99999999))
       session_id = str(random.randrange(1000000, 99999999))
@@ -74,10 +81,10 @@ class WspAPI(APIView):
 class OracleCloudAPI(APIView):
    permission_classes = (permissions.AllowAny,)
    def get(self, request):
-      print("/////////////////////Llamando oracle///////////////////////////")
+      #print("/////////////////////Llamando oracle///////////////////////////")
       Query = request.GET.get("query")
-      print(request.GET.get("query"))
-      print(request.GET)
+      #print(request.GET.get("query"))
+      #print(request.GET)
 
       #Datos de la wallet
       connection = oracledb.connect(
@@ -87,7 +94,7 @@ class OracleCloudAPI(APIView):
       dsn=r"(description= (retry_count=20)(retry_delay=3)(address=(protocol=tcps)(port=1522)(host=adb.sa-santiago-1.oraclecloud.com))(connect_data=(service_name=g3e61719689d692_of9irekmrz0t3e0r_low.adb.oraclecloud.com))(security=(ssl_server_dn_match=yes)))",
       wallet_location= "catalogo/bdd",
       wallet_password= "Holaolaola2021=-") #si le habian puesto la clave
-      print(f"{46*'-'}\n Conectado con la base de datos Oracle Database \n{46*'-'}")
+      #print(f"{46*'-'}\n Conectado con la base de datos Oracle Database \n{46*'-'}")
 
       querysReturn = []
 
@@ -103,10 +110,10 @@ class OracleCloudAPI(APIView):
 
          if (queryType == "SELECT"):
             for row in cursor:
-               print(row)
+               #print(row)
                querysReturn.append(row)
-            print("///Return row////")
-            print(querysReturn)
+            #print("///Return row////")
+            #print(querysReturn)
             
       #commit hacia la base de datos
       connection.commit()

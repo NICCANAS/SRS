@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 import React, { useState, useRef } from 'react';
 import axios from 'axios';
 
-function Login() {
+function LoginEmp() {
     const [email, setEmail] = useState('');//Recoger el email del input
     const [password, setPassword] = useState('');//Recoger el password del input
 
@@ -23,7 +23,7 @@ function Login() {
     //Consultar oracle sobre la contraseña del usuario
     async function oracleCheckUser() {
         const params = {
-            query: "SELECT COALESCE(COUNT(*), 0) FROM CLIENTE WHERE CORREO_CLI='" + email + "' AND CONTRA_CLI='" + password + "'",//las query no deben terminar en ";"
+            query: "SELECT COALESCE(COUNT(*), 0) FROM EMPRESA WHERE CORREO_EMP='" + email + "' AND CONTRA_EMP='" + password + "'",//las query no deben terminar en ";"
         }
         console.log(params.query)
         const res = await axios.get('http://127.0.0.1:8000/oracleAPI/', { params });
@@ -34,7 +34,7 @@ function Login() {
     //Recoger el rut del usuario despues de validar email y contraseña
     async function oracleGetRut(){
         const params = {
-            query: "SELECT RUT_CLI FROM CLIENTE WHERE CORREO_CLI='" + email + "'",//las query no deben terminar en ";"
+            query: "SELECT RUT_EMP FROM EMPRESA WHERE CORREO_EMP='" + email + "'",//las query no deben terminar en ";"
         }
         console.log(params.query)
         const res = await axios.get('http://127.0.0.1:8000/oracleAPI/', { params });
@@ -61,10 +61,10 @@ function Login() {
         //--Validacion en back end--
         let res = await oracleCheckUser();
         if (res == 1) {
-            //Guardar la id del usuario activo mas tipo cliente
+            //Guardar la id del usuario activo mas tipo empresa
             let rut = await oracleGetRut();
-            localStorage.setItem('loggedId', rut);//Debo cambiar esto a session storage
-            localStorage.setItem('loggedType', 'cli');//Debo cambiar esto a session storage
+            localStorage.setItem('loggedId', rut);
+            localStorage.setItem('loggedType', 'emp');
             //Subir el formulario para pasar de pagina
             formRef.current.submit();
         } else {
@@ -91,8 +91,8 @@ function Login() {
                             </h1>
                             {/* Cambio de componente */}
                             <div class="flex overflow-x-auto whitespace-nowrap">
-                            {/* Login cliente */}
-                                <Link class="inline-flex items-center h-12 px-2 py-2 text-center text-gray-700 border border-b-0 border-gray-300 sm:px-4 dark:border-gray-500 rounded-t-md -px-1 dark:text-white whitespace-nowrap focus:outline-none">
+                                {/* Login cliente */}
+                                <Link to="/Login" class="inline-flex items-center h-12 px-2 py-2 text-center text-gray-700 bg-transparent border-b border-gray-300 sm:px-4 dark:border-gray-500 -px-1 dark:text-white whitespace-nowrap cursor-base focus:outline-none hover:border-gray-400 dark:hover:border-gray-300">
                                     <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 mx-1 sm:w-6 sm:h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2V8a2 2 0 00-2-2h-5m-4 0V5a2 2 0 114 0v1m-4 0a2 2 0 104 0m-5 8a2 2 0 100-4 2 2 0 000 4zm0 0c1.306 0 2.417.835 2.83 2M9 14a3.001 3.001 0 00-2.83 2M15 11h3m-3 4h2" />
                                     </svg>
@@ -103,7 +103,7 @@ function Login() {
                                 </Link>
 
                                 {/* Login empresa */}
-                                <Link to="/LoginEmp" class="inline-flex items-center h-12 px-2 py-2 text-center text-gray-700 bg-transparent border-b border-gray-300 sm:px-4 dark:border-gray-500 -px-1 dark:text-white whitespace-nowrap cursor-base focus:outline-none hover:border-gray-400 dark:hover:border-gray-300">
+                                <Link  class="inline-flex items-center h-12 px-2 py-2 text-center text-gray-700 border border-b-0 border-gray-300 sm:px-4 dark:border-gray-500 rounded-t-md -px-1 dark:text-white whitespace-nowrap focus:outline-none">
                                     <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 mx-1 sm:w-6 sm:h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
                                     </svg>
@@ -160,4 +160,4 @@ const mapStateToProps = (state) => ({
 
 export default connect(mapStateToProps, {
 
-})(Login)
+})(LoginEmp)
