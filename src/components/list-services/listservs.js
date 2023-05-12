@@ -92,7 +92,7 @@ function ListServs() {
 
             <div class="w-9/12">
                 <div class="p-4 text-gray-500">
-                    <Barbusq />
+                    {active === "Cardserv" && <Barbusq />}
                     {active === "Cardserv" && <CardServs />}
                     {active === "SeguirServ" && <Seguiserv />}
                     {active === "Cambiarperfil" && <PerfilUsu />}

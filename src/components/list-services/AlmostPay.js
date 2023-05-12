@@ -159,7 +159,7 @@ function AlmostPay({ children }) {
 
                         </form>
 
-                        <input onClick={createWebpayButton} type="checkbox" id='joemama' onChange={handleChangeCheckbox} /> Confirmar Pago
+                        <input onClick={createWebpayButton} type="checkbox" id='joemama' onChange={handleChangeCheckbox} /> Aceptar terminos y condiciones
 
                         <div class="mt-8 flex gap-4">
 
@@ -167,7 +167,6 @@ function AlmostPay({ children }) {
                                 <input type="hidden" name="token_ws" value="{{response.token}}" />
                                 <input disabled={!botonActivo} type="submit" className='bg-green-600 px-5 py-3 text-xs font-medium text-white hover:bg-green-500' value=" Ir a pagar" />
                             </form>
-
                         </div>
                     </div>
                 </div>
