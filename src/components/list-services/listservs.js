@@ -4,6 +4,7 @@ import Barbusq from '../../components/list-services/barbusq'
 import Seguiserv from './Seguiserv'
 import PerfilUsu from './perfilusu'
 import HistoUsu from './histoServusu'
+import ResennaPorqueria from './resennausu'
 import React from 'react'
 import { useState, useEffect } from 'react'
 import axios from 'axios';
@@ -114,16 +115,6 @@ function ListServs() {
                     </li>
 
                     <li>
-                        <a onClick={() => setActive("Cambiarperfil")} class="flex items-center space-x-3 text-gray-700 p-2 rounded-md font-medium hover:bg-gray-200 focus:bg-gray-200 focus:shadow-outline">
-                            <span class="text-gray-600">
-                                <svg class="h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-                                </svg>
-                            </span>
-                            <span >Mi Perfil</span>
-                        </a>
-                    </li>
-                    <li>
                         <a onClick={() => setActive("HistoUsu")} class="flex items-center space-x-3 text-gray-700 p-2 rounded-md font-medium hover:bg-gray-200 focus:bg-gray-200 focus:shadow-outline">
                             <span class="text-gray-600">
                                 <svg class="h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -133,8 +124,31 @@ function ListServs() {
                             <span>Historial servicios</span>
                         </a>
                     </li>
+
                     <li>
-                        <a  class="flex items-center space-x-3 text-gray-700 p-2 rounded-md font-medium hover:bg-gray-200 focus:bg-gray-200 focus:shadow-outline">
+                        <a onClick={() => setActive("resennaUsu")} class="flex items-center space-x-3 text-gray-700 p-2 rounded-md font-medium hover:bg-gray-200 focus:bg-gray-200 focus:shadow-outline">
+                            <span class="text-gray-600">
+                                <svg class="h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                                </svg>
+                            </span>
+                            <span >Crear reseña</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a onClick={() => setActive("Cambiarperfil")} class="flex items-center space-x-3 text-gray-700 p-2 rounded-md font-medium hover:bg-gray-200 focus:bg-gray-200 focus:shadow-outline">
+                            <span class="text-gray-600">
+                                <svg class="h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                                </svg>
+                            </span>
+                            <span >Mi Perfil</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a class="flex items-center space-x-3 text-gray-700 p-2 rounded-md font-medium hover:bg-gray-200 focus:bg-gray-200 focus:shadow-outline">
                             <span class="text-gray-600">
                                 <svg class="h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
@@ -150,11 +164,12 @@ function ListServs() {
             <div class="w-9/12">
                 <div class="p-4 text-gray-500">
                     {/* La barra de busqueda */}
-                    <Barbusq />
+                    {active === "Cardserv" && <Barbusq />}
                     {active === "Cardserv" && carservConst}
                     {active === "SeguirServ" && <Seguiserv/>}
                     {active === "Cambiarperfil" && <PerfilUsu/>}
                     {active === "HistoUsu" && <HistoUsu/>}
+                    {active === "resennaUsu" && <ResennaPorqueria />}
                 </div>
             </div>
 

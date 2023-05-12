@@ -1,11 +1,16 @@
 import { connect } from 'react-redux'
-import { Link } from 'react-router-dom';
 
-function CardServs(props) {
+function CardServsemp() {
     return (
+
+        /* Aca jordan solo quiero que se liste los servicios para ver que servicios tiene esa empresa
+        Ej: Que la empresa joemama tiene 20 trabajos que se listen solo los 20 servicios que tiene joemama nada mas.
+        */
         <div class="w-9/12 items-center m-8">
             <article class="flex bg-white transition hover:shadow-xl">
                 <div class="rotate-180 p-2 [writing-mode:_vertical-lr]">
+
+                    {/* Esto de time Quiero que solo se rescate el dia que se creo la publicacion. */}
                     <time
                         datetime="2022-10-10"
                         class="flex items-center justify-between gap-4 text-xs font-bold uppercase text-gray-900"
@@ -18,32 +23,30 @@ function CardServs(props) {
 
                 <div class="hidden sm:block sm:basis-56">
                     <img
-                        alt="Guitar"
-                        src={props.imagenUrl}
+                        alt="peruanito"
+                        src="https://airsolutions.com.pe/wp-content/uploads/2021/02/WhatsApp-Image-2021-02-08-at-1.45.46-PM-1-1.jpeg"
                         class="aspect-square h-full w-full object-cover"
                     />
                 </div>
 
                 <div class="flex flex-1 flex-col justify-between">
                     <div class="border-s border-gray-900/10 p-4 sm:border-l-transparent sm:p-6">
-                        <a href="#">
+                        {/* Titulo del servicio */}
+                        <a>
                             <h3 class="font-bold uppercase text-gray-900">
-                                {props.nombre}
+                                Limpieza y reparacion acondicionadores
                             </h3>
                         </a>
 
-                        <p class="mt-2 line-clamp-3 text-sm/relaxed text-gray-700">
-                            {props.descripcion}
-                        </p>
-                    </div>
+                        {/* Descripcion del servicioo por la xita se me esta poniendo dobles teclas joldan aiua */}
 
-                    <div class="sm:flex sm:items-end sm:justify-end">
-                        <Link
-                            to={`/CasiMoney/${props.id}`}
-                            class="block bg-yellow-300 px-5 py-3 text-center text-xs font-bold uppercase text-gray-900 transition hover:bg-yellow-400"
-                        >
-                            Ver
-                        </Link>
+                        <p class="mt-2 line-clamp-3 text-sm/relaxed text-gray-700">
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae
+                            dolores, possimus pariatur animi temporibus nesciunt praesentium dolore
+                            sed nulla ipsum eveniet corporis quidem, mollitia itaque minus soluta,
+                            voluptates neque explicabo tempora nisi culpa eius atque dignissimos.
+                            Molestias explicabo corporis voluptatem?
+                        </p>
                     </div>
                 </div>
             </article>
@@ -62,4 +65,4 @@ const mapStateToProps = (state) => ({
 
 export default connect(mapStateToProps, {
 
-})(CardServs)
+})(CardServsemp)
