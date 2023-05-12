@@ -37,15 +37,26 @@ class WebpayAPI(APIView):
    permission_classes = (permissions.AllowAny,)
    def get(self, request):
       amount = request.GET.get("amount")
-      buy_order = 'orden_de_compra_1234'
+      buy_order = request.GET.get("buy_order")
       return_url = 'http://127.0.0.1:8000/webpayTransaction'
-      buy_order = str(random.randrange(1000000, 99999999))
       session_id = str(random.randrange(1000000, 99999999))
 
       transaction = (Transaction()).create(buy_order, session_id, amount, return_url)
 
       return Response({'token': transaction['token'],'url': transaction['url'], 'amount': amount}, status=status.HTTP_200_OK)
    
+   def post(self, request):
+      #Commit del token para ver el estado
+      token = request.data.get("token")
+      print("TOKEN: "+str(token))
+      print("commit for token_ws: {}".format(token))
+
+      response = (Transaction()).commit(token=token)
+      print("response: {}".format(response))
+
+      return Response({'order_id': response['buy_order'], 'status': response['status'], 'code': response['response_code']},status=status.HTTP_200_OK)
+      #return render_template('webpay/plus/commit.html', token=token, response=response)
+
 class WspAPI(APIView):
    permission_classes = (permissions.AllowAny,)
    def get(self, request):

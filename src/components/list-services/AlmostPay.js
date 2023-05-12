@@ -20,8 +20,23 @@ function AlmostPay(props, { children }) {
     const [fechaseleccionada, CambiarFechSelect] = useState(new Date()) 
     const [webpayData, setWebpay] = useState("");
 
+    //API de oracle
+    async function returnOracle(string) {
+        const params = {
+            query: string,//las query no deben terminar en ";"
+        }
+        const res = await axios.get('http://127.0.0.1:8000/oracleAPI/', { params });
+        return res.data.query;
+    }
+
+
+
     async function createWebpayButton() {
+        let maxID = await returnOracle("SELECT NVL(MAX(ID_ORD), 0) FROM ORDEN_SERV");
+        let orderID = maxID+1;
+        let sqlresponse = await returnOracle("INSERT INTO ORDEN_SERV VALUES("+orderID+",'prueba_ini','prueba_fin',"+props.id+","+999999999+","+4+","+0+")");
         const params  = {
+            buy_order: orderID,
             amount: props.valor,//recoger el valor del prop para pasarlo a la funcion webpay
           }
         const res = await axios.get('http://127.0.0.1:8000/webpayAPI/', { params });

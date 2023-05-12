@@ -36,7 +36,8 @@ function App() {
           <Route path="/CasiMoney/:serviceID" element={<CasiMoney/>}/>
           {/*Haz olvidado tu contraseña?*/}
           <Route path="/forgotpass" element={<Password/>}/>
-          <Route path='/webpay' element={<WebpayTransaction/>}/>
+          {/* Componente de webpay */}
+          <Route path='/webpayTransaction' element={<WebpayTransaction/>}/>
         </Routes>
       </Router>
     </Provider>
