@@ -32,25 +32,15 @@ class printAPI(APIView):
       print()
       print(string)
       return Response(status=status.HTTP_200_OK)
+   
 class WebpayAPI(APIView):
    permission_classes = (permissions.AllowAny,)
    def get(self, request):
       amount = request.GET.get("amount")
       buy_order = 'orden_de_compra_1234'
-      return_url = 'http://127.0.0.1:8000'
-      #final_url = 'http://localhost:8000/payment-success/'
+      return_url = 'http://127.0.0.1:8000/webpayTransaction'
       buy_order = str(random.randrange(1000000, 99999999))
       session_id = str(random.randrange(1000000, 99999999))
-      #amount = random.randrange(10000, 1000000)
-      
-      #Este objeto no es necesario para que funcione transbank, lo puse en caso de ser necesario pasarle datos a la pagina
-      #vease para confirmar los datos de la compra como el monto o alguna otra cosa que vaya a poner
-      create_request = {
-         "buy_order": buy_order,
-         "session_id": session_id,
-         "amount": amount,
-         "return_url": return_url
-      }
 
       transaction = (Transaction()).create(buy_order, session_id, amount, return_url)
 

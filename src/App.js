@@ -11,7 +11,7 @@ import Registeremp from './components/register/registeremp';
 import Listservs from "./container/pages/services";
 import CasiMoney from './container/pages/CasiMoney';
 import Password from './container/pages/forgot-password';
-
+import WebpayTransaction from './container/pages/webpay';
 
 function App() {
   return (
@@ -36,7 +36,7 @@ function App() {
           <Route path="/CasiMoney/:serviceID" element={<CasiMoney/>}/>
           {/*Haz olvidado tu contraseña?*/}
           <Route path="/forgotpass" element={<Password/>}/>
-
+          <Route path='/webpay' element={<WebpayTransaction/>}/>
         </Routes>
       </Router>
     </Provider>
