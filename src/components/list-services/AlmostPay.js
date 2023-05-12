@@ -18,7 +18,27 @@ import { esES } from '@mui/x-date-pickers/locales';
 
 function AlmostPay({ children }) {
 
-    const [fechaseleccionada, CambiarFechSelect] = useState(new Date()) 
+    const [fechaseleccionada, CambiarFechSelect] = useState(new Date());
+    const [botonActivo, setBotonActivo] = useState(false);
+
+    const [checkboxSelected, setcheckboxSelected] = useState([]);
+
+    const handleChangeCheckbox = e => {
+        console.log(e.target.value);
+        var auxiliar = null;
+        if (checkboxSelected.includes(e.target.value)) {
+            auxiliar = checkboxSelected.filter(elemento => elemento !== e.target.value);
+        } else {
+            auxiliar = checkboxSelected.concat(e.target.value);
+        }
+        setcheckboxSelected(auxiliar);
+
+        if (auxiliar.length > 0) {
+            setBotonActivo(true)
+        } else {
+            setBotonActivo(true)
+        }
+    }
 
     async function createWebpayButton() {
         const res = await axios.get('http://127.0.0.1:8000/webpayAPI/');
@@ -42,12 +62,8 @@ function AlmostPay({ children }) {
                             src="https://airsolutions.com.pe/wp-content/uploads/2021/02/WhatsApp-Image-2021-02-08-at-1.45.46-PM-1-1.jpeg"
                             class="aspect-square w-full rounded-xl object-cover"
                         />
-
-
                     </div>
-
                     <div class="sticky top-0">
-
                         <div class="mt-8 flex justify-between">
                             <div class="max-w-[35ch] space-y-2">
                                 <h1 class="text-xl font-bold sm:text-2xl">
@@ -126,7 +142,7 @@ function AlmostPay({ children }) {
                             </div>
                         </div>
 
-                        <form class="mt-8">
+                        <form class="mt-8 mb-8">
 
                             <fieldset>
                                 <legend class="mb-1 text-sm font-medium">Elige tu fecha</legend>
@@ -136,21 +152,22 @@ function AlmostPay({ children }) {
                                 >
                                     {children}
                                     <MobileDatePicker onChange={CambiarFechSelect}
-                                    inputFormat="dd-mm-yyyy"
+                                        inputFormat="dd-mm-yyyy"
                                     />
                                 </LocalizationProvider>
                             </fieldset>
 
                         </form>
 
+                        <input onClick={createWebpayButton} type="checkbox" id='joemama' onChange={handleChangeCheckbox} /> Confirmar Pago
+
                         <div class="mt-8 flex gap-4">
-                            <button onClick={createWebpayButton} type="" className='bg-green-600 px-5 py-3 text-xs font-medium text-white hover:bg-green-500"'>Ejecutar Webpay</button>
 
                             <form method="post" action="{{response.url}}">
                                 <input type="hidden" name="token_ws" value="{{response.token}}" />
-                                <input type="submit" value="Ir a pagar" />
+                                <input disabled={!botonActivo} type="submit" className='bg-green-600 px-5 py-3 text-xs font-medium text-white hover:bg-green-500' value=" Ir a pagar" />
                             </form>
-                            
+
                         </div>
                     </div>
                 </div>
