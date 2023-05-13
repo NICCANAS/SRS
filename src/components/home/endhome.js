@@ -20,7 +20,7 @@ function Endhome() {
                     </div>
 
                     <div class="lg:py-24">
-                        <h2 class="text-3xl font-bold sm:text-4xl">Interesado en nuestra pagina?</h2>
+                        <h2 class="text-3xl font-bold sm:text-4xl">¿Interesado en nuestra pagina?</h2>
 
                         <p class="mt-4 text-gray-600">
                             No solamente está pagina de interesado en pymes y empresas grandes si no que tambien busca al usuario

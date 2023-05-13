@@ -25,11 +25,11 @@ function Emprev() {
                                             <img src="https://i.pravatar.cc/100?img=1" alt=""/>
                                         </div>
                                         <div class="flex-grow pl-3">
-                                            <h6 class="font-bold text-sm uppercase text-gray-600">Kenzie Edgar.</h6>
+                                            <h6 class="font-bold text-sm uppercase text-gray-600">Katia Puentes</h6>
                                         </div>
                                     </div>
                                     <div class="w-full">
-                                        <p class="text-sm leading-tight"><span class="text-lg text-gray-400 mr-1">"</span>SRS Salvo a mi pequeña pyme que recien voy partiendo, consegui nueva clientela y una nueva forma de trabajar! muchas gracias SRS<span class="text-lg leading-none italic  text-gray-400 ml-1">"</span></p>
+                                        <p class="text-sm leading-tight"><span class="text-lg text-gray-400 mr-1">"</span>Secure Recruiment Service salvo a mi pequeña pyme que recien voy partiendo, consegui nueva clientela y una nueva forma de trabajar! muchas gracias SRS<span class="text-lg leading-none italic  text-gray-400 ml-1">"</span></p>
                                     </div>
                                 </div>
                                 <div class="w-full mx-auto rounded-lg bg-white border border-gray-200 p-5 text-gray-800 font-light mb-6">
@@ -38,11 +38,11 @@ function Emprev() {
                                             <img src="https://i.pravatar.cc/100?img=2" alt=""/>
                                         </div>
                                         <div class="flex-grow pl-3">
-                                            <h6 class="font-bold text-sm uppercase text-gray-600">Stevie Tifft.</h6>
+                                            <h6 class="font-bold text-sm uppercase text-gray-600">Esteban Aceituno</h6>
                                         </div>
                                     </div>
                                     <div class="w-full">
-                                        <p class="text-sm leading-tight"><span class="text-lg leading-none italic font-bold text-gray-400 mr-1">"</span>ay cabron<span class="text-lg leading-none italic font-bold text-gray-400 ml-1">"</span></p>
+                                        <p class="text-sm leading-tight"><span class="text-lg leading-none italic font-bold text-gray-400 mr-1">"</span>Me ayudo bastante como trabajador independiente!, Gracias a la empresa he logrado aumentar mi clientela y he podido demostrar mi desempeño!<span class="text-lg leading-none italic font-bold text-gray-400 ml-1">"</span></p>
                                     </div>
                                 </div>
                             </div>
@@ -53,11 +53,11 @@ function Emprev() {
                                             <img src="https://i.pravatar.cc/100?img=3" alt=""/>
                                         </div>
                                         <div class="flex-grow pl-3">
-                                            <h6 class="font-bold text-sm uppercase text-gray-600">Tommie Ewart.</h6>
+                                            <h6 class="font-bold text-sm uppercase text-gray-600">Tomas Torres</h6>
                                         </div>
                                     </div>
                                     <div class="w-full">
-                                        <p class="text-sm leading-tight"><span class="text-lg leading-none italic font-bold text-gray-400 mr-1">"</span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vitae, obcaecati ullam excepturi dicta error deleniti sequi.<span class="text-lg leading-none italic font-bold text-gray-400 ml-1">"</span></p>
+                                        <p class="text-sm leading-tight"><span class="text-lg leading-none italic font-bold text-gray-400 mr-1">"</span>Ahora puedo promocionar mis servicios de una mejor manera, muchas gracias Secure Recruiment Service!<span class="text-lg leading-none italic font-bold text-gray-400 ml-1">"</span></p>
                                     </div>
                                 </div>
                                 <div class="w-full mx-auto rounded-lg bg-white border border-gray-200 p-5 text-gray-800 font-light mb-6">
@@ -66,11 +66,11 @@ function Emprev() {
                                             <img src="https://i.pravatar.cc/100?img=4" alt=""/>
                                         </div>
                                         <div class="flex-grow pl-3">
-                                            <h6 class="font-bold text-sm uppercase text-gray-600">Charlie Howse.</h6>
+                                            <h6 class="font-bold text-sm uppercase text-gray-600">Guillermo Barraza</h6>
                                         </div>
                                     </div>
                                     <div class="w-full">
-                                        <p class="text-sm leading-tight"><span class="text-lg leading-none italic font-bold text-gray-400 mr-1">"</span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto inventore voluptatum nostrum atque, corrupti, vitae esse id accusamus dignissimos neque reprehenderit natus, hic sequi itaque dicta nisi voluptatem! Culpa, iusto.<span class="text-lg leading-none italic font-bold text-gray-400 ml-1">"</span></p>
+                                        <p class="text-sm leading-tight"><span class="text-lg leading-none italic font-bold text-gray-400 mr-1">"</span>He logrado organizarme aun mejor con mis servicios en relacion a la clientela que tengo, todo gracias a Secure Recruiment Service<span class="text-lg leading-none italic font-bold text-gray-400 ml-1">"</span></p>
                                     </div>
                                 </div>
                             </div>
@@ -81,11 +81,11 @@ function Emprev() {
                                             <img src="https://i.pravatar.cc/100?img=5" alt=""/>
                                         </div>
                                         <div class="flex-grow pl-3">
-                                            <h6 class="font-bold text-sm uppercase text-gray-600">Nevada Herbertson.</h6>
+                                            <h6 class="font-bold text-sm uppercase text-gray-600">Natalia Arcos</h6>
                                         </div>
                                     </div>
                                     <div class="w-full">
-                                        <p class="text-sm leading-tight"><span class="text-lg leading-none italic font-bold text-gray-400 mr-1">"</span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis, voluptatem porro obcaecati dicta, quibusdam sunt ipsum, laboriosam nostrum facere exercitationem pariatur deserunt tempora molestiae assumenda nesciunt alias eius? Illo, autem!<span class="text-lg leading-none italic font-bold text-gray-400 ml-1">"</span></p>
+                                        <p class="text-sm leading-tight"><span class="text-lg leading-none italic font-bold text-gray-400 mr-1">"</span>He logrado encontrar un monton de servicios utiles, todo gracias a esta increible pagina!<span class="text-lg leading-none italic font-bold text-gray-400 ml-1">"</span></p>
                                     </div>
                                 </div>
                                 <div class="w-full mx-auto rounded-lg bg-white border border-gray-200 p-5 text-gray-800 font-light mb-6">
@@ -94,11 +94,11 @@ function Emprev() {
                                             <img src="https://i.pravatar.cc/100?img=6" alt=""/>
                                         </div>
                                         <div class="flex-grow pl-3">
-                                            <h6 class="font-bold text-sm uppercase text-gray-600">Kris Stanton.</h6>
+                                            <h6 class="font-bold text-sm uppercase text-gray-600">Cristian Paredes</h6>
                                         </div>
                                     </div>
                                     <div class="w-full">
-                                        <p class="text-sm leading-tight"><span class="text-lg text-gray-400 mr-1">"</span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem iusto, explicabo, cupiditate quas totam!<span class="text-lg text-gray-400 ml-1">"</span></p>
+                                        <p class="text-sm leading-tight"><span class="text-lg text-gray-400 mr-1">"</span>Mi pyme ha crecido demasiado gracias a esta pagina, me la recomendo un conocido, nunca pense que seria tan util<span class="text-lg text-gray-400 ml-1">"</span></p>
                                     </div>
                                 </div>
                             </div>
