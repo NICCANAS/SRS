@@ -124,7 +124,7 @@ function ListServs() {
                         </a>
                     </li>
 
-                    <li>
+                    {/* <li>
                         <a onClick={() => setActive("HistoUsu")} class="flex items-center space-x-3 text-gray-700 p-2 rounded-md font-medium hover:bg-gray-200 focus:bg-gray-200 focus:shadow-outline">
                             <span class="text-gray-600">
                                 <svg class="h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -133,7 +133,7 @@ function ListServs() {
                             </span>
                             <span>Historial servicios</span>
                         </a>
-                    </li>
+                    </li> */}
 
                     <li>
                         <a onClick={() => setActive("resennaUsu")} class="flex items-center space-x-3 text-gray-700 p-2 rounded-md font-medium hover:bg-gray-200 focus:bg-gray-200 focus:shadow-outline">
@@ -178,7 +178,7 @@ function ListServs() {
                     {active === "Cardserv" && carservConst}
                     {active === "SeguirServ" && <Seguiserv/>}
                     {active === "Cambiarperfil" && <PerfilUsu/>}
-                    {active === "HistoUsu" && <HistoUsu/>}
+                   {/*  {active === "HistoUsu" && <HistoUsu/>} */}
                     {active === "resennaUsu" && <ResennaPorqueria />}
                 </div>
             </div>
