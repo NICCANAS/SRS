@@ -33,11 +33,11 @@ function AlmostPay(props, { children }) {
         }
         setcheckboxSelected(auxiliar);
 
-        if (auxiliar.length > 0) {
+        /* if (auxiliar.length > 0) {
             setBotonActivo(true)
         } else {
             setBotonActivo(true)
-        }
+        } */
     }
 
     //API de oracle
@@ -53,14 +53,16 @@ function AlmostPay(props, { children }) {
 
     async function createWebpayButton() {
         let maxID = await returnOracle("SELECT NVL(MAX(ID_ORD), 0) FROM ORDEN_SERV");
-        let orderID = maxID+1;
-        let sqlresponse = await returnOracle("INSERT INTO ORDEN_SERV VALUES("+orderID+",'prueba_ini','prueba_fin',"+props.id+","+999999999+","+4+","+0+")");
+        let orderID = parseInt(maxID)+1;
+        /*let sqlresponse =*/ await returnOracle("INSERT INTO ORDEN_SERV VALUES("+orderID+",'prueba_ini','prueba_fin',"+props.id+","+999999999+","+4+","+1+","+0+")");
         const params  = {
             buy_order: orderID,
             amount: props.valor,//recoger el valor del prop para pasarlo a la funcion webpay
           }
         const res = await axios.get('http://127.0.0.1:8000/webpayAPI/', { params });
         setWebpay(res.data);
+        //Establecer que se pueda ocupar el formulario despues de establecer los objetos de webpay
+        setBotonActivo(true);
     }
 
     console.log(fechaseleccionada)
@@ -177,7 +179,7 @@ function AlmostPay(props, { children }) {
 
                             <form method="post" action={webpayData.url}>
                                 <input type="hidden" name="token_ws" value={webpayData.token}/>
-                                <input disabled={!botonActivo} type="submit" value={'Ir a pagar: $'+webpayData.amount} className='bg-green-600 px-5 py-3 text-xs font-medium text-white hover:bg-green-500'/>
+                                <input disabled={!botonActivo} type="submit" value="Ir a pagar" className='bg-green-600 px-5 py-3 text-xs font-medium text-white hover:bg-green-500'/>
                             </form>
                         </div>
                     </div>
