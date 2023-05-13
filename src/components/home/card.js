@@ -11,9 +11,10 @@ function Card() {
                                 <div className="flex items-center gap-4">
                                     <img
                                         alt="Man"
-                                        src="https://avatars.githubusercontent.com/u/101841361?s=400&u=0c98e9da99e7f8e1d0d9c954d43d7c02470112bf&v=4"
+                                        src="https://i.ibb.co/T2tDCRv/5917a21e0f31394f3502542c.png"
                                         className="h-16 w-16 rounded-full object-cover"
                                     />
+                                    
                                     <div>
                                         <div className="flex justify-center gap-0.5 text-green-500">
                                             <svg
@@ -58,7 +59,7 @@ function Card() {
                                             </svg>
                                         </div>
 
-                                        <p className="mt-1 text-lg font-medium text-gray-700">Nikolai Cañas</p>
+                                        <p className="mt-1 text-lg font-medium text-gray-700">Nicolas Cañas</p>
                                     </div>
                                 </div>
 
@@ -129,7 +130,7 @@ function Card() {
                                             </svg>
                                         </div>
 
-                                        <p className="mt-1 text-lg font-medium text-gray-700">Francisca Czes</p>
+                                        <p className="mt-1 text-lg font-medium text-gray-700">Francisca Cruz</p>
                                     </div>
                                 </div>
 
@@ -200,7 +201,7 @@ function Card() {
                                             </svg>
                                         </div>
 
-                                        <p className="mt-1 text-lg font-medium text-gray-700">Paul Starr</p>
+                                        <p className="mt-1 text-lg font-medium text-gray-700">Carlos Rodriguez</p>
                                     </div>
                                 </div>
 
