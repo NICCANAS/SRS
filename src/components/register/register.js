@@ -24,7 +24,7 @@ function Register() {
     //const [imageUrl, setImageUrl] = useState('');//url de la imagen que devolvera github
 
     //Establecer las constantes (set)
-    const rutChange = event => { setRut(event.target.value); console.log(rut) };
+    const rutChange = event => { setRut(event.target.value);};
     const emailChange = event => { setEmail(event.target.value); };
     const passChange = event => { setPassword(event.target.value); };
     const confPassChange = event => { setConfPassword(event.target.value); };
@@ -68,6 +68,8 @@ function Register() {
         console.log(array);
     }
 
+    
+
     //API de oracle
     async function returnOracle(string) {
         const params = {
@@ -78,7 +80,6 @@ function Register() {
     }
 
     //subir imagen a github y retornar url
-    //const uploadImage = async () => {
     async function uploadImage() {
         console.log("si funciona github")
         return new Promise((resolve, reject) => {
