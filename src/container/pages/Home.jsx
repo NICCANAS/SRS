@@ -7,7 +7,6 @@ import Card from "../../components/home/card";
 import Endwave from "../../components/home/endwave";
 import Emprev from "../../components/home/emprev";
 import Endhome from "../../components/home/endhome";
-import Testeando from "../../components/home/testeando";
 
 function Home () {
     return (
@@ -20,7 +19,6 @@ function Home () {
             <Emprev/>
             <Endhome/>
             <Footer/>
-            <Testeando/>
         </Layout>
     )
 

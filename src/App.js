@@ -13,9 +13,11 @@ import CasiMoney from './container/pages/CasiMoney';
 import Password from './container/pages/forgot-password';
 import WebpayTransaction from './container/pages/webpay';
 import Empresa from './container/pages/Empresa';
+import Perfilemp from './components/list-empress/mi-empresa';
 
 
 function App() {
+  
   return (
     <Provider store={store}>
       <Router>
@@ -42,7 +44,8 @@ function App() {
           <Route path='/webpayTransaction' element={<WebpayTransaction/>}/>
           {/*Listado de Empresa*/}
           <Route path="/Empresa" element={<Empresa />} />
-
+          {/* Perfil de la empresa */}
+          <Route path="/Perfilemp/:empID" element={<Perfilemp />} />
         </Routes>
       </Router>
     </Provider>
