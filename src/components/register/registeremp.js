@@ -18,12 +18,12 @@ function Registeremp() {
     const [name, setName] = useState('');//nombre
     const [direction, setDirection] = useState('');//apellido
     const [phone, setPhone] = useState('');//celular
-    const [comunaId, setComunaId] = useState(0);//id comuna
-    const [tipoId, setTipoId] = useState(0);//tipo empresa
+    const [comunaId, setComunaId] = useState(1);//id comuna
+    const [tipoId, setTipoId] = useState(1);//tipo empresa
 
     //Imagen del formulario
     const [image, setImage] = useState(null);//La imagen que se recojera del input (blob)
-    const [imageUrl, setImageUrl] = useState('');//url de la imagen que devolvera github
+    //const [imageUrl, setImageUrl] = useState('');//url de la imagen que devolvera github
 
     //Establecer las constantes (set)
     const rutChange = event => { setRut(event.target.value); };
@@ -99,36 +99,52 @@ function Registeremp() {
     }
 
     //subir imagen a github y retornar url
-    const uploadImage = async () => {
-        const fileReader = new FileReader();
-        fileReader.readAsDataURL(image);
-        fileReader.onload = async () => {
-            const base64Image = fileReader.result.split(',')[1];
+    //const uploadImage = async () => {
+    async function uploadImage() {
+        console.log("si funciona github")
+        return new Promise((resolve, reject) => {
+            const fileReader = new FileReader();
+            
+            fileReader.onload = async () => {
+                const base64Image = fileReader.result.split(',')[1];
 
-            // Agrega tus propias credenciales
-            const GITHUB_USERNAME = 'Jordan108';
-            const GITHUB_TOKEN = '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';//Token de github, se elimina despues de 30 dias desde el 07/05
-            const REPO_NAME = 'reactImage';
-            const FILE_PATH = 'Empresas';
-            const FILE_NAME = 'EmpProfile_' + rut + '.png';
+                // Agrega tus propias credenciales
+                const GITHUB_USERNAME = 'Jordan108';
+                const GITHUB_TOKEN = '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';//Token de github, se elimina despues de 30 dias desde el 07/05
+                const REPO_NAME = 'reactImage';
+                const FILE_PATH = 'Empresas';
+                const FILE_NAME = 'EmpProfile_' + rut + '.png';
 
-            const uploadUrl = `https://api.github.com/repos/${GITHUB_USERNAME}/${REPO_NAME}/contents/${FILE_PATH}/${FILE_NAME}`;
+                const uploadUrl = `https://api.github.com/repos/${GITHUB_USERNAME}/${REPO_NAME}/contents/${FILE_PATH}/${FILE_NAME}`;
 
-            const response = await axios({
-                method: 'PUT',
-                url: uploadUrl,
-                headers: {
-                    'Authorization': `token ${GITHUB_TOKEN}`,
-                    'Content-Type': 'application/json'
-                },
-                data: {
-                    message: `Upload ${FILE_NAME}`,
-                    content: base64Image//formData.get('file')
-                }
-            });
-            setImageUrl(response.data.content.download_url)
-            //console.log(response.data.content.download_url);
-        };
+                const response = await axios({
+                    method: 'PUT',
+                    url: uploadUrl,
+                    headers: {
+                        'Authorization': `token ${GITHUB_TOKEN}`,
+                        'Content-Type': 'application/json'
+                    },
+                    data: {
+                        message: `Upload ${FILE_NAME}`,
+                        content: base64Image//formData.get('file')
+                    }
+                });
+                //setImageUrl(response.data.content.download_url)
+                console.log(response.data.content.download_url);
+                //return response.data.content.download_url
+                //setImageUrl(response.data.content.download_url);
+                resolve(response.data.content.download_url);
+            };
+
+            //Manejar el estado de error
+            fileReader.onerror = (error) => {
+                reject("");//devolvera un string vacio
+              };
+            
+              //Carga la imagen
+              fileReader.readAsDataURL(image);
+        });
+        //return imageReturn
     };
 
     function valFormFrontEnd() {
@@ -193,9 +209,9 @@ function Registeremp() {
             return //terminar la funcion submit sin subir
         }
 
-        await uploadImage();//El propio script establece el url, con rut como id
+        let githubURL = await uploadImage();//El propio script establece el url, con rut como id
         //Insert del usuario en la base de datos
-        await returnOracle("INSERT INTO EMPRESA VALUES("+rut+",'"+name+"','" + direction + "'," + tipoId + "," + comunaId + ",'" + email + "'," + phone + ",'" + password + "','" + imageUrl + "')");
+        await returnOracle("INSERT INTO EMPRESA VALUES("+rut+",'"+name+"','" + direction + "'," + tipoId + "," + comunaId + ",'" + email + "'," + phone + ",'" + password + "','" + githubURL + "')");
         //Loguear al usuario con local storage
         localStorage.setItem('loggedId', rut);
         localStorage.setItem('loggedType', 'emp');
