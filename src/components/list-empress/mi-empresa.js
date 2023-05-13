@@ -20,21 +20,18 @@ function MyEmp() {
                                 <h3 class="font-bold uppercase text-black-900">
                                     Fukashigi No Cartón
                                 </h3>
-                                {/* Descripcion de la empresa */}
-                                <p class="mt-6 text-justify text-gray-700">
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae
-                                    dolores, possimus pariatur animi temporibus nesciunt praesentium dolore
-                                    sed nulla ipsum eveniet corporis quidem, mollitia itaque minus soluta,
-                                    voluptates neque explicabo tempora nisi culpa eius atque dignissimos.
-                                    Molestias explicabo corporis voluptatem?
-                                </p>
                                 {/* Correo empresa */}
                                 <h3 class="mt-5 font-bold uppercase text-black-900 p-2">Correo</h3>
-                                <h2>MyEmpresa@negocios.cl</h2>
+                                <h2 class="m-3">MyEmpresa@negocios.cl</h2>
                                 <br />
                                 {/* Numero de la empresa */}
                                 <h3 class="font-bold uppercase text-black-900 p-2">Numero de contacto</h3>
-                                <h2>+56912345678</h2>
+                                <h2 class="m-3">+56912345678</h2>
+                            </div>
+
+                            <div class="my-14">
+                                <h3 class="font-bold uppercase text-black-900 p-2">Dirección</h3>
+                                <h2 class="m-3">Las rejas #54</h2>
                             </div>
                         </div>
                     </div>
