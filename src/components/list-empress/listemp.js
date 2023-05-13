@@ -1,16 +1,21 @@
 import { connect } from 'react-redux'
-import IniEmp from '../list-empress/ini-servs'
+//import IniEmp from '../list-empress/ini-servs'
 import AddServ from '../list-empress/add-servs'
 import SeguiServ from '../list-empress/seguimiento'
 import HisEmp from '../list-empress/history-servs'
 import PerfilEmp from '../list-empress/perfilemp'
 import ModEmp from '../list-empress/mod-servs'
 import MyEmp from '../list-empress/mi-empresa'
+import CardServsemp from "../list-empress/cardEmp"
 import { useState } from 'react'
 
 
 
 function ListEmp() {
+    //ID usuario activo
+    const userID = localStorage.getItem('loggedId');
+    const userType = localStorage.getItem('loggedType');
+    
     const [active, setActive] = useState("IniEmp")
 
     return (
@@ -106,7 +111,7 @@ function ListEmp() {
             <div class="w-9/12">
                 <div class="p-4 bg-gradient-to-b from-gray-300 to-gray-100">
                     {/* Aca solo se va mostrar los servicios de la empresa registrada */}
-                    {active === "IniEmp" && <IniEmp />}
+                    {active === "IniEmp" && <CardServsemp/>}
                     {/* Aca en addservs la empresa agrega servicios.*/}
                     {active === "add-servs" && <AddServ />}
                     {/* Aca es un seguimiento de los clientes pedidos por los usuarios*/}

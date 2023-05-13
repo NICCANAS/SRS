@@ -17,6 +17,10 @@ import { esES } from '@mui/x-date-pickers/locales';
 
 
 function AlmostPay(props, { children }) {
+    //ID usuario activo
+    const userID = localStorage.getItem('loggedId');
+    const userType = localStorage.getItem('loggedType');
+
     const [fechaseleccionada, CambiarFechSelect] = useState(new Date());
     const [webpayData, setWebpay] = useState("");
     const [botonActivo, setBotonActivo] = useState(false);
@@ -33,11 +37,6 @@ function AlmostPay(props, { children }) {
         }
         setcheckboxSelected(auxiliar);
 
-        /* if (auxiliar.length > 0) {
-            setBotonActivo(true)
-        } else {
-            setBotonActivo(true)
-        } */
     }
 
     //API de oracle
@@ -54,7 +53,7 @@ function AlmostPay(props, { children }) {
     async function createWebpayButton() {
         let maxID = await returnOracle("SELECT NVL(MAX(ID_ORD), 0) FROM ORDEN_SERV");
         let orderID = parseInt(maxID)+1;
-        /*let sqlresponse =*/ await returnOracle("INSERT INTO ORDEN_SERV VALUES("+orderID+",'prueba_ini','prueba_fin',"+props.id+","+999999999+","+4+","+1+","+0+")");
+        /*let sqlresponse =*/ await returnOracle("INSERT INTO ORDEN_SERV VALUES("+orderID+",'"+fechaseleccionada.toString()+"','',"+props.id+","+userID+","+4+","+1+","+0+")");
         const params  = {
             buy_order: orderID,
             amount: props.valor,//recoger el valor del prop para pasarlo a la funcion webpay
