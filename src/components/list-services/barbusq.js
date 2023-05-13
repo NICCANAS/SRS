@@ -8,7 +8,7 @@ import FormControl from '@mui/material/FormControl';
 function Barbusq() {
 
 
-    /* El cumstate coge el "FechaNew para que se seleccione automaticamente ah y use el formControll que era del mui que era lib del calendario" */
+    /* El const coge el "FechaNew para que se seleccione automaticamente ah y use el formControll que era del mui que era lib del calendario" */
     const [value, setValue] = React.useState('FechaNew');
 
     const handleChange = (event) => {
@@ -52,7 +52,7 @@ function Barbusq() {
                                         <span class="text-sm text-gray-700"> Filtrar por</span>
                                     </header>
 
-                                    {/* Aca se hace el radioCulon Para el filtrado de fecha, Por lo visto deje por defecto que la consulta sea por la mas nueva joldan no me pegues por favor */}
+                                    {/* Aca se hace el radioButton Para el filtrado de fecha*/}
 
                                     <FormControl class='space-y-1 border-t border-gray-200 p-4'>
                                         <RadioGroup

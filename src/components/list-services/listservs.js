@@ -6,7 +6,7 @@ import PerfilUsu from './perfilusu'
 import HistoUsu from './histoServusu'
 import ResennaPorqueria from './resennausu'
 import React from 'react'
-import { useNavigate  } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react'
 import axios from 'axios';
 
@@ -33,7 +33,7 @@ function ListServs() {
         }
     });
 
-    function closeSession(){
+    function closeSession() {
         localStorage.removeItem('loggedId');//Eliminar el id del usuario en localStorage
         localStorage.removeItem('loggedType');//Eliminar el tipo de usuario (cliente-empresa)
         //Mandarlo al login
@@ -50,16 +50,16 @@ function ListServs() {
     }
 
     //Recoger los datos del usuario
-    async function setUserDataOracle(){
-        if (userType == "cli"){
-            let data = await returnOracle("SELECT NOM_CLI, IMG_PERF FROM CLIENTE WHERE RUT_CLI="+userID);
+    async function setUserDataOracle() {
+        if (userType == "cli") {
+            let data = await returnOracle("SELECT NOM_CLI, IMG_PERF FROM CLIENTE WHERE RUT_CLI=" + userID);
             setUserData(data[0]);//los datos se devuelven como un array de un array
-            
-        } else if (userType == "emp"){
-            let data = await returnOracle("SELECT NOM_EMP, IMG_EMP FROM EMPRESA WHERE RUT_EMP="+userID);
+
+        } else if (userType == "emp") {
+            let data = await returnOracle("SELECT NOM_EMP, IMG_EMP FROM EMPRESA WHERE RUT_EMP=" + userID);
             setUserData(data[0]);//los datos se devuelven como un array de un array
-            
-        } else{
+
+        } else {
             //Aqui devolver a la pagina principal, pues, si no tiene tipo, no esta logeado
             //La validacion de la redireccion se hace en App.js
             console.log("No esta logueado")
@@ -74,18 +74,18 @@ function ListServs() {
     }
 
     //Recorrer la constante, crear los componentes y almacenarlos dentro de otra constante para poder llamarlo en front-end
-    const carservConst =  servicios.map((sv) => (
-        <CardServs 
-        id={sv[0]} 
-        nombre={sv[1]} 
-        descripcion={sv[2]}
-        valor={sv[3]}
-        direccion={sv[4]}
-        dias={sv[5]}
-        horas={sv[6]}
-        tipoId={sv[7]}
-        empresaRut={sv[8]}
-        imagenUrl={sv[9]}/>
+    const carservConst = servicios.map((sv) => (
+        <CardServs
+            id={sv[0]}
+            nombre={sv[1]}
+            descripcion={sv[2]}
+            valor={sv[3]}
+            direccion={sv[4]}
+            dias={sv[5]}
+            horas={sv[6]}
+            tipoId={sv[7]}
+            empresaRut={sv[8]}
+            imagenUrl={sv[9]} />
     ));
 
     return (
@@ -95,7 +95,7 @@ function ListServs() {
                     {/* Rescatar perfil del usuario */}
                     <img class="h-12 rounded-full" alt='fotousu' src={userData[1]} />
                     <div>
-                    {/* Rescatar nombre del usuario */}
+                        {/* Rescatar nombre del usuario */}
                         <h4 class="font-semibold text-lg text-gray-700 capitalize font-poppins tracking-wide">{userData[0]}</h4>
                         <span class="text-sm tracking-wide flex items-center space-x-1">
                         </span>
@@ -104,8 +104,8 @@ function ListServs() {
                 {/* Listado de opciones */}
                 <ul class="space-y-2 text-sm">
                     <li>
-                        <a onClick={() => setActive("Cardserv")} class="flex items-center space-x-3 text-gray-700 p-2 rounded-md font-medium hover:bg-gray-200 bg-gray-200 focus:shadow-outline">
-                            <span class="text-gray-600">
+                        <a onClick={() => setActive("Cardserv")} className="flex items-center space-x-3  p-2 rounded-md font-medium hover:bg-gray-200  focus:shadow-outline">
+                            <span className="text-gray-600">
                                 <svg class="h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                                 </svg>
@@ -115,8 +115,8 @@ function ListServs() {
                     </li>
                     <li>
                         <a onClick={() => setActive("SeguirServ")} class="flex items-center space-x-3 text-gray-700 p-2 rounded-md font-medium hover:bg-gray-200 focus:bg-gray-200 focus:shadow-outline">
-                            <span class="text-gray-600">
-                                <svg class="h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <span className="text-gray-600">
+                                <svg className="h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"></path>
                                 </svg>
                             </span>
@@ -126,8 +126,8 @@ function ListServs() {
 
                     <li>
                         <a onClick={() => setActive("HistoUsu")} class="flex items-center space-x-3 text-gray-700 p-2 rounded-md font-medium hover:bg-gray-200 focus:bg-gray-200 focus:shadow-outline">
-                            <span class="text-gray-600">
-                                <svg class="h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <span className="text-gray-600">
+                                <svg className="h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
                                 </svg>
                             </span>
@@ -176,9 +176,9 @@ function ListServs() {
                     {/* La barra de busqueda */}
                     {active === "Cardserv" && <Barbusq />}
                     {active === "Cardserv" && carservConst}
-                    {active === "SeguirServ" && <Seguiserv/>}
-                    {active === "Cambiarperfil" && <PerfilUsu/>}
-                    {active === "HistoUsu" && <HistoUsu/>}
+                    {active === "SeguirServ" && <Seguiserv />}
+                    {active === "Cambiarperfil" && <PerfilUsu />}
+                    {active === "HistoUsu" && <HistoUsu />}
                     {active === "resennaUsu" && <ResennaPorqueria />}
                 </div>
             </div>

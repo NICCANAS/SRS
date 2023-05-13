@@ -4,7 +4,7 @@ function CardServsemp() {
     return (
 
         /* Aca jordan solo quiero que se liste los servicios para ver que servicios tiene esa empresa
-        Ej: Que la empresa joemama tiene 20 trabajos que se listen solo los 20 servicios que tiene joemama nada mas.
+        Ej: Que la empresa x tiene 20 trabajos que se listen solo los 20 servicios que tiene joemama nada mas.
         */
         <div class="w-9/12 items-center m-8">
             <article class="flex bg-white transition hover:shadow-xl">
