@@ -5,6 +5,7 @@ import SeguiServ from '../list-empress/seguimiento'
 import HisEmp from '../list-empress/history-servs'
 import PerfilEmp from '../list-empress/perfilemp'
 import ModEmp from '../list-empress/mod-servs'
+import MyEmp from '../list-empress/mi-empresa'
 import { useState } from 'react'
 
 
@@ -15,7 +16,7 @@ function ListEmp() {
     return (
         <div class="flex flex-wrap bg-gray-100 w-full h-screen">
             <div class="w-3/12 bg-white rounded p-3 shadow-lg">
-                <div class="flex items-center space-x-4 p-2 mb-5">
+                <div onClick={() => setActive("MyEmp")} class="flex items-center space-x-4 p-2 mb-5">
                     <img class="h-12 rounded-full" alt='fotousu' src="https://avatars.githubusercontent.com/u/102192880?v=4" />
                     <div>
                         <h4 class="font-semibold text-lg text-gray-700 capitalize font-poppins tracking-wide">Empresa</h4>
@@ -116,6 +117,8 @@ function ListEmp() {
                     {active === "PerfilEmp" && <PerfilEmp />}
                     {/* Acá invoca al componente de modificar servicio */}
                     {active === "ModEmp" && <ModEmp />}
+                    {/*Acá invoco al componente de mi Empresa*/}
+                    {active === "MyEmp" && <MyEmp/>}
 
                 </div>
             </div>
