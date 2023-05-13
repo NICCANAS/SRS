@@ -21,7 +21,7 @@ function App() {
       <Router>
         <Routes>
           {/*error 404*/}
-          <Route path="*" element={<Error404 />} />
+          <Route path="*" element={<Error404 />}/>
           {/*Home*/}
           <Route path="/" element={<Home />} />
           {/*Login*/}

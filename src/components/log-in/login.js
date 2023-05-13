@@ -63,8 +63,9 @@ function Login() {
         if (res == 1) {
             //Guardar la id del usuario activo mas tipo cliente
             let rut = await oracleGetRut();
-            localStorage.setItem('loggedId', rut);//Debo cambiar esto a session storage
-            localStorage.setItem('loggedType', 'cli');//Debo cambiar esto a session storage
+            //Loguear al usuario con local storage
+            localStorage.setItem('loggedId', rut);
+            localStorage.setItem('loggedType', 'cli');
             //Subir el formulario para pasar de pagina
             formRef.current.submit();
         } else {

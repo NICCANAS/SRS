@@ -173,6 +173,9 @@ function Register() {
         await uploadImage();//El propio script establece el url, con rut como id
         //Insert del usuario en la base de datos
         let sqlresponse = await returnOracle("INSERT INTO CLIENTE VALUES(" + rut + ",'" + name + "','" + lastName + "','" + email + "'," + comunaId + "," + phone + ",'" + password + "','" + imageUrl + "')");
+        //Loguear al usuario con local storage
+        localStorage.setItem('loggedId', rut);
+        localStorage.setItem('loggedType', 'cli');
         formRef.current.submit();
     }
 

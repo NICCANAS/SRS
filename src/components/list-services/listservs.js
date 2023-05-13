@@ -6,6 +6,7 @@ import PerfilUsu from './perfilusu'
 import HistoUsu from './histoServusu'
 import ResennaPorqueria from './resennausu'
 import React from 'react'
+import { useNavigate  } from 'react-router-dom';
 import { useState, useEffect } from 'react'
 import axios from 'axios';
 
@@ -13,11 +14,14 @@ function ListServs() {
     //ID usuario activo
     const userID = localStorage.getItem('loggedId');
     const userType = localStorage.getItem('loggedType');
-    const [userData, setUserData] = useState([])
 
+    const [userData, setUserData] = useState([])
     const [cancellUseEffect, setCancel] = useState(false);
     const [active, setActive] = useState("Cardserv")
     const [servicios, setServicios] = useState([]);//Establecer los servicios
+
+    //Redireccion
+    const navigate = useNavigate();
 
     ///////////////////////////////Funciones
     useEffect(() => {
@@ -28,6 +32,13 @@ function ListServs() {
             setCancel(true);
         }
     });
+
+    function closeSession(){
+        localStorage.removeItem('loggedId');//Eliminar el id del usuario en localStorage
+        localStorage.removeItem('loggedType');//Eliminar el tipo de usuario (cliente-empresa)
+        //Mandarlo al login
+        navigate('/Login');
+    }
 
     //API de oracle
     async function returnOracle(string) {
@@ -42,16 +53,15 @@ function ListServs() {
     async function setUserDataOracle(){
         if (userType == "cli"){
             let data = await returnOracle("SELECT NOM_CLI, IMG_PERF FROM CLIENTE WHERE RUT_CLI="+userID);
-            setUserData(data[0]);
-            console.log(data[0]);
+            setUserData(data[0]);//los datos se devuelven como un array de un array
             
         } else if (userType == "emp"){
             let data = await returnOracle("SELECT NOM_EMP, IMG_EMP FROM EMPRESA WHERE RUT_EMP="+userID);
-            setUserData(data[0]);
-            console.log(data[0]);
+            setUserData(data[0]);//los datos se devuelven como un array de un array
             
         } else{
             //Aqui devolver a la pagina principal, pues, si no tiene tipo, no esta logeado
+            //La validacion de la redireccion se hace en App.js
             console.log("No esta logueado")
         }
     }
@@ -148,7 +158,7 @@ function ListServs() {
                     </li>
 
                     <li>
-                        <a class="flex items-center space-x-3 text-gray-700 p-2 rounded-md font-medium hover:bg-gray-200 focus:bg-gray-200 focus:shadow-outline">
+                        <a onClick={() => closeSession()} class="flex items-center space-x-3 text-gray-700 p-2 rounded-md font-medium hover:bg-gray-200 focus:bg-gray-200 focus:shadow-outline">
                             <span class="text-gray-600">
                                 <svg class="h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />

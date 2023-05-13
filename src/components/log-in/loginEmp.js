@@ -63,6 +63,7 @@ function LoginEmp() {
         if (res == 1) {
             //Guardar la id del usuario activo mas tipo empresa
             let rut = await oracleGetRut();
+            //Loguear al usuario con local storage
             localStorage.setItem('loggedId', rut);
             localStorage.setItem('loggedType', 'emp');
             //Subir el formulario para pasar de pagina

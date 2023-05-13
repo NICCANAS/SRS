@@ -1,13 +1,13 @@
 import { connect } from 'react-redux'
 import { ReactComponent as SvgMalito } from './../svg/malo.svg'
-function HistoUsu() {
+function HistoUsu(props) {
 
-    const [Taweno, setTawenolatrans] = useState({});
+    //const [Taweno, setTawenolatrans] = useState({});
 
 
 
-    /* Aca deberia ser el return si es 1 la transaccion es completada */
-    if (Taweno == 1) {
+    /* Transaccion completada correctamente */
+    if (props.code == 0) {
         return (
             <section class="py-24">
                 <div class="container px-4 mx-auto">
@@ -25,7 +25,7 @@ function HistoUsu() {
                             <div class="absolute top-0 left-0 transform -translate-y-1 -translate-x-1 w-full h-full group-hover:translate-y-0 group-hover:translate-x-0 transition duration-300">
                                 <div class="flex h-full w-full items-center justify-center bg-green-600 border-2 border-black rounded-md">
                                     {/* Aca deberia de devolver al inicio de la pagina  */}
-                                    <a class="text-base font-black text-black">Volver al inicio</a>
+                                    <a href="/Listservs" class="text-base font-black text-black">Volver al inicio</a>
                                 </div>
                             </div>
                         </a>
@@ -33,29 +33,31 @@ function HistoUsu() {
                 </div>
             </section>
         )
-            /* Weno si la transaccion no esta completada deberia de llevarlo a este Else */
+        /* Transaccion sin completar, vease por error al pagar o por compra anulada */
     } else {
-        <section class="py-24">
-            <div class="container px-4 mx-auto">
-                <div class="max-w-2xl mx-auto text-center">
-                    <span class="inline-block mx-auto mb-6">
-                        {/* Recordar cambiar la foto de X  */}
-                        <SvgMalito/>
-                    </span>
-                    <span class="block mb-1 text-sm font-bold text-indigo-500">Transaccion Fallida :c </span>
-                    <h3 class="text-2xl font-black mb-5">Su orden no fue registrada en la página</h3>
-                    <p class="text-lg font-bold mb-12">Vuelva a realizar la compra si es que tiene error </p>
-                    <a class="group relative inline-block h-12 w-full xs:w-60 bg-blueGray-900 rounded-md" href="#">
-                        <div class="absolute top-0 left-0 transform -translate-y-1 -translate-x-1 w-full h-full group-hover:translate-y-0 group-hover:translate-x-0 transition duration-300">
-                            <div class="flex h-full w-full items-center justify-center bg-green-600 border-2 border-black rounded-md">
-                                {/* Aca deberia de devolver al inicio de la pagina  */}
-                                <a class="text-base font-black text-black">Volver al inicio</a>
+        return (
+            <section class="py-24">
+                <div class="container px-4 mx-auto">
+                    <div class="max-w-2xl mx-auto text-center">
+                        <span class="inline-block mx-auto mb-6">
+                            {/* Recordar cambiar la foto de X  */}
+                            <SvgMalito />
+                        </span>
+                        <span class="block mb-1 text-sm font-bold text-indigo-500">Transaccion Fallida :c </span>
+                        <h3 class="text-2xl font-black mb-5">Su orden no fue registrada en la página</h3>
+                        <p class="text-lg font-bold mb-12">Vuelva a realizar la compra si es que tiene error </p>
+                        <a class="group relative inline-block h-12 w-full xs:w-60 bg-blueGray-900 rounded-md" href="#">
+                            <div class="absolute top-0 left-0 transform -translate-y-1 -translate-x-1 w-full h-full group-hover:translate-y-0 group-hover:translate-x-0 transition duration-300">
+                                <div class="flex h-full w-full items-center justify-center bg-green-600 border-2 border-black rounded-md">
+                                    {/* Aca deberia de devolver al inicio de la pagina  */}
+                                    <a href="/Listservs" class="text-base font-black text-black">Volver al inicio</a>
+                                </div>
                             </div>
-                        </div>
-                    </a>
+                        </a>
+                    </div>
                 </div>
-            </div>
-        </section>
+            </section>
+        )
     }
 
 }

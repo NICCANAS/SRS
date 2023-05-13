@@ -196,6 +196,9 @@ function Registeremp() {
         await uploadImage();//El propio script establece el url, con rut como id
         //Insert del usuario en la base de datos
         await returnOracle("INSERT INTO EMPRESA VALUES("+rut+",'"+name+"','" + direction + "'," + tipoId + "," + comunaId + ",'" + email + "'," + phone + ",'" + password + "','" + imageUrl + "')");
+        //Loguear al usuario con local storage
+        localStorage.setItem('loggedId', rut);
+        localStorage.setItem('loggedType', 'emp');
         formRef.current.submit();
     }
 

@@ -1,4 +1,5 @@
 import Layout from "../../hocs/layouts/layout"
+import Paymentsucc from "../../components/list-services/PaymentSucc"
 import React, { useState } from 'react';
 import axios from 'axios';
 
@@ -7,9 +8,17 @@ function WebpayTransaction() {
     const [finish, setFinish] = useState(false);
     const queryParameters = new URLSearchParams(window.location.search)
     const token = queryParameters.get("token_ws")
-
+    const badToken = queryParameters.get("TBK_TOKEN")
+    const badOrder = queryParameters.get("TBK_ORDEN_COMPRA")
+    
     if (!finish){    
-         webpayTokenStatus(token);
+        //Si no hubo problemas con la transaccion, pasar el token recogido
+        if (token != undefined) webpayTokenStatus(token);
+        //Si hubo problemas con la transaccion, eliminar la fila de la bdd
+        if (badToken != undefined){
+            console.log("Se cancelo la transaccion")
+            returnOracle("DELETE FROM ORDEN_SERV WHERE ID_ORD="+badOrder+"");
+        } 
         console.log("token: "+token);
         setFinish(true);//A veces el proceso entra en bucle
     }
@@ -48,10 +57,14 @@ function WebpayTransaction() {
 
     return (
         <Layout>
-        <p>El token es: {token}</p>
-        <p>El order id del token es: {webpayData.order_id}</p>
-        {webpayData.code === 0 && <p>La transaccion es valida</p>}
-        {webpayData.code === -1 && <p>La transaccion NO es valida</p>}
+        
+        {webpayData.code === 0 && <Paymentsucc code={0}/>}
+        {webpayData.code === -1 && <Paymentsucc code={-1}/>}
+
+        {/* Este es en caso de que se anule la compra de webpay, lo que provocara que no se devuelva el token normal */}
+        {badToken != undefined && <Paymentsucc code={-1}/>}
+        
+        
         </Layout>
     )
 }
