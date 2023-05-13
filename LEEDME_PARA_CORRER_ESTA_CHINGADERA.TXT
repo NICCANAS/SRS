@@ -24,6 +24,8 @@ npm i @headlessui/react --force
 npm i react-spinners --force 
 npm i react-simple-typewriter --force
 npm i tw-elements --force 
+npm install dayjs --force
+npm install @mui/x-date-pickers --force
 
 ////Paquetes para backend
 Django 4.2 | pip install django
