@@ -54,7 +54,7 @@ class WebpayAPI(APIView):
       response = (Transaction()).commit(token=token)
       print("response: {}".format(response))
 
-      return Response({'order_id': response['buy_order'], 'status': response['status'], 'code': response['response_code']},status=status.HTTP_200_OK)
+      return Response({'order_id': int(response['buy_order']), 'status': response['status'], 'code': response['response_code']},status=status.HTTP_200_OK)
       #return render_template('webpay/plus/commit.html', token=token, response=response)
 
 class WspAPI(APIView):

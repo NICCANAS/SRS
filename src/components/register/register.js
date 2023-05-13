@@ -158,9 +158,15 @@ function Register() {
 
         //--Validacion en back end--
         //Primero tenemos que verificar si no existe un usuario que tenga ese rut o ese correo
-        let userExist = await returnOracle("SELECT COALESCE(COUNT(*), 0) FROM CLIENTE WHERE CORREO_CLI='" + email + "' AND RUT_CLI='" + rut + "'");
-        if (userExist > 0) {
-            console.log("el usuario con el email: " + email + " y rut: " + rut + " existe, no sirve")
+        let rutExist = await returnOracle("SELECT COALESCE(COUNT(*), 0) FROM CLIENTE WHERE CORREO_CLI='" + email + "'");
+        let emailExist = await returnOracle("SELECT COALESCE(COUNT(*), 0) FROM CLIENTE WHERE RUT_CLI='" + rut + "'");
+        if (rutExist != 0) {
+            alert("Ya existe un usuario registrado con el rut " + rut)
+            return //terminar la funcion submit sin subir
+        }
+
+        if (emailExist != 0){
+            alert("Ya existe un usuario registrado con el e-mail " + email)
             return //terminar la funcion submit sin subir
         }
 
@@ -207,7 +213,7 @@ function Register() {
                             </Link>
                         </div>
                         {/* Formulario */}
-                        <form onSubmit={onSubmitHandler} ref={formRef}>
+                        <form onSubmit={onSubmitHandler} ref={formRef} action="/Listservs">
                             {/* Input del rut */}
                             <div class="relative z-0 w-full mb-6 group">
                                 <input onChange={rutChange} value={rut} type="text" name="floating_rut" id="floating_rut" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
