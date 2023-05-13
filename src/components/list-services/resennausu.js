@@ -64,7 +64,7 @@ function ResennaPorqueria() {
     
     //Recoger los servicios que contrato el usuario en la base de datos
     async function setOrdenesOracle() {
-        let array = await returnOracle("SELECT ORD.SERVICIO_ID_SERV, SERV.NOM_SERV FROM ORDEN_SERV ORD  INNER JOIN SERVICIO SERV ON ORD.SERVICIO_ID_SERV=SERV.ID_SERV WHERE ORD.CLIENTE_RUT_CLI='"+userID+"'");
+        let array = await returnOracle("SELECT ORD.SERVICIO_ID_SERV, SERV.NOM_SERV FROM ORDEN_SERV ORD INNER JOIN SERVICIO SERV ON ORD.SERVICIO_ID_SERV=SERV.ID_SERV WHERE ORD.CLIENTE_RUT_CLI='"+userID+"'");
         setOrdenes(array);
         console.log(array);
     }
