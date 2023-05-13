@@ -59,7 +59,7 @@ function Card() {
                                             </svg>
                                         </div>
 
-                                        <p className="mt-1 text-lg font-medium text-gray-700">Nikolai Cañas</p>
+                                        <p className="mt-1 text-lg font-medium text-gray-700">Nicolas Cañas</p>
                                     </div>
                                 </div>
 
@@ -130,7 +130,7 @@ function Card() {
                                             </svg>
                                         </div>
 
-                                        <p className="mt-1 text-lg font-medium text-gray-700">Francisca Czes</p>
+                                        <p className="mt-1 text-lg font-medium text-gray-700">Francisca Cruz</p>
                                     </div>
                                 </div>
 
@@ -201,7 +201,7 @@ function Card() {
                                             </svg>
                                         </div>
 
-                                        <p className="mt-1 text-lg font-medium text-gray-700">Paul Starr</p>
+                                        <p className="mt-1 text-lg font-medium text-gray-700">Carlos Rodriguez</p>
                                     </div>
                                 </div>
 
