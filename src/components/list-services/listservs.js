@@ -3,7 +3,7 @@ import CardServs from "../../components/list-services/cardservs"
 import Barbusq from '../../components/list-services/barbusq'
 import Seguiserv from './Seguiserv'
 import PerfilUsu from './perfilusu'
-import HistoUsu from './histoServusu'
+//import HistoUsu from './histoServusu'
 import ResennaPorqueria from './resennausu'
 import React from 'react'
 import { useNavigate } from 'react-router-dom';

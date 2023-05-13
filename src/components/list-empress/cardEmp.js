@@ -1,16 +1,14 @@
 import { connect } from 'react-redux'
+//import CardServsemp from "../list-empress/cardEmp"
 
 function CardServsemp() {
     return (
 
-        /* Aca jordan solo quiero que se liste los servicios para ver que servicios tiene esa empresa
-        Ej: Que la empresa x tiene 20 trabajos que se listen solo los 20 servicios que tiene joemama nada mas.
-        */
+        /* Rescatar servicios de la empresa */
         <div class="w-9/12 items-center m-8">
             <article class="flex bg-white transition hover:shadow-xl">
-                <div class="rotate-180 p-2 [writing-mode:_vertical-lr]">
+                {/* <div class="rotate-180 p-2 [writing-mode:_vertical-lr]">
 
-                    {/* Esto de time Quiero que solo se rescate el dia que se creo la publicacion. */}
                     <time
                         datetime="2022-10-10"
                         class="flex items-center justify-between gap-4 text-xs font-bold uppercase text-gray-900"
@@ -19,8 +17,9 @@ function CardServsemp() {
                         <span class="w-px flex-1 bg-gray-900/10"></span>
                         <span>Oct 10</span>
                     </time>
-                </div>
+                </div> */}
 
+                {/* Imagen del servicio */}
                 <div class="hidden sm:block sm:basis-56">
                     <img
                         alt="peruanito"
