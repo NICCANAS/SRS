@@ -88,7 +88,7 @@ function Login() {
                                 <span class="sr-only">Icon description</span>
                             </Link>
                             <h1 class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
-                                Inicio de Sesion
+                                Inicio de Sesión
                             </h1>
                             {/* Cambio de componente */}
                             <div class="flex overflow-x-auto whitespace-nowrap">
