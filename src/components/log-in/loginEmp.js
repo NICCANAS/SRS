@@ -115,7 +115,7 @@ function LoginEmp() {
                                 </Link>
                             </div>
                             {/* Inicio del form */}
-                            <form class="space-y-4 md:space-y-6" action="/Listservs" onSubmit={onSubmitHandler} ref={formRef}>
+                            <form class="space-y-4 md:space-y-6" action="/Empresa" onSubmit={onSubmitHandler} ref={formRef}>
                                 <div>
                                     {/* Email */}
                                     <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Correo</label>

@@ -18,7 +18,7 @@ function CardServs(props) {
 
                 <div class="hidden sm:block sm:basis-56">
                     <img
-                        alt="Guitar"
+                        alt="service_img"
                         src={props.imagenUrl}
                         class="aspect-square h-full w-full object-cover"
                     />
