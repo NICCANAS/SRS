@@ -279,3 +279,22 @@ thumb
 sketch
 
 # End of https://www.toptal.com/developers/gitignore/api/react,python,django
+build/asset-manifest.json
+build/index.html
+build/static/css/main.12aae4b1.css.map
+build/static/css/main.12aae4b1.css
+build/static/css/main.b159cb70.css
+build/static/css/main.b159cb70.css.map
+build/static/js/main.6a8c8e85.js
+build/static/js/main.6a8c8e85.js.LICENSE.txt
+build/static/js/main.e731734b.js
+build/static/js/main.6a8c8e85.js.map
+build/static/js/main.e731734b.js.LICENSE.txt
+build/static/js/main.e731734b.js.map
+build/asset-manifest.json
+build/index.html
+build/static/css/main.b159cb70.css
+build/static/css/main.b159cb70.css.map
+build/static/js/main.e731734b.js
+build/static/js/main.e731734b.js.LICENSE.txt
+build/static/js/main.e731734b.js.map
