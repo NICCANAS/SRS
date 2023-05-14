@@ -261,7 +261,7 @@ function Registeremp() {
                             </Link>
                         </div>
                         {/* Formulario */}
-                        <form onSubmit={onSubmitHandler} ref={formRef} action="/Listservs">
+                        <form onSubmit={onSubmitHandler} ref={formRef} action="/Empresa">
                             <div class="grid md:grid-cols-2 md:gap-6">
                                 {/* Rut */}
                                 <div class="relative z-0 w-full  group">
