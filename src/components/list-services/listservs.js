@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
 import CardServs from "../../components/list-services/cardservs"
-import Barbusq from '../../components/list-services/barbusq'
+//import Barbusq from '../../components/list-services/barbusq'
 import Seguiserv from './Seguiserv'
 import PerfilUsu from './perfilusu'
 //import HistoUsu from './histoServusu'
@@ -174,7 +174,7 @@ function ListServs() {
             <div class="w-9/12">
                 <div class="p-4 text-gray-500">
                     {/* La barra de busqueda */}
-                    {active === "Cardserv" && <Barbusq />}
+                    {/* {active === "Cardserv" && <Barbusq />} */}
                     {active === "Cardserv" && carservConst}
                     {active === "SeguirServ" && <Seguiserv/>}
                     {active === "Cambiarperfil" && <PerfilUsu/>}

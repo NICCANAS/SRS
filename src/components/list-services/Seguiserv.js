@@ -5,13 +5,13 @@ import axios from 'axios';
 function SeguirServ() {
     //ID usuario activo
     const userID = localStorage.getItem('loggedId');
-    const userType = localStorage.getItem('loggedType');
+    //const userType = localStorage.getItem('loggedType');
     const [cancellUseEffect, setCancel] = useState(false);
-    const [ordenes, setOrdenes] = useState([]);//Establecer las comunas del combobox
+    const [ordenes, setOrdenes] = useState([]);//Establecer las ordenes de servicios
 
     ///FUNCIONES
     useEffect(() => {
-        //Establecer las comunas del combobox
+        //Establecer las ordenes creadas por el usuario
         if (!cancellUseEffect) {
             setOrdenesOracle();
             setCancel(true);

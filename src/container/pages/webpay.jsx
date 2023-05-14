@@ -58,8 +58,8 @@ function WebpayTransaction() {
     return (
         <Layout>
         
-        {webpayData.code === 0 && <Paymentsucc code={0}/>}
-        {webpayData.code === -1 && <Paymentsucc code={-1}/>}
+        {webpayData.code === 0 && <Paymentsucc code={0} order_id={webpayData.order_id}/>}
+        {webpayData.code === -1 && <Paymentsucc code={-1} order_id={webpayData.order_id}/>}
 
         {/* Este es en caso de que se anule la compra de webpay, lo que provocara que no se devuelva el token normal */}
         {badToken != undefined && <Paymentsucc code={-1}/>}
