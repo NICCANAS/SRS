@@ -4,6 +4,8 @@ import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react'
 import axios from 'axios';
 
+import { useNavigate } from 'react-router-dom';
+
 function CasiMoney () {
     const { serviceID } = useParams();
     const [cancellUseEffect, setCancel] = useState(false);
@@ -11,6 +13,20 @@ function CasiMoney () {
     
     const [resennaAVG, setResennaAVG] = useState(0);
     const [resennaCount, setResennaCount] = useState(0);//Cantidad de las reseñas (para ponerlo en parentesis)
+
+    //Redireccion
+    const userType = localStorage.getItem('loggedType');
+    const navigate = useNavigate();
+
+    console.log("userType: "+userType);
+    
+    if (userType == "emp"){
+        //Si esta logueado como empresa mandarlo a su respectivo contenedor
+        navigate('/Empresa');
+    } else if (userType == null){
+        //si no esta logueado, mandarlo al login cliente
+        navigate('/Login');
+    }
 
     ///////////////////////////////Funciones
     useEffect(() => {

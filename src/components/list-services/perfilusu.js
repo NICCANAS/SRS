@@ -43,7 +43,7 @@ function PerfilUsu() {
         return res.data.query[0];
     }
 
-    //Recoger las comunas desde la base de datos
+    //Recoger los datos del usuario
     async function setUserDataOracle() {
         let array = await returnOracle("SELECT NOM_CLI, CORREO_CLI FROM CLIENTE WHERE RUT_CLI='"+userID+"'");
         //setUserData(array);

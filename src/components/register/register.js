@@ -67,9 +67,7 @@ function Register() {
         setComunas(array);
         console.log(array);
     }
-
     
-
     //API de oracle
     async function returnOracle(string) {
         const params = {
@@ -163,6 +161,11 @@ function Register() {
             return false;
         }
 
+        if (image == null) {
+            alert('Debe ingresar una imagen de perfil')
+            return false;
+        }
+
         return true
     }
 
@@ -190,9 +193,7 @@ function Register() {
         let githubURL = await uploadImage();//El propio script establece el url, con rut como id
         //Insert del usuario en la base de datos
         //obligatoriamente tiene que esperar al github
-       // while (imageUrl != '') {
         await returnOracle("INSERT INTO CLIENTE VALUES(" + rut + ",'" + name + "','" + lastName + "','" + email + "'," + comunaId + "," + phone + ",'" + password + "','" + githubURL + "')");
-        //}
 
         //Loguear al usuario con local storage
         localStorage.setItem('loggedId', rut);

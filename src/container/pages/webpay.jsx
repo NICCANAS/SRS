@@ -2,6 +2,7 @@ import Layout from "../../hocs/layouts/layout"
 import Paymentsucc from "../../components/list-services/PaymentSucc"
 import React, { useState } from 'react';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 function WebpayTransaction() {
     const [webpayData, setWebpay] = useState("");
@@ -11,6 +12,20 @@ function WebpayTransaction() {
     const badToken = queryParameters.get("TBK_TOKEN")
     const badOrder = queryParameters.get("TBK_ORDEN_COMPRA")
     
+    //Redireccion
+    const userType = localStorage.getItem('loggedType');
+    const navigate = useNavigate();
+
+    console.log("userType: "+userType);
+    
+    if (userType == "emp"){
+        //Si esta logueado como empresa mandarlo a su respectivo contenedor
+        navigate('/Empresa');
+    } else if (userType == null){
+        //si no esta logueado, mandarlo al login cliente
+        navigate('/Login');
+    }
+
     if (!finish){    
         //Si no hubo problemas con la transaccion, pasar el token recogido
         if (token != undefined) webpayTokenStatus(token);
@@ -22,6 +37,8 @@ function WebpayTransaction() {
         console.log("token: "+token);
         setFinish(true);//A veces el proceso entra en bucle
     }
+
+     
     
 
     //API de oracle

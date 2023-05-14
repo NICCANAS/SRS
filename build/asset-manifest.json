@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.edb3f08b.css",
-    "main.js": "/static/js/main.80a854fe.js",
+    "main.css": "/static/css/main.b159cb70.css",
+    "main.js": "/static/js/main.37bb0d6e.js",
     "static/media/logo_empresa.svg": "/static/media/logo_empresa.aa5d8bbc6ae787d225a2f35e55095f0a.svg",
     "static/media/malito.svg": "/static/media/malito.3c9c0486d32dae0bfb65b37c9c555a9a.svg",
     "static/media/github.svg": "/static/media/github.37dac571adc6aaf5307b42eb9bd86ac3.svg",
@@ -11,11 +11,11 @@
     "static/media/feibu.svg": "/static/media/feibu.40e849bfd58ed557c2c4e54445d8316a.svg",
     "static/media/insta.svg": "/static/media/insta.9cb455c6987e2a1e68b4abd0d1c1570c.svg",
     "static/media/malo.svg": "/static/media/malo.98e97affbd1bd564315fa2f9406ef1e6.svg",
-    "main.edb3f08b.css.map": "/static/css/main.edb3f08b.css.map",
-    "main.80a854fe.js.map": "/static/js/main.80a854fe.js.map"
+    "main.b159cb70.css.map": "/static/css/main.b159cb70.css.map",
+    "main.37bb0d6e.js.map": "/static/js/main.37bb0d6e.js.map"
   },
   "entrypoints": [
-    "static/css/main.edb3f08b.css",
-    "static/js/main.80a854fe.js"
+    "static/css/main.b159cb70.css",
+    "static/js/main.37bb0d6e.js"
   ]
 }
