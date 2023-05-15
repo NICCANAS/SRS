@@ -16,24 +16,6 @@ function MyEmp(props) {
 
                         <div class="flex flex-1 justify-between">
                             <div class="border-gray-900/10 p-4">
-<<<<<<< HEAD
-                                {/* Acá va el nombre de la empresa */}
-                                <h3 class="font-bold uppercase text-black-900">
-                                    Fukashigi No Cartón
-                                </h3>
-                                {/* Correo empresa */}
-                                <h3 class="mt-5 font-bold uppercase text-black-900 p-2">Correo</h3>
-                                <h2 class="m-3">MyEmpresa@negocios.cl</h2>
-                                <br />
-                                {/* Numero de la empresa */}
-                                <h3 class="font-bold uppercase text-black-900 p-2">Numero de contacto</h3>
-                                <h2 class="m-3">+56912345678</h2>
-                            </div>
-
-                            <div class="my-14">
-                                <h3 class="font-bold uppercase text-black-900 p-2">Dirección</h3>
-                                <h2 class="m-3">Las rejas #54</h2>
-=======
                                 {/* Correo empresa */}
                                 <h3 class="font-bold uppercase text-black-900 p-2">Correo</h3>
                                 <h2>{props.correo}</h2>
@@ -46,7 +28,6 @@ function MyEmp(props) {
                                 <h3 class="font-bold uppercase text-black-900 p-2">Direccion</h3>
                                 <h2>{props.direccion}</h2>
                                 <br />
->>>>>>> fusion
                             </div>
                         </div>
                     </div>
