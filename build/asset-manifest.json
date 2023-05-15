@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.ce8979a1.css",
-    "main.js": "/static/js/main.fb1aa2a6.js",
+    "main.css": "/static/css/main.b0861b55.css",
+    "main.js": "/static/js/main.8b20977b.js",
     "static/media/logo_empresa.svg": "/static/media/logo_empresa.aa5d8bbc6ae787d225a2f35e55095f0a.svg",
     "static/media/github.svg": "/static/media/github.37dac571adc6aaf5307b42eb9bd86ac3.svg",
     "static/media/guasa.svg": "/static/media/guasa.9078a311926c2555c507d0d04e456889.svg",
@@ -11,11 +11,11 @@
     "static/media/insta.svg": "/static/media/insta.9cb455c6987e2a1e68b4abd0d1c1570c.svg",
     "static/media/malito.svg": "/static/media/malito.244fe3ea1427ae585e7ae0aa5b435f4a.svg",
     "static/media/malo.svg": "/static/media/malo.4046d820ac7e7e61e3575ac38c3bb1db.svg",
-    "main.ce8979a1.css.map": "/static/css/main.ce8979a1.css.map",
-    "main.fb1aa2a6.js.map": "/static/js/main.fb1aa2a6.js.map"
+    "main.b0861b55.css.map": "/static/css/main.b0861b55.css.map",
+    "main.8b20977b.js.map": "/static/js/main.8b20977b.js.map"
   },
   "entrypoints": [
-    "static/css/main.ce8979a1.css",
-    "static/js/main.fb1aa2a6.js"
+    "static/css/main.b0861b55.css",
+    "static/js/main.8b20977b.js"
   ]
 }
