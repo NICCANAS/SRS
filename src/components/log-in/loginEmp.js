@@ -1,15 +1,18 @@
 import { connect } from 'react-redux'
 import { ReactComponent as SvgLogoUsado } from '../../components/svg/logo_empresa.svg'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 //constantes, uso de API y ref para el formulario
-import React, { useState, useRef } from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
 
 function LoginEmp() {
     const [email, setEmail] = useState('');//Recoger el email del input
     const [password, setPassword] = useState('');//Recoger el password del input
 
-    const formRef = useRef(null);//Cree una referencia al formulario, para poder utilizar submit en la funcion onSubmitHandler
+    //const formRef = useRef(null);//Cree una referencia al formulario, para poder utilizar submit en la funcion onSubmitHandler
+
+    //Redireccion
+    const navigate = useNavigate();
 
     //Establece el email a medida que el usuario va escribiendo
     const emailChange = event => {
@@ -67,7 +70,7 @@ function LoginEmp() {
             localStorage.setItem('loggedId', rut);
             localStorage.setItem('loggedType', 'emp');
             //Subir el formulario para pasar de pagina
-            formRef.current.submit();
+            navigate('/Empresa');
         } else {
             alert('El usuario o la contraseña son incorrectos')
         }
@@ -115,7 +118,7 @@ function LoginEmp() {
                                 </Link>
                             </div>
                             {/* Inicio del form */}
-                            <form class="space-y-4 md:space-y-6" action="/Empresa" onSubmit={onSubmitHandler} ref={formRef}>
+                            <form class="space-y-4 md:space-y-6" onSubmit={onSubmitHandler}>
                                 <div>
                                     {/* Email */}
                                     <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Correo</label>

@@ -1,8 +1,8 @@
 import { connect } from 'react-redux'
 import { ReactComponent as SvgLogoUsado } from '../../components/svg/logo_empresa.svg'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 //constantes, uso de API y ref para el formulario
-import React, { useState, useEffect, useRef, useNavigate } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
 function Registeremp() {
@@ -35,7 +35,10 @@ function Registeremp() {
     const phoneChange = event => { setPhone(event.target.value); };
 
     //Crear una referencia del formukario
-    const formRef = useRef(null);//Cree una referencia al formulario, para poder utilizar submit en la funcion onSubmitHandler
+    //const formRef = useRef(null);//Cree una referencia al formulario, para poder utilizar submit en la funcion onSubmitHandler
+
+    //Redireccion
+    const navigate = useNavigate();
 
     //recojer id comuna del combobox
     const handleComunaChange = (event) => {
@@ -220,7 +223,8 @@ function Registeremp() {
         //Loguear al usuario con local storage
         localStorage.setItem('loggedId', rut);
         localStorage.setItem('loggedType', 'emp');
-        formRef.current.submit();
+        navigate('/Empresa');
+        //formRef.current.submit();
     }
 
     return (
@@ -261,7 +265,7 @@ function Registeremp() {
                             </Link>
                         </div>
                         {/* Formulario */}
-                        <form onSubmit={onSubmitHandler} ref={formRef} action="/Empresa">
+                        <form onSubmit={onSubmitHandler}>
                             <div class="grid md:grid-cols-2 md:gap-6">
                                 {/* Rut */}
                                 <div class="relative z-0 w-full  group">
