@@ -66,7 +66,7 @@ class WspAPI(APIView):
       print(phoneNumber)
       print(message)
       #Token de autorizacion (se cambia cada dia)
-      headers = {"Authorization": 'Bearer EAABlqEXpZCSMBAO592yOysgF2HZBzNaOmPuNgaZBh1XN4vwvWvdMiGSbrwaQKC4ZBUVLwVmNICTJ1wjKCl8ZBnDPPSDrD2oba2XHutuK3g04PLjeNZCLMcUZBQSCzq6QZCVVW8g6TmZCnAmQr6TSdQhTZBOno21L3l8tj2BqFo5v0caD46xiZBItoJ6CullJ9IlvZCh2cSqSdZBjkRMAPe8CY6kH8'} #aqui va el nombre que pusimos en settings.py
+      headers = {"Authorization": 'Bearer EAABlqEXpZCSMBAHPA35TVjkJZBZAg27F2b2mZBVSkOoqEHcNi1CZAfiCRebmlbVhbl7ukpWWaID18yZB6ftWBhsUT3ZC593BRknSrZCoXI9E1FNSFCaOdBIenKiu3kmzOBfsPI8HuTkscJi9JIiZBgB0ZC4u0RMtgVwsLFTD0iKtr5lHMEDeTl7ghonhJcPvivefqJrCuJZAxgniy3ZCd4TYZABX4'} #aqui va el nombre que pusimos en settings.py
       payload = {"messaging_product": "whatsapp",
                "recipient_type": "individual",
                "to": phoneNumber,
