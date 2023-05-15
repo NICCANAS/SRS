@@ -4,10 +4,29 @@ import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react'
 import axios from 'axios';
 
+import { useNavigate } from 'react-router-dom';
+
 function CasiMoney () {
     const { serviceID } = useParams();
     const [cancellUseEffect, setCancel] = useState(false);
     const [servicio, setServicio] = useState([]);//Establecer los servicios
+    
+    const [resennaAVG, setResennaAVG] = useState(0);
+    const [resennaCount, setResennaCount] = useState(0);//Cantidad de las reseñas (para ponerlo en parentesis)
+
+    //Redireccion
+    const userType = localStorage.getItem('loggedType');
+    const navigate = useNavigate();
+
+    console.log("userType: "+userType);
+    
+    if (userType == "emp"){
+        //Si esta logueado como empresa mandarlo a su respectivo contenedor
+        navigate('/Empresa');
+    } else if (userType == null){
+        //si no esta logueado, mandarlo al login cliente
+        navigate('/Login');
+    }
 
     ///////////////////////////////Funciones
     useEffect(() => {
@@ -15,6 +34,7 @@ function CasiMoney () {
         if (!cancellUseEffect) {
             console.log("Service ID: "+serviceID)
             setServiceOracle();
+            setResennasOracle();
             setCancel(true);
         }
     });
@@ -28,10 +48,17 @@ function CasiMoney () {
         return res.data.query;
     }
 
-    //Recoger las comunas de la base de datos y ponerlas en la constante
+    //Recoger los datos del servicio
     async function setServiceOracle() {
-        let array = await returnOracle("SELECT * FROM SERVICIO WHERE ID_SERV="+serviceID);
+        let array = await returnOracle("SELECT SV.ID_SERV, SV.NOM_SERV, SV.DESCP_SERV, SV.VALOR_SERV, SV.DIREC_SERV, SV.DIAS_SERV, SV.HORAS_SERV, TS.NOM_TIPSERV, EMP.NOM_EMP, SV.IMG_REF FROM SERVICIO SV INNER JOIN EMPRESA EMP ON SV.EMPRESA_RUT_EMP=EMP.RUT_EMP INNER JOIN TIPO_SERVICIO TS ON SV.TIPO_SERVICIO_ID_TIPSERV=TS.ID_TIPSERV WHERE SV.ID_SERV="+serviceID);
         setServicio(array[0]);//Los servicios estan devolviendose en un array de arrays
+    }
+    //Recoger las resennas (valores) de ese servicio
+    async function setResennasOracle() {
+        let avg = await returnOracle("SELECT NVL(ROUND(AVG(VAL_RES)),0) FROM RESENNA_SERV WHERE SERVICIO_ID_SERV=" + serviceID + "");
+        let count = await returnOracle("SELECT COALESCE(COUNT(*), 0) FROM RESENNA_SERV WHERE SERVICIO_ID_SERV=" + serviceID + "");
+        setResennaAVG(avg);
+        setResennaCount(count);
     }
 
     return (
@@ -44,8 +71,11 @@ function CasiMoney () {
             dias={servicio[5]} 
             horas={servicio[6]} 
             tipo={servicio[7]} 
-            empresaRut={servicio[8]} 
-            imgURL={servicio[9]}/>
+            empresaNom={servicio[8]} 
+            imgURL={servicio[9]}
+            avgRes={resennaAVG}
+            countRes={resennaCount}
+            />
         </Layout>
     )
 }

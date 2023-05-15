@@ -104,7 +104,7 @@ function Registeremp() {
         console.log("si funciona github")
         return new Promise((resolve, reject) => {
             const fileReader = new FileReader();
-            
+
             fileReader.onload = async () => {
                 const base64Image = fileReader.result.split(',')[1];
 
@@ -139,10 +139,10 @@ function Registeremp() {
             //Manejar el estado de error
             fileReader.onerror = (error) => {
                 reject("");//devolvera un string vacio
-              };
-            
-              //Carga la imagen
-              fileReader.readAsDataURL(image);
+            };
+
+            //Carga la imagen
+            fileReader.readAsDataURL(image);
         });
         //return imageReturn
     };
@@ -183,6 +183,11 @@ function Registeremp() {
             return false;
         }
 
+        if (image == null) {
+            alert('Debe ingresar una imagen de perfil')
+            return false;
+        }
+
         return true
     }
 
@@ -196,22 +201,22 @@ function Registeremp() {
         //--Validacion en back end--
         //Primero tenemos que verificar si no existe un usuario que tenga ese rut o ese correo
 
-        let rutExist  = await returnOracle("SELECT COALESCE(COUNT(*), 0) FROM EMPRESA WHERE RUT_EMP='" + rut + "'");
+        let rutExist = await returnOracle("SELECT COALESCE(COUNT(*), 0) FROM EMPRESA WHERE RUT_EMP='" + rut + "'");
         let emailExist = await returnOracle("SELECT COALESCE(COUNT(*), 0) FROM EMPRESA WHERE CORREO_EMP='" + email + "'");
-        
+
         if (rutExist != 0) {
             alert("Ya existe una empresa registrada con el rut " + rut)
             return //terminar la funcion submit sin subir
         }
 
-        if (emailExist != 0){
+        if (emailExist != 0) {
             alert("Ya existe una empresa registrada con el e-mail " + email)
             return //terminar la funcion submit sin subir
         }
 
         let githubURL = await uploadImage();//El propio script establece el url, con rut como id
         //Insert del usuario en la base de datos
-        await returnOracle("INSERT INTO EMPRESA VALUES("+rut+",'"+name+"','" + direction + "'," + tipoId + "," + comunaId + ",'" + email + "'," + phone + ",'" + password + "','" + githubURL + "')");
+        await returnOracle("INSERT INTO EMPRESA VALUES(" + rut + ",'" + name + "','" + direction + "'," + tipoId + "," + comunaId + ",'" + email + "'," + phone + ",'" + password + "','" + githubURL + "')");
         //Loguear al usuario con local storage
         localStorage.setItem('loggedId', rut);
         localStorage.setItem('loggedType', 'emp');
@@ -219,7 +224,7 @@ function Registeremp() {
     }
 
     return (
-        <section class="bg-gradient-to-r from-green-400 to-purple-600 h-auto w-auto">
+        <section class="bg-gradient-to-r from-green-400 to-purple-600 pb-44 pt-11">
             <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto lg:py-0">
                 <a href="#" class="flex items-center mb-6 text-2xl font-semibold text-gray-900 dark:text-white">
                     <SvgLogoUsado />
@@ -256,11 +261,11 @@ function Registeremp() {
                             </Link>
                         </div>
                         {/* Formulario */}
-                        <form onSubmit={onSubmitHandler} ref={formRef} action="/Listservs">
+                        <form onSubmit={onSubmitHandler} ref={formRef} action="/Empresa">
                             <div class="grid md:grid-cols-2 md:gap-6">
                                 {/* Rut */}
                                 <div class="relative z-0 w-full  group">
-                                    <input onChange={rutChange} value={rut}type="text" name="floating_rut" id="floating_rut" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
+                                    <input onChange={rutChange} value={rut} type="text" name="floating_rut" id="floating_rut" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
                                     <label for="floating_rut" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Rut Empresa</label>
                                 </div>
                                 {/* Tipo de empresa */}
@@ -319,7 +324,7 @@ function Registeremp() {
                             {/* Imagen de perfil */}
                             <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="user_avatar">Imagen de Perfil</label>
                             <input onChange={handleImageChange} class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" aria-describedby="user_avatar_help" id="user_avatar" type="file"></input>
-                            <center><button type="submit"class="text-white bg-indigo-700 hover:bg-indigo-800 focus:ring-4 focus:outline-none focus:ring-indigo-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-indigo-600 dark:hover:bg-indigo-700 dark:focus:ring-indigo-800">Registrarse</button></center>
+                            <center><button type="submit" class="text-white bg-indigo-700 hover:bg-indigo-800 focus:ring-4 focus:outline-none focus:ring-indigo-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-indigo-600 dark:hover:bg-indigo-700 dark:focus:ring-indigo-800">Registrarse</button></center>
                         </form>
                     </div>
                 </div>

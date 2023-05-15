@@ -1,13 +1,44 @@
 import { connect } from 'react-redux'
 import { ReactComponent as SvgMalito } from './../svg/malo.svg'
+import { useState, useEffect } from 'react'
+import axios from 'axios';
+
 function HistoUsu(props) {
+    const [cancellUseEffect, setCancel] = useState(false);
+    //const [callData, setCallData] = useState([]);
 
-    //const [Taweno, setTawenolatrans] = useState({});
+    async function wspMessage(phn, msg) {
+        const params = {
+            phone: phn,
+            message: msg,
+        }
 
+        const res = await axios.get('http://127.0.0.1:8000/wspMessage/', { params });
 
+        //setData(res.data);
+        console.log(res.data);
+    }
+
+    //API de oracle
+    async function returnOracle(string) {
+        const params = {
+            query: string,//las query no deben terminar en ";"
+        }
+        const res = await axios.get('http://127.0.0.1:8000/oracleAPI/', { params });
+        return res.data.query[0];
+    }
+
+    async function callFunction(){
+        let array = await returnOracle("SELECT CLI.NOM_CLI, CLI.APE_CLI, SERV.NOM_SERV, EMP.CEL_EMP FROM ORDEN_SERV ORD INNER JOIN CLIENTE CLI ON ORD.CLIENTE_RUT_CLI=CLI.RUT_CLI INNER JOIN SERVICIO SERV ON ORD.SERVICIO_ID_SERV=SERV.ID_SERV INNER JOIN EMPRESA EMP ON SERV.EMPRESA_RUT_EMP=EMP.RUT_EMP WHERE ORD.ID_ORD=" + props.order_id);
+        wspMessage("56930739222", array[0] + " " + array[1] + " ha contratado tu servicio: '" + array[2] + "'");
+    }
 
     /* Transaccion completada correctamente */
     if (props.code == 0) {
+        if (!cancellUseEffect) {
+            callFunction();
+            setCancel(true);
+        }
         return (
             <section class="py-24">
                 <div class="container px-4 mx-auto">

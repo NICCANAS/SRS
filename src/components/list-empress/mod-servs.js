@@ -1,9 +1,50 @@
 import { connect } from 'react-redux'
 import RealmodEmp from '../list-empress/realmodemp'
-import { useState } from 'react'
+//constantes, uso de API y ref para el formulario
+import { useState, useEffect } from 'react'
+import axios from 'axios';
 
 function ModEmp() {
+    //ID usuario activo
+    const userID = localStorage.getItem('loggedId');
+
     const [active, setActive] = useState("listemp")
+
+    const [cancellUseEffect, setCancel] = useState(false);
+    const [servicios, setServicios] = useState([]);//Establecer los servicios
+    const [selectedService, setSelectedService] = useState([]);//Establecer el servicio elegido
+
+    //////////FUNCIONES
+    useEffect(() => {
+        //Establecer las ordenes creadas por el usuario
+        if (!cancellUseEffect) {
+            setServiciosOracle();
+            setCancel(true);
+        }
+    });
+
+    //API de oracle
+    async function returnOracle(string) {
+        const params = {
+            query: string,//las query no deben terminar en ";"
+        }
+        const res = await axios.get('http://127.0.0.1:8000/oracleAPI/', { params });
+        return res.data.query;
+    }
+
+    //Recoger las ordenes de servicios de la bdd
+    async function setServiciosOracle() {
+        //React no me deja hacer la sentencia en mas de una linea
+        let array = await returnOracle("SELECT SV.ID_SERV, SV.NOM_SERV, SV.VALOR_SERV, TS.NOM_TIPSERV FROM SERVICIO SV INNER JOIN TIPO_SERVICIO TS ON SV.TIPO_SERVICIO_ID_TIPSERV=TS.ID_TIPSERV WHERE SV.EMPRESA_RUT_EMP='" + userID + "'");
+        setServicios(array);
+        console.log(array);
+    }
+
+    async function showService(id){
+        let serviceArray = await returnOracle("SELECT ID_SERV, NOM_SERV, DESCP_SERV, VALOR_SERV, DIREC_SERV, DIAS_SERV FROM SERVICIO WHERE ID_SERV="+id+"");
+        setSelectedService(serviceArray[0]);
+        setActive("RealmodEmp");
+    }
     return (
 
         <body class="antialiased font-sans ">
@@ -16,11 +57,15 @@ function ModEmp() {
                                     <tr>
                                         <th
                                             class="px-5 py-3 border-b-2  bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
-                                            Nombre de publicación
+                                            Servicio
                                         </th>
                                         <th
                                             class="px-5 py-3 border-b-2  bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
-                                            Trabajo
+                                            Tipo Servicio
+                                        </th>
+                                        <th
+                                            class="px-5 py-3 border-b-2  bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                                            Valor
                                         </th>
                                         <th
                                             class="px-5 py-3 border-b-2  bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
@@ -29,33 +74,40 @@ function ModEmp() {
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        {/* Nombre de la publicación */}
-                                        <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                                            <div class="flex items-center">
-                                                <div class="ml-3">
-                                                    <p class="text-gray-900 whitespace-no-wrap">
-                                                        NOMBRE PUBLI
-                                                    </p>
+                                    {servicios.map((serv) => (
+                                        <tr>
+                                            {/* Nombre de la publicación */}
+                                            <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                                <div class="flex items-center">
+                                                    <div class="ml-3">
+                                                        <p class="text-gray-900 whitespace-no-wrap">
+                                                            {serv[1]}
+                                                        </p>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                        </td>
+                                            </td>
 
-                                        {/* Trabajo */}
-                                        <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                                            <p class="text-gray-900 whitespace-no-wrap">Admin</p>
-                                        </td>
+                                            {/* Trabajo */}
+                                            <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                                <p class="text-gray-900 whitespace-no-wrap">{serv[3]}</p>
+                                            </td>
 
-                                        {/* Aca seria el boton modificar */}
-                                        <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                                            <a onClick={() => setActive("RealmodEmp")}
-                                                class="relative inline-block px-3 py-1 font-semibold text-green-900 leading-tight">
-                                                <span aria-hidden
-                                                    class="absolute inset-0 bg-green-200 opacity-50 rounded-full"></span>
-                                                <span class="relative">Modificar</span>
-                                            </a>
-                                        </td>
-                                    </tr>
+                                            {/* Valor */}
+                                            <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                                <p class="text-gray-900 whitespace-no-wrap">$ {serv[2]}</p>
+                                            </td>
+
+                                            {/* Aca seria el boton modificar */}
+                                            <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                                <a onClick={() => showService(serv[0])}
+                                                    class="relative inline-block px-3 py-1 font-semibold text-green-900 leading-tight">
+                                                    <span aria-hidden
+                                                        class="absolute inset-0 bg-green-200 opacity-50 rounded-full"></span>
+                                                    <span class="relative">Modificar</span>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    ))}
                                 </tbody>
                             </table>
                             {/* Aca en este button se puede cambiar el listado de cosas que hay arriba o sea literal cambiar de pagina */}
@@ -80,8 +132,8 @@ function ModEmp() {
                 </div>
             </div>
 
-            {active === "RealmodEmp" && <RealmodEmp />}
-            
+            {active === "RealmodEmp" && <RealmodEmp id={selectedService[0]} nombre={selectedService[1]} descripcion={selectedService[2]} valor={selectedService[3]} direccion={selectedService[4]} dias={selectedService[5]}/>}
+
         </body>
 
     )
