@@ -1,8 +1,8 @@
 import { connect } from 'react-redux'
 import { ReactComponent as SvgLogoUsado } from '../../components/svg/logo_empresa.svg'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 //constantes, uso de API y ref para el formulario
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
 function Register() {
@@ -23,6 +23,9 @@ function Register() {
     const [image, setImage] = useState(null);//La imagen que se recojera del input (blob)
     //const [imageUrl, setImageUrl] = useState('');//url de la imagen que devolvera github
 
+    //Redireccion
+    const navigate = useNavigate();
+
     //Establecer las constantes (set)
     const rutChange = event => { setRut(event.target.value);};
     const emailChange = event => { setEmail(event.target.value); };
@@ -33,7 +36,7 @@ function Register() {
     const phoneChange = event => { setPhone(event.target.value); };
 
     //Crear una referencia del formukario
-    const formRef = useRef(null);//Cree una referencia al formulario, para poder utilizar submit en la funcion onSubmitHandler
+    //const formRef = useRef(null);//Cree una referencia al formulario, para poder utilizar submit en la funcion onSubmitHandler
 
     //recojer id comuna del combobox
     const handleComunaChange = (event) => {
@@ -198,7 +201,8 @@ function Register() {
         //Loguear al usuario con local storage
         localStorage.setItem('loggedId', rut);
         localStorage.setItem('loggedType', 'cli');
-        formRef.current.submit();
+        navigate('/Listservs');
+        //formRef.current.submit();
     }
 
     return (
@@ -238,7 +242,7 @@ function Register() {
                             </Link>
                         </div>
                         {/* Formulario */}
-                        <form onSubmit={onSubmitHandler} ref={formRef} action="/Listservs">
+                        <form onSubmit={onSubmitHandler}>
                             {/* Input del rut */}
                             <div class="relative z-0 w-full mb-6 group">
                                 <input onChange={rutChange} value={rut} type="text" name="floating_rut" id="floating_rut" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
