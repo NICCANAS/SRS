@@ -91,7 +91,7 @@ function Register() {
 
                 // Agrega tus propias credenciales
                 const GITHUB_USERNAME = 'Jordan108';
-                const GITHUB_TOKEN = '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';//Token de github, se elimina despues de 30 dias desde el 07/05
+                const GITHUB_TOKEN = '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';//Token de github, se elimina despues de 30 dias desde el 07/05
                 const REPO_NAME = 'reactImage';
                 const FILE_PATH = 'Clientes';
                 const FILE_NAME = 'CliProfile_' + rut + '.png';

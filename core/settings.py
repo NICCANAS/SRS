@@ -154,3 +154,8 @@ REST_FRAMEWORK = {
 CORS_ORIGIN_ALLOW_ALL = True
 
 EMAIL_BACKEND ='django.core.mail.backends.console.EmailBackend'
+
+#Datos del github
+GIT_USER = 'Jordan108'
+GIT_TOKEN = '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'
+GIT_REPO = 'reactImage'
