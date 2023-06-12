@@ -17,12 +17,15 @@ describe('e2e-pruebaFuncional01', () => {
 
     //Crear una reseña
     cy.contains('Crear reseña').click();
+
+    cy.wait(500)//Esperar el query
+
     //Valoracion del servicio
     cy.get('[id="valoracion"]').select('5')
     //Nombre del servicio a reseñar
-    cy.get('[id="countries"]').select('Servicio de Prueba 1')
+    cy.get('[id="countries"]').select('Diseño de Placas Electronicas').should('have.value', '507')
     //Descripcion de la reseña
-    cy.get('input[name="descrresenna"]').type('descripcion de prueba');
+    cy.get('input[id="descrresenna"]').type('descripcion de prueba');
     
     //Guardar la reseña
     cy.contains('Crear reseña').click();

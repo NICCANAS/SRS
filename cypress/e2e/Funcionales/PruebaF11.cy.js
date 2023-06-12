@@ -5,7 +5,7 @@ describe('e2e-pruebaFuncional01', () => {
   })
   it('passes', () => {
     //Presionar el boton de inicio de sesion
-    cy.get('button').click()
+    cy.get('a[id="button"]').click();
 
     //Ingresar datos
     //Correo

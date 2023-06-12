@@ -23,13 +23,13 @@ describe('e2e-pruebaFuncional01', () => {
     //repetir contraseña
     cy.get('input[name="repeat_password"]').type('empresa1')
     //Nombre
-    cy.get('input[name="floating_email"]').type('Empresa Prueba')
+    cy.get('input[name="floating_first_name"]').type('Empresa Prueba')
     //Direccion
     cy.get('input[name="floating_last_name"]').type('Condell 345')
     //CElular
     cy.get('input[name="floating_phone"]').type('986324342')
     //Combobox
-    cy.get('[id="countries"]').select('Maipú')
+    cy.get('[id="countries"]').select('Maipu')
     //Insertar imagen
     const fileImage = 'cypress/e2e/testImages/testUserImage.png';
     cy.get('[id="user_avatar"]').selectFile(fileImage)

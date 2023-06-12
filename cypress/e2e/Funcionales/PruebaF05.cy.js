@@ -5,7 +5,7 @@ describe('e2e-pruebaFuncional01', () => {
   })
   it('passes', () => {
     //Presionar el boton de inicio de sesion
-    cy.get('button').click()
+    cy.get('a[id="button"]').click();
     //Boton del formulario de empresas
     cy.contains('Empresa / Pymes').click()
     
@@ -26,6 +26,7 @@ describe('e2e-pruebaFuncional01', () => {
     //Descripcion
     cy.get('input[id="descrp_serv"]').type('Este es un servicio de prueba')
     //valor
+    cy.get('input[id="valor_serv"]').type('{selectall}{backspace}')//borrar el 0 default
     cy.get('input[id="valor_serv"]').type('63000')
     //direccion
     cy.get('input[id="Dirección"]').type('Los Tulipanes 322')
@@ -35,7 +36,7 @@ describe('e2e-pruebaFuncional01', () => {
     const fileImage = 'cypress/e2e/testImages/testUserImage.png';
     cy.get('[id="usuprofile_help"]').selectFile(fileImage)
     //tipo servicio
-    cy.get('[id="countries"]').select('Ayudantía')
+    cy.get('[id="countries"]').select('Ayudantia')
     
     //Crear el servicio
     cy.contains('Crear nuevo servicio').click()

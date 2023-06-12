@@ -5,11 +5,13 @@ describe('e2e-pruebaFuncional01', () => {
   })
   it('passes', () => {
     //Presionar el boton de inicio de sesion
-    cy.get('button').click()
-
+    cy.get('a[id="button"]').click();
+    //Boton del formulario de empresas
+    cy.contains('Empresa / Pymes').click()
+    
     //Ingresar datos
     //Correo
-    cy.get('input[name="email"]').type('fe.fernandez@duocuc.cl')
+    cy.get('input[name="email"]').type('PruebaEmpresa@gmail.com')
     //Contraseña
     cy.get('input[name="password"]').type('felipe1')
     //Iniciar sesion

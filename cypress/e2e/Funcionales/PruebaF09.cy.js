@@ -5,7 +5,7 @@ describe('e2e-pruebaFuncional01', () => {
   })
   it('passes', () => {
     //Presionar el boton de inicio de sesion
-    cy.get('button').click()
+    cy.get('a[id="button"]').click();
     //Boton del formulario de empresas
     cy.contains('Empresa / Pymes').click()
     
@@ -18,22 +18,16 @@ describe('e2e-pruebaFuncional01', () => {
     cy.contains('Ingresar').click()
 
     //Dentro del menu de la empresa
-    cy.contains('Modificar Servicios').click()
-    //Modificar un servicio
-    cy.contains('Modificar').click()
-
-    //Datos para modificar el servicio
-    //Nombre
-    cy.get('input[id="nombre_serv"]').type('Prueba Modificación 1')
-    //Descripcion
-    cy.get('input[id="descrp_serv"]').type('Esta es una prueba de modificación')
-    //Valor servicio
-    cy.get('input[id="valor_serv"]').type('34000')
+    cy.contains('Mi Empresa').click()
+    
+    //Datos para modificar la empresa
     //Direccion
-    cy.get('input[id="Dirección"]').type('Los Geranios 106')
-    //Dias disponibles
-    cy.get('input[id="Dia_serv"]').type('Viernes 21 de Julio')
-
+    cy.get('input[id="username"]').type('Av brasil 897')
+    //Tipo de empresa
+    cy.get('[id="Empresa"]').select('Pyme')
+    //Comuna
+    //cy.get('[id="countries"]').select('Punta Arenas')
+    
     //Guardar los cambios
     cy.contains('Guardar nuevos cambios').click()
   })

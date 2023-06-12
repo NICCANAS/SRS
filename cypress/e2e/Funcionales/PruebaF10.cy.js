@@ -5,21 +5,14 @@ describe('e2e-pruebaFuncional01', () => {
   })
   it('passes', () => {
     //Presionar el boton de inicio de sesion
-    cy.get('button').click()
-    //Boton del formulario de empresas
-    cy.contains('Empresa / Pymes').click()
-    
+    cy.get('a[id="button"]').click();
+
     //Ingresar datos
     //Correo
-    cy.get('input[name="email"]').type('PruebaEmpresa@gmail.com')
+    cy.get('input[name="email"]').type('fe.fernandez@duocuc.cl')
     //Contraseña
     cy.get('input[name="password"]').type('felipe1')
     //Iniciar sesion
     cy.contains('Ingresar').click()
-
-    //Dentro del menu de la empresa
-    cy.contains('Seguimiento Servicios Activos').click()
-    //Modificar el servicio
-    cy.get('[id="countries"]').select('Registrado')
   })
 })
