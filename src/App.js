@@ -14,7 +14,8 @@ import Password from './container/pages/forgot-password';
 import WebpayTransaction from './container/pages/webpay';
 import Empresa from './container/pages/Empresa';
 import Perfilemp from './components/list-empress/mi-empresa';
-
+import Terminos from "./components/footer-buttons/terminos"
+import Nosotros from "./components/footer-buttons/nosotros"
 
 function App() {
   
@@ -46,6 +47,10 @@ function App() {
           <Route path="/Empresa" element={<Empresa />} />
           {/* Perfil de la empresa */}
           <Route path="/Perfilemp/:empID" element={<Perfilemp />} />
+          {/* Terminos y condiciones */}
+          <Route path="/Terminos" element={<Terminos />} />
+          {/*nosotros*/}
+          <Route path="/nosotros" element={<Nosotros />} />
         </Routes>
       </Router>
     </Provider>

@@ -4,7 +4,7 @@ import { ReactComponent as SvgGithub } from './../svg/github.svg'
 import { ReactComponent as SvgFace } from './../svg/feibu.svg'
 import { ReactComponent as SvgInsta } from './../svg/insta.svg'
 import { ReactComponent as SvgTwit } from './../svg/pajalito.svg'
-import Terminos from "../../components/footer-buttons/terminos"
+import { Link } from 'react-router-dom'
 const navigation = {
   solutions: [
     { name: 'Marketing', href: '#' },
@@ -22,7 +22,7 @@ const navigation = {
   legal: [
     { name: 'Claim', href: '#' },
     { name: 'Privacidad', href: '#' },
-    { name: 'Términos de condicion', href: <Terminos /> },
+    { name: 'Términos de condicion',},
   ],
   social: [
     {
@@ -130,10 +130,11 @@ function Footer() {
                   <li className="text-base text-gray-500 hover:text-gray-900" >
                     test2
                   </li>
-                  <li className="text-base text-gray-500 hover:text-gray-900" >
-                    test3
+                  <li hrefclassName="text-base text-gray-500 hover:text-gray-900" >
+                    <Link to="/Terminos" className="text-base text-gray-500 hover:text-gray-900">
+                    Terminos de condiciones y privacidad
+                    </Link>
                   </li>
-
                 </ul>
               </div>
             </div>
