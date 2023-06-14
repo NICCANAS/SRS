@@ -13,9 +13,17 @@ import CasiMoney from './container/pages/CasiMoney';
 import Password from './container/pages/forgot-password';
 import WebpayTransaction from './container/pages/webpay';
 import Empresa from './container/pages/Empresa';
-import Perfilemp from './components/list-empress/mi-empresa';
-import Terminos from "./components/footer-buttons/terminos"
+//Yo se que esto no deberia de hacerse y deberia de llamarse en un componente en un  page y esto es mala practica pero me ya me puse la pijama
+import Carreras from './components/footer-buttons/carreras';
+import Comunicar from './components/footer-buttons/comunicar';
+import Info from "./components/footer-buttons/info"
+import NavbarFooter from './components/footer-buttons/NavbarFooter';
 import Nosotros from "./components/footer-buttons/nosotros"
+import Privacidad from "./components/footer-buttons/privacidad"
+import Reclamo from "./components/footer-buttons/reclamo"
+import Terminos from './components/footer-buttons/terminos';
+import Perfilemp from './components/list-empress/mi-empresa';
+
 
 function App() {
   
@@ -47,10 +55,13 @@ function App() {
           <Route path="/Empresa" element={<Empresa />} />
           {/* Perfil de la empresa */}
           <Route path="/Perfilemp/:empID" element={<Perfilemp />} />
+
+          {/*Aca va los componentes del footer*/}
           {/* Terminos y condiciones */}
           <Route path="/Terminos" element={<Terminos />} />
           {/*nosotros*/}
           <Route path="/nosotros" element={<Nosotros />} />
+
         </Routes>
       </Router>
     </Provider>
