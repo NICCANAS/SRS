@@ -20,26 +20,26 @@ function CardServsemp(props) {
                 </div> */}
 
                 {/* Imagen del servicio */}
-                <div class="hidden sm:block sm:basis-56">
+                <div className="hidden sm:block sm:basis-56">
                     <img
                         alt="service_img"
                         src={props.imagenUrl}
-                        class="aspect-square h-full w-full object-cover"
+                        className="aspect-square h-full w-full object-cover"
                     />
                 </div>
 
-                <div class="flex flex-1 flex-col justify-between">
-                    <div class="border-s border-gray-900/10 p-4 sm:border-l-transparent sm:p-6">
+                <div className="flex flex-1 flex-col justify-between">
+                    <div className="border-s border-gray-900/10 p-4 sm:border-l-transparent sm:p-6">
                         {/* Titulo del servicio */}
                         <a>
-                            <h3 class="font-bold uppercase text-gray-900">
+                            <h3 className="font-bold uppercase text-gray-900">
                                 {props.nombre}
                             </h3>
                         </a>
 
                         {/* Descripcion del servicioo por la xita se me esta poniendo dobles teclas joldan aiua */}
 
-                        <p class="mt-2 line-clamp-3 text-sm/relaxed text-gray-700">
+                        <p className="mt-2 line-clamp-3 text-sm/relaxed text-gray-700">
                             {props.descripcion}
                         </p>
                     </div>

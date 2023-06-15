@@ -59,26 +59,26 @@ function SeguiServ() {
     }
 
     return (
-        <body class="antialiased font-sans ">
-            <div class="container mx-auto px-4 sm:px-8">
-                <div class="py-8">
+        <body className="antialiased font-sans ">
+            <div className="container mx-auto px-4 sm:px-8">
+                <div className="py-8">
                     <div>
                     </div>
-                    <div class="-mx-4 sm:-mx-8 px-4 sm:px-8 py-4 overflow-x-auto">
-                        <div class="inline-block min-w-full shadow rounded-lg overflow-hidden">
-                            <table class="min-w-full leading-normal">
+                    <div className="-mx-4 sm:-mx-8 px-4 sm:px-8 py-4 overflow-x-auto">
+                        <div className="inline-block min-w-full shadow rounded-lg overflow-hidden">
+                            <table className="min-w-full leading-normal">
                                 <thead>
                                     <tr>
                                         <th
-                                            class="px-5 py-3 border-b-2  bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                                            className="px-5 py-3 border-b-2  bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
                                             Cliente
                                         </th>
                                         <th
-                                            class="px-5 py-3 border-b-2  bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                                            className="px-5 py-3 border-b-2  bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
                                             Servicio
                                         </th>
                                         <th
-                                            class="px-5 py-3 border-b-2  bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                                            className="px-5 py-3 border-b-2  bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
                                             Fecha
                                         </th>
                                         {/* <th
@@ -86,7 +86,7 @@ function SeguiServ() {
                                             Estado
                                         </th> */}
                                         <th
-                                            class="px-5 py-3 border-b-2  bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                                            className="px-5 py-3 border-b-2  bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
                                             Modificar Estado
                                         </th>
                                     </tr>
@@ -95,10 +95,10 @@ function SeguiServ() {
                                     {servicios.map((serv) => (
                                         <tr>
                                             {/* Nombre usuario */}
-                                            <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                                                <div class="flex items-center">
-                                                    <div class="ml-3">
-                                                        <p class="text-gray-900 whitespace-no-wrap">
+                                            <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                                <div className="flex items-center">
+                                                    <div className="ml-3">
+                                                        <p className="text-gray-900 whitespace-no-wrap">
                                                             {serv[0]} {serv[1]}
                                                         </p>
                                                     </div>
@@ -106,13 +106,13 @@ function SeguiServ() {
                                             </td>
 
                                             {/* Servicio */}
-                                            <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                                                <p class="text-gray-900 whitespace-no-wrap">{serv[2]}</p>
+                                            <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                                <p className="text-gray-900 whitespace-no-wrap">{serv[2]}</p>
                                             </td>
 
                                             {/* Fecha */}
-                                            <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                                                <p class="text-gray-900 whitespace-no-wrap">
+                                            <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                                <p className="text-gray-900 whitespace-no-wrap">
                                                     {serv[3]}
                                                 </p>
                                             </td>
@@ -126,7 +126,7 @@ function SeguiServ() {
                                                 </span>
                                             </td> */}
                                             {/* Modificar estado */}
-                                            <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                            <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                                                {/*  <span
                                                     class="relative inline-block px-3 py-1 font-semibold text-green-900 leading-tight">
                                                     <span aria-hidden

@@ -6,8 +6,8 @@ import CardServsemp from "../list-empress/cardEmp"
 function IniEmp() {
     return (
 
-        <div class="w-9/12">
-            <div class="p-4 text-gray-500">
+        <div className="w-9/12">
+            <div className="p-4 text-gray-500">
                 <CardServsemp/>
             </div>
         </div>

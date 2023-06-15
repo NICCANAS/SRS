@@ -174,46 +174,46 @@ function AddServ() {
     }
 
     return (
-        <section class="max-w-4xl p-6 mx-auto bg-white rounded-md shadow-md mt-6 dark:bg-gray-800">
-            <h2 class="text-lg font-semibold text-gray-700 capitalize dark:text-white">Agregar Servicio </h2>
+        <section claclassNamess="max-w-4xl p-6 mx-auto bg-white rounded-md shadow-md mt-6 dark:bg-gray-800">
+            <h2 className="text-lg font-semibold text-gray-700 capitalize dark:text-white">Agregar Servicio </h2>
 
             <form onSubmit={onSubmitHandler} ref={formRef} action="/Empresa">
-                <div class="grid grid-cols-1 gap-6 mt-4 sm:grid-cols-2">
+                <div className="grid grid-cols-1 gap-6 mt-4 sm:grid-cols-2">
 
                     <div> {/*Nombre del servicio */}
-                        <label class="text-gray-700 dark:text-gray-200" for="nombre_serv">Nombre del servicio</label>
-                        <input onChange={nameChange} value={nombre} id="nombre_serv" type="text" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring" />
+                        <label className="text-gray-700 dark:text-gray-200" for="nombre_serv">Nombre del servicio</label>
+                        <input onChange={nameChange} value={nombre} id="nombre_serv" type="text" className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring" />
                     </div>
 
                     <div> {/* descripción del serv */}
-                        <label class="text-gray-700 dark:text-gray-200" for="descrp_serv">Descripción del servicio </label>
-                        <input onChange={descriptionChange} value={descripcion} id="descrp_serv" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring" />
+                        <label className="text-gray-700 dark:text-gray-200" for="descrp_serv">Descripción del servicio </label>
+                        <input onChange={descriptionChange} value={descripcion} id="descrp_serv" className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring" />
                     </div>
 
                     <div> {/* Valor servicio */}
-                        <label class="text-gray-700 dark:text-gray-200" for="valor_serv">Valor servicio</label>
-                        <input onChange={valueChange} value={valor} id="valor_serv" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring" />
+                        <label className="text-gray-700 dark:text-gray-200" for="valor_serv">Valor servicio</label>
+                        <input onChange={valueChange} value={valor} id="valor_serv" className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring" />
                     </div>
 
                     <div> {/* Direccion */}
-                        <label class="text-gray-700 dark:text-gray-200" for="Dirección">Dirección</label>
-                        <input onChange={directionChange} value={direccion} id="Dirección" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring" />
+                        <label className="text-gray-700 dark:text-gray-200" for="Dirección">Dirección</label>
+                        <input onChange={directionChange} value={direccion} id="Dirección" className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring" />
                     </div>
 
                     <div> {/* Dia del servicio */}
-                        <label class="text-gray-700 dark:text-gray-200" for="Dia_serv">Día disponible para el servicio</label>
-                        <input onChange={dayChange} value={dias} id="Dia_serv" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring" />
+                        <label className="text-gray-700 dark:text-gray-200" for="Dia_serv">Día disponible para el servicio</label>
+                        <input onChange={dayChange} value={dias} id="Dia_serv" className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring" />
                     </div>
 
                     <div> {/* Foto del servicio */}
-                        <label class="text-gray-700 dark:text-gray-200" for="Foto_del_serv">Foto del servicio</label>
-                        <input onChange={handleImageChange} aria-describedby="Foto_del_serv" id="usuprofile_help" type="file" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring" />
+                        <label className="text-gray-700 dark:text-gray-200" for="Foto_del_serv">Foto del servicio</label>
+                        <input onChange={handleImageChange} aria-describedby="Foto_del_serv" id="usuprofile_help" type="file" className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring" />
                     </div>
 
                     {/* Aca deberia de elegir el tipo de trabajo */}
-                    <div class="relative z-0 w-full mb-1 group">
+                    <div className="relative z-0 w-full mb-1 group">
                         <label for="countries" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Tipo de servicio</label>
-                        <select onChange={handleTipoChange} id="countries" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                        <select onChange={handleTipoChange} id="countries" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                             {tipoServicios.map((ts) => (
                                 <option value={ts[0]}>{ts[1]}</option>
                             ))}
@@ -222,8 +222,8 @@ function AddServ() {
 
                 </div>
 
-                <div class="flex justify-end mt-6">{/* Acá deberia de enviar los datoos a la bd  */}
-                    <button type="submit" class="px-8 py-2.5 leading-5 text-white transition-colors duration-300 transform bg-gray-700 rounded-md hover:bg-gray-600 focus:outline-none focus:bg-gray-600">Crear nuevo servicio</button>
+                <div className="flex justify-end mt-6">{/* Acá deberia de enviar los datoos a la bd  */}
+                    <button type="submit" className="px-8 py-2.5 leading-5 text-white transition-colors duration-300 transform bg-gray-700 rounded-md hover:bg-gray-600 focus:outline-none focus:bg-gray-600">Crear nuevo servicio</button>
                 </div>
             </form>
         </section>
