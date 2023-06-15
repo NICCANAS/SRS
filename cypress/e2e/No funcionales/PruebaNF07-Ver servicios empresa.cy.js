@@ -1,7 +1,7 @@
 describe('e2e-pruebaFuncional01', () => {
   beforeEach(() => {
     //Iniciar la pagina
-    cy.visit('http://127.0.0.1:8000/');
+    cy.visit('http://127.0.0.1:8000/')
   })
   it('passes', () => {
     //Presionar el boton de inicio de sesion
@@ -16,10 +16,6 @@ describe('e2e-pruebaFuncional01', () => {
     cy.get('input[name="password"]').type('felipe1');
     //Iniciar sesion
     cy.contains('Ingresar').click();
-
-    //Apretar en agregar servicio
-    cy.contains('Agregar Servicios').click();
-    //Volver al apartado inicio
-    cy.contains('Inicio').click();
+    cy.wait(500);//alcanzar a ver los servicios
   })
 })

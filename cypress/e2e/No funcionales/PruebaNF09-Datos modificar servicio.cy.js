@@ -17,9 +17,9 @@ describe('e2e-pruebaFuncional01', () => {
     //Iniciar sesion
     cy.contains('Ingresar').click();
 
-    //Apretar en agregar servicio
-    cy.contains('Agregar Servicios').click();
-    //Volver al apartado inicio
-    cy.contains('Inicio').click();
+    //Modificar un servicio
+    cy.contains('Modificar Servicios').click();
+    //Clickear en modificar
+    cy.contains('Modificar').click();
   })
 })

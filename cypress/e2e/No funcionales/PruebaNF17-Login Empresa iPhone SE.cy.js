@@ -1,5 +1,6 @@
 describe('e2e-pruebaFuncional01', () => {
   beforeEach(() => {
+    cy.viewport('iphone-se2');//Establecer la resolucion iPhone SE
     //Iniciar la pagina
     cy.visit('http://127.0.0.1:8000/');
   })
@@ -8,13 +9,5 @@ describe('e2e-pruebaFuncional01', () => {
     cy.get('a[id="button"]').click();
     //Boton del formulario de empresas
     cy.contains('Empresa / Pymes').click();
-    
-    //Ingresar datos
-    //Correo
-    cy.get('input[name="email"]').type('PruebaEmpresa@gmail.com');
-    //Contraseña
-    cy.get('input[name="password"]').type('felipe1');
-    //Iniciar sesion
-    cy.contains('Ingresar').click();
   })
 })
