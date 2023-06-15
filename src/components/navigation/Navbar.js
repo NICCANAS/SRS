@@ -40,7 +40,7 @@ function Navbar() {
             </div>
  */}
             <div className="px-4 sm:px-6">
-                <div className="-ml-4 -mt-2 hidden lg:flex flex-wrap items-center justify-between sm:flex-nowrap md:px-14 px-2">
+                <div id='navbar2'className="-ml-4 -mt-2 hidden lg:flex flex-wrap items-center justify-between sm:flex-nowrap md:px-14 px-2">
                     <Link to='/' className="ml-4 mt-2">
                         <SvgLogoUsado />
                     </Link>
