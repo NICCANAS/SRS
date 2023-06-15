@@ -103,7 +103,7 @@ function ModEmp() {
                                                     className="relative inline-block px-3 py-1 font-semibold text-green-900 leading-tight">
                                                     <span aria-hidden id='IdModificarSpan'
                                                         className="absolute inset-0 bg-amber-600 opacity-50 rounded-full"></span>
-                                                    <span className="relative">Modificar</span>
+                                                    <span id='IdModificarSpan2'className="relative">Modificar</span>
                                                 </a>
                                             </td>
                                         </tr>

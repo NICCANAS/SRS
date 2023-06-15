@@ -72,12 +72,11 @@ function RealmodEmp(props) {
         formRef.current.submit();
     }
     return (
-        
-        <section class="max-w-4xl p-6 mx-auto bg-white rounded-md shadow-md mt-6 dark:bg-gray-800">
-            <h2 class="text-lg font-semibold text-gray-700 capitalize dark:text-white">Modificar servicio </h2>
+        <section className="max-w-4xl p-6 mx-auto bg-white rounded-md shadow-md mt-6 dark:bg-gray-800">
+            <h2 className="text-lg font-semibold text-gray-700 capitalize dark:text-white">Modificar servicio </h2>
 
             <form onSubmit={onSubmitHandler} ref={formRef} action="/Empresa">
-                <div class="grid grid-cols-1 gap-6 mt-4 sm:grid-cols-2">
+                <div className="grid grid-cols-1 gap-6 mt-4 sm:grid-cols-2">
 
                     <div> {/*Nombre del servicio */}
                         <label className="text-gray-700 dark:text-gray-200" for="nombre_serv">Nombre del servicio</label>
@@ -106,7 +105,7 @@ function RealmodEmp(props) {
                 </div>
 
                 <div className="flex justify-end mt-6">{/* Acá deberia de enviar los datoos a la bd  */}
-                    <button className="px-8 py-2.5 leading-5 text-white transition-colors duration-300 transform bg-gray-700 rounded-md hover:bg-gray-600 focus:outline-none focus:bg-gray-600">Guardar nuevos cambios</button>
+                    <button id='Guardarcambios'className="px-8 py-2.5 leading-5 text-white transition-colors duration-300 transform bg-gray-700 rounded-md hover:bg-gray-600 focus:outline-none focus:bg-gray-600">Guardar nuevos cambios</button>
                 </div>
             </form>
         </section>
