@@ -19,7 +19,12 @@ describe('e2e-pruebaFuncional01', () => {
 
     //Apretar en agregar servicio
     cy.contains('Agregar Servicios').click();
+    cy.get('.max-w-4xl').should('be.visible');//Comprobar que exista el componente
     //Volver al apartado inicio
     cy.contains('Inicio').click();
+    //Verificar que exista una carta de servicio
+    cy.get('.bg-gradient-to-b > :nth-child(1) > .bg-white > .flex').should('be.visible');
+
+
   })
 })

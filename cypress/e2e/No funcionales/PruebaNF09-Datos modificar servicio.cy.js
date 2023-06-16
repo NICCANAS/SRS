@@ -19,6 +19,7 @@ describe('e2e-pruebaFuncional01', () => {
 
     //Modificar un servicio
     cy.contains('Modificar Servicios').click();
+    cy.get('tbody > :nth-child(1) > :nth-child(1)').should('be.visible');
     //Clickear en modificar
     cy.contains('Modificar').click();
   })

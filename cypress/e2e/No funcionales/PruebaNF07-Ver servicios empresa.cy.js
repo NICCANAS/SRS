@@ -16,6 +16,7 @@ describe('e2e-pruebaFuncional01', () => {
     cy.get('input[name="password"]').type('felipe1');
     //Iniciar sesion
     cy.contains('Ingresar').click();
-    cy.wait(500);//alcanzar a ver los servicios
+    //Comprobar que exista al menos el primer servicio de la empresa
+    cy.get(':nth-child(1) > .bg-white > .hidden > .aspect-square').should('be.visible');
   })
 })

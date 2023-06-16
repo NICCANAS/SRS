@@ -7,13 +7,16 @@ describe('e2e-pruebaFuncional01', () => {
     //Presionar el boton de inicio de sesion
     cy.get('a[id="button"]').click();
 
+    //Boton del formulario de empresas
+    cy.contains('Empresa / Pymes').click();
     //Ingresar datos
     //Correo
-    cy.get('input[name="email"]').type('fe.fernandez@duocuc.cl');
+    cy.get('input[name="email"]').type('PruebaEmpresa@gmail.com');
     //Contraseña
     cy.get('input[name="password"]').type('felipe1');
     //Iniciar sesion
     cy.contains('Ingresar').click();
-    cy.wait(500);//Alcanzar a visualizar los servicios disponibles
+    //Confirmar que exista un servicio
+    cy.get(':nth-child(1) > .bg-white > .hidden > .aspect-square').should('be.visible');
   })
 })

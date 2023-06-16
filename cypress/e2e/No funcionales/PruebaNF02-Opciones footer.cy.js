@@ -10,36 +10,35 @@ describe('e2e-pruebaFuncional01', () => {
     //Presionar los botones y redirigir hacia esa pagina
     cy.contains('Facebook').click();
     cy.url().should('eq', 'https://es-la.facebook.com/');
-    cy.go('back');
+    cy.visit('http://127.0.0.1:8000/');
 
     cy.contains('Instagram').click();
     cy.url().should('eq', 'https://www.instagram.com/');
-    cy.go('back');
+    cy.visit('http://127.0.0.1:8000/');
 
     cy.contains('Twitter').click();
     cy.url().should('eq', 'https://twitter.com/login');
-    cy.go('back');
+    cy.visit('http://127.0.0.1:8000/');
 
     cy.contains('GitHub').click();
     cy.url().should('eq', 'https://github.com/');
-    cy.go('back');
+    cy.visit('http://127.0.0.1:8000/');
 
     cy.contains('guasa').click();
     cy.url().should('eq', 'https://web.whatsapp.com/');
-    cy.go('back');
+    cy.visit('http://127.0.0.1:8000/');
     
     cy.contains('Marketing').click();
     cy.url().should('include', '/marketing');
-    
-    cy.go('back');
+    cy.visit('http://127.0.0.1:8000/');
     
     cy.contains('Comunicate con nosotros').click();
     cy.url().should('include', '/contacto');
-    cy.go('back');
+    cy.visit('http://127.0.0.1:8000/');
     
     cy.contains('Nosotros').click();
     cy.url().should('include', '/nosotros');
-    cy.go('back');
+    cy.visit('http://127.0.0.1:8000/');
     
     cy.contains('Claim').click();
     cy.url().should('include', '/claim');

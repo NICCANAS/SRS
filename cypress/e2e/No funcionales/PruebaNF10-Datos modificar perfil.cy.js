@@ -17,5 +17,8 @@ describe('e2e-pruebaFuncional01', () => {
 
     //Ir a modificar el perfil
     cy.contains('Mi Perfil').click();
+    //Comprobar que el input del nombre tenga el nombre y correo bien
+    cy.get('#username').should('have.value','Felipe');
+    cy.get('#emailAddress').should('have.value','fe.fernandez@duocuc.cl');
   })
 })

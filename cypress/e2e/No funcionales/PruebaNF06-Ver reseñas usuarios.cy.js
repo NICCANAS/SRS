@@ -6,6 +6,9 @@ describe('e2e-pruebaFuncional01', () => {
   it('passes', () => {
     //Redirigir la pagina hacia la mitad
     cy.scrollTo('center');
-    cy.wait(500);//ver las reseñas
+    //Comprobar que todas las reseñas sean visibles
+    cy.get('section > .mx-auto > .mt-12 > :nth-child(1)').should('be.visible');
+    cy.get('.mx-auto > .mt-12 > :nth-child(2)').should('be.visible');
+    cy.get('.mt-12 > :nth-child(3)').should('be.visible');
   })
 })

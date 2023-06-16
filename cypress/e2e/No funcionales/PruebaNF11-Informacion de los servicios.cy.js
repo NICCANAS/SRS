@@ -15,7 +15,15 @@ describe('e2e-pruebaFuncional01', () => {
     //Iniciar sesion
     cy.contains('Ingresar').click();
 
-    //Clickear un servicio
+
+    //Clickear ese servicio
     cy.contains('Ver').click();
+    //Verificar la url
+    cy.url().should('include','/CasiMoney');
+    cy.wait(500);
+    //Verificar el titulo
+    cy.get('.text-xl').should('have.text','Venta de Chorizos XL');
+    //Verificar la descripcion
+    cy.get('.italic').should('have.text','Venta de chorizos al por mayor para distintos tipos de negocios o empresas.');   
   })
 })
