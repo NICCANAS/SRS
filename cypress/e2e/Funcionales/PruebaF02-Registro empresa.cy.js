@@ -5,7 +5,7 @@ describe('e2e-pruebaFuncional01', () => {
   })
   it('passes', () => {
     //Presionar el boton de inicio de sesion
-    cy.get('button').click();
+    cy.get('a[id="button"]').click();
     //Presionar el boton de registrarse
     cy.contains('Registrarse').click();
     //Boton del formulario de empresas

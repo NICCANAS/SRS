@@ -9,38 +9,40 @@ describe('e2e-pruebaFuncional01', () => {
 
     //Presionar los botones y redirigir hacia esa pagina
     cy.contains('Facebook').click();
-    cy.wait(500);//Para poder ver que si se cambio a la pagina
+    cy.url().should('eq', 'https://es-la.facebook.com/');
     cy.go('back');
 
     cy.contains('Instagram').click();
-    cy.wait(500);//Para poder ver que si se cambio a la pagina
+    cy.url().should('eq', 'https://www.instagram.com/');
     cy.go('back');
 
     cy.contains('Twitter').click();
-    cy.wait(500);//Para poder ver que si se cambio a la pagina
+    cy.url().should('eq', 'https://twitter.com/login');
     cy.go('back');
 
     cy.contains('GitHub').click();
-    cy.wait(500);//Para poder ver que si se cambio a la pagina
+    cy.url().should('eq', 'https://github.com/');
     cy.go('back');
 
     cy.contains('guasa').click();
-    cy.wait(500);//Para poder ver que si se cambio a la pagina
+    cy.url().should('eq', 'https://web.whatsapp.com/');
     cy.go('back');
     
     cy.contains('Marketing').click();
-    cy.wait(500);//Para poder ver que si se cambio a la pagina
+    cy.url().should('include', '/marketing');
+    
     cy.go('back');
     
     cy.contains('Comunicate con nosotros').click();
-    cy.wait(500);//Para poder ver que si se cambio a la pagina
+    cy.url().should('include', '/contacto');
     cy.go('back');
     
     cy.contains('Nosotros').click();
-    cy.wait(500);//Para poder ver que si se cambio a la pagina
+    cy.url().should('include', '/nosotros');
     cy.go('back');
     
     cy.contains('Claim').click();
+    cy.url().should('include', '/claim');
 
   })
 })
