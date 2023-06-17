@@ -16,5 +16,13 @@ describe('e2e-pruebaFuncional01', () => {
     //Iniciar sesion
     cy.contains('Ingresar').click();
 
+    //Verificar la url
+    cy.url().should('include','/Listservs')
+
+    //Verificar el tamaño de la barra lateral
+    cy.get('.w-3\\/12').should('have.css','width','40%');
+
+    //Verificar el tamaño del panel de los servicios
+    cy.get('.w-9/12').should('have.css','width','60%');
   })
 })

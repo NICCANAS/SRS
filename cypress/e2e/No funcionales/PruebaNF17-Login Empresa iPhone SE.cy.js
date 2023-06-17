@@ -9,5 +9,9 @@ describe('e2e-pruebaFuncional01', () => {
     cy.get('a[id="button"]').click();
     //Boton del formulario de empresas
     cy.contains('Empresa / Pymes').click();
+
+    //Verificar que la url sea la del login de empresas
+    cy.url().should('include','/LoginEmp');
+    
   })
 })
