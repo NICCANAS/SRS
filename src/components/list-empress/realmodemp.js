@@ -80,32 +80,32 @@ function RealmodEmp(props) {
 
                     <div> {/*Nombre del servicio */}
                         <label className="text-gray-700 dark:text-gray-200" for="nombre_serv">Nombre del servicio</label>
-                        <input onChange={nameChange} value={name} id="nombre_serv" type="text" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring" />
+                        <input onChange={nameChange} value={name} name="nombre_serv" type="text" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring" />
                     </div>
 
                     <div> {/* descripción del serv */}
                         <label className="text-gray-700 dark:text-gray-200" for="descrp_serv">Descripción del servicio </label>
-                        <input onChange={descriptionChange} value={description} id="descrp_serv" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring" />
+                        <input onChange={descriptionChange} value={description} name="descrp_serv" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring" />
                     </div>
 
                     <div> {/* Por la xita joldan, Valor servicio */}
                         <label className="text-gray-700 dark:text-gray-200" for="valor_serv">Valor servicio</label>
-                        <input onChange={valueChange} value={value} id="valor_serv" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring" />
+                        <input onChange={valueChange} value={value} name="valor_serv" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring" />
                     </div>
 
                     <div> {/* Direccion */}
                         <label className="text-gray-700 dark:text-gray-200" for="Dirección">Dirección</label>
-                        <input onChange={directionChange} value={direction} id="Dirección" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring" />
+                        <input onChange={directionChange} value={direction} name="Dirección" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring" />
                     </div>
 
                     <div> {/* Dia del servicio */}
                         <label className="text-gray-700 dark:text-gray-200" for="Dia_serv">Día disponible para el servicio</label>
-                        <input onChange={dayChange} value={days} id="Dia_serv" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring" />
+                        <input onChange={dayChange} value={days} name="Dia_serv" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring" />
                     </div>
                 </div>
 
                 <div className="flex justify-end mt-6">{/* Acá deberia de enviar los datoos a la bd  */}
-                    <button id='Guardarcambios'className="px-8 py-2.5 leading-5 text-white transition-colors duration-300 transform bg-gray-700 rounded-md hover:bg-gray-600 focus:outline-none focus:bg-gray-600">Guardar nuevos cambios</button>
+                    <button name='Guardarcambios'className="px-8 py-2.5 leading-5 text-white transition-colors duration-300 transform bg-gray-700 rounded-md hover:bg-gray-600 focus:outline-none focus:bg-gray-600">Guardar nuevos cambios</button>
                 </div>
             </form>
         </section>

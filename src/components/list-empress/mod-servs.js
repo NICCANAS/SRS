@@ -80,7 +80,7 @@ function ModEmp() {
                                             <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                                                 <div className="flex items-center">
                                                     <div className="ml-3">
-                                                        <p className="text-gray-900 whitespace-no-wrap">
+                                                        <p name='NombrePublic' className="text-gray-900 whitespace-no-wrap">
                                                             {serv[1]}
                                                         </p>
                                                     </div>
@@ -89,21 +89,21 @@ function ModEmp() {
 
                                             {/* Trabajo */}
                                             <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                                                <p className="text-gray-900 whitespace-no-wrap">{serv[3]}</p>
+                                                <p name='Trabajo' className="text-gray-900 whitespace-no-wrap">{serv[3]}</p>
                                             </td>
 
                                             {/* Valor */}
                                             <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                                                <p className="text-gray-900 whitespace-no-wrap">$ {serv[2]}</p>
+                                                <p name='Valor' className="text-gray-900 whitespace-no-wrap">$ {serv[2]}</p>
                                             </td>
 
                                             {/* Aca seria el boton modificar */}
                                             <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                                                <a id='idModificarA' onClick={() => showService(serv[0])}
+                                                <a name='idModificarA' onClick={() => showService(serv[0])}
                                                     className="relative inline-block px-3 py-1 font-semibold text-green-900 leading-tight">
-                                                    <span aria-hidden id='IdModificarSpan'
+                                                    <span aria-hidden name='IdModificarSpan'
                                                         className="absolute inset-0 bg-amber-600 opacity-50 rounded-full"></span>
-                                                    <span id='IdModificarSpan2'className="relative">Modificar</span>
+                                                    <span name='IdModificarSpan2' className="relative">Modificar</span>
                                                 </a>
                                             </td>
                                         </tr>

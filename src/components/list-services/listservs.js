@@ -89,7 +89,7 @@ function ListServs() {
     ));
 
     return (
-        <div class="flex flex-wrap bg-gray-100 w-full h-screen">
+        <div class="flex flex-wrap bg-gray-100">
             <div class="w-3/12 bg-white rounded p-3 shadow-lg">
                 <div class="flex items-center space-x-4 p-2 mb-5">
                     {/* Rescatar perfil del usuario */}
@@ -104,7 +104,7 @@ function ListServs() {
                 {/* Listado de opciones */}
                 <ul class="space-y-2 text-sm">
                     <li>
-                        <a onClick={() => setActive("Cardserv")} className="flex items-center space-x-3  p-2 rounded-md font-medium hover:bg-gray-200  focus:shadow-outline">
+                        <a onClick={() => setActive("Cardserv")} className="flex items-center p-2 space-x-3 font-medium rounded-md hover:bg-gray-200 focus:shadow-outline">
                             <span className="text-gray-600">
                                 <svg class="h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
