@@ -33,7 +33,7 @@ describe('e2e-pruebaFuncional01', () => {
     //dias servicio
     cy.get('input[id="Dia_serv"]').type('Lunes 19 de Junio');
     //foto servicio
-    const fileImage = 'cypress/e2e/testImages/testUserImage.png';
+    const fileImage = 'cypress/e2e/testImages/testServImage.jpg';
     cy.get('[id="usuprofile_help"]').selectFile(fileImage);
     //tipo servicio
     cy.get('[id="countries"]').select('Ayudantia');
