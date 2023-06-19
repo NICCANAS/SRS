@@ -31,7 +31,7 @@ describe('e2e-pruebaFuncional01', () => {
     //Combobox
     cy.get('[id="countries"]').select('Maipu');
     //Insertar imagen
-    const fileImage = 'cypress/e2e/testImages/testUserImage.png';
+    const fileImage = 'cypress/e2e/testImages/testEmpImage.png';
     cy.get('[id="user_avatar"]').selectFile(fileImage);
 
     //Registrarse

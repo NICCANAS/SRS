@@ -30,6 +30,7 @@ describe('e2e-pruebaFuncional01', () => {
     const fileImage = 'cypress/e2e/testImages/testUserImage.png';
     cy.get('[id="user_avatar"]').selectFile(fileImage);
 
+    cy.wait(500);
     //Registrarse
     cy.contains('Registrarse').click();
   })
