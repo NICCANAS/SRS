@@ -28,6 +28,6 @@ describe('e2e-pruebaFuncional01', () => {
     cy.get('input[id="descrresenna"]').type('descripcion de prueba');
     
     //Guardar la reseña
-    cy.contains('Crear reseña').click();
+    cy.get('.px-8').click();
   })
 })
