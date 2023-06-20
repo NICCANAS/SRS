@@ -27,20 +27,21 @@ function NavbarFooter() {
                         <SvgLogoUsado />
                     </Link>
                     <div className="ml-4 mt-2 flex-shrink-0 justify-end">
-                        <Link to="/Login" className="inline-flex ml-12 items-center rounded-md border bg-orange-button px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-gray-900 transition duration-300 ease-in-out focus:outline-none focus:ring-2  focus:ring-offset-2 bg-sky-600">
-                            Iniciar sesión
+                        <Link to="/" name='Barritapatrahusu' id='Barritapatrahusu' type="button" class=" rotate-180  flex-row text-indigo-700 border border-indigo-700 hover:bg-indigo-700 hover:text-white focus:ring-4 focus:outline-none focus:ring-indigo-300 font-medium rounded-full text-sm p-2.5 text-center inline-flex items-center dark:border-indigo-500 dark:text-indigo-500 dark:hover:text-white dark:focus:ring-indigo-800 dark:hover:bg-indigo-500">
+                            <svg aria-hidden="true" class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+
                         </Link>
                     </div>
                 </div>
 
                 <div id='navbar' className="-ml-4 -mt-2 lg:hidden flex flex-wrap items-center justify-between sm:flex-nowrap md:px-14 px-2">
                     <Link to='/' className="ml-4 mt-2">
-                        <SvgMalito />
+                        <SvgLogoUsado />
                     </Link>
                     <div className="ml-4 mt-2 flex-shrink-0">
                         <div className="ml-4 mt-2 flex-shrink-0 justify-end">
-                            <Link to="/Login" id='button' className="inline-flex ml-1 p-1 items-center rounded-md border bg-orange-button text-base font-medium text-white shadow-sm hover:bg-gray-900 transition duration-300 ease-in-out focus:outline-none focus:ring-2  focus:ring-offset-2 bg-sky-600">
-                                Iniciar sesión
+                            <Link to="/" name='Barritapatrahusu' id='Barritapatrahusu' type="button" class=" rotate-180  flex-row text-indigo-700 border border-indigo-700 hover:bg-indigo-700 hover:text-white focus:ring-4 focus:outline-none focus:ring-indigo-300 font-medium rounded-full text-sm p-2.5 text-center inline-flex items-center dark:border-indigo-500 dark:text-indigo-500 dark:hover:text-white dark:focus:ring-indigo-800 dark:hover:bg-indigo-500">
+                                <svg aria-hidden="true" class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
                             </Link>
                         </div>
                     </div>

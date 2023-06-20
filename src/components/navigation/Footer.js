@@ -6,24 +6,6 @@ import { ReactComponent as SvgInsta } from './../svg/insta.svg'
 import { ReactComponent as SvgTwit } from './../svg/pajalito.svg'
 import { Link } from 'react-router-dom'
 const navigation = {
-  solutions: [
-    { name: 'Marketing', href: '#' },
-    { name: 'Analytics', href: '#' },
-    { name: 'Insights', href: '#' },
-  ],
-  support: [
-    { name: 'Comunicate con nosotros', href: '/contacto' },
-  ],
-  company: [
-    { name: 'Nosotros', href: '/nosotros' },
-    { name: 'Carreras', href: '/carreras' },
-    { name: 'Info', href: '/blog' },
-  ],
-  legal: [
-    { name: 'Claim', href: '#' },
-    { name: 'Privacidad', href: '#' },
-    { name: 'Términos de condicion',},
-  ],
   social: [
     {
       name: 'Facebook',
@@ -84,27 +66,20 @@ function Footer() {
           <div className="mt-12 grid grid-cols-2 gap-8 xl:col-span-2 xl:mt-0">
             <div className="md:grid md:grid-cols-2 md:gap-8">
               <div>
-                <h3 className="text-base font-medium text-gray-900">Visitanos</h3>
+                <h3 className="text-base font-medium text-gray-900"></h3>
                 <ul role="list" className="mt-4 space-y-4">
-                  {navigation.solutions.map((item) => (
-                    <li key={item.name}>
-                      <a href={item.href} className="text-base text-gray-500 hover:text-gray-900">
-                        {item.name}
-                      </a>
-                    </li>
-                  ))}
+                  <li hrefclassName="text-base text-gray-500 hover:text-gray-900" >
+                  </li>
                 </ul>
               </div>
               <div className="mt-12 md:mt-0">
                 <h3 className="text-base font-medium text-gray-900">Contacto</h3>
                 <ul role="list" className="mt-4 space-y-4">
-                  {navigation.support.map((item) => (
-                    <li key={item.name}>
-                      <a href={item.href} className="text-base text-gray-500 hover:text-gray-900">
-                        {item.name}
-                      </a>
-                    </li>
-                  ))}
+                  <li hrefclassName="text-base text-gray-500 hover:text-gray-900" >
+                    <Link to="/Comunicar" className="text-base text-gray-500 hover:text-gray-900">
+                      Comunicate con nosotros
+                    </Link>
+                  </li>
                 </ul>
               </div>
             </div>
@@ -112,27 +87,34 @@ function Footer() {
               <div>
                 <h3 className="text-base font-medium text-gray-900">Empresa</h3>
                 <ul role="list" className="mt-4 space-y-4">
-                  {navigation.company.map((item) => (
-                    <li key={item.name}>
-                      <a href={item.href} className="text-base text-gray-500 hover:text-gray-900">
-                        {item.name}
-                      </a>
-                    </li>
-                  ))}
+                  <li hrefclassName="text-base text-gray-500 hover:text-gray-900" >
+                    <Link to="/Nosotros" className="text-base text-gray-500 hover:text-gray-900">
+                      Nosotros
+                    </Link>
+                  </li>
+                  <li hrefclassName="text-base text-gray-500 hover:text-gray-900" >
+                    <Link to="/Trabajo" className="text-base text-gray-500 hover:text-gray-900">
+                      Trabaja con nosotros
+                    </Link>
+                  </li>
                 </ul>
               </div>
               <div className="mt-12 md:mt-0">
                 <h3 className="text-base font-medium text-gray-900">Servicios</h3>
                 <ul role="list" className="mt-4 space-y-4">
-                  <li className="text-base text-gray-500 hover:text-gray-900" >
-                    test
+                  <li hrefclassName="text-base text-gray-500 hover:text-gray-900" >
+                    <Link to="/Privacidad" className="text-base text-gray-500 hover:text-gray-900">
+                      Privacidad
+                    </Link>
                   </li>
-                  <li className="text-base text-gray-500 hover:text-gray-900" >
-                    test2
+                  <li hrefclassName="text-base text-gray-500 hover:text-gray-900" >
+                    <Link to="/Reclamo" className="text-base text-gray-500 hover:text-gray-900">
+                      Reclamo
+                    </Link>
                   </li>
                   <li hrefclassName="text-base text-gray-500 hover:text-gray-900" >
                     <Link to="/Terminos" className="text-base text-gray-500 hover:text-gray-900">
-                    Terminos de condiciones y privacidad
+                      Terminos de condiciones y privacidad
                     </Link>
                   </li>
                 </ul>

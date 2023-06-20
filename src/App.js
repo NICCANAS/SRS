@@ -14,9 +14,8 @@ import Password from './container/pages/forgot-password';
 import WebpayTransaction from './container/pages/webpay';
 import Empresa from './container/pages/Empresa';
 //Yo se que esto no deberia de hacerse y deberia de llamarse en un componente en un  page y esto es mala practica pero me ya me puse la pijama
-import Carreras from './components/footer-buttons/carreras';
+import Trabajo from './components/footer-buttons/Trabajo';
 import Comunicar from './components/footer-buttons/comunicar';
-import Info from "./components/footer-buttons/info"
 import NavbarFooter from './components/footer-buttons/NavbarFooter';
 import Nosotros from "./components/footer-buttons/nosotros"
 import Privacidad from "./components/footer-buttons/privacidad"
@@ -61,6 +60,18 @@ function App() {
           <Route path="/Terminos" element={<Terminos />} />
           {/*nosotros*/}
           <Route path="/nosotros" element={<Nosotros />} />
+          {/*Comunicar*/}
+          <Route path="/Comunicar" element={<Comunicar />} />
+          {/*NavBarFooter*/}
+          <Route path="/NavbarFooter" element={<NavbarFooter />} />
+          {/*Privacidad*/}
+          <Route path="/Privacidad" element={<Privacidad />} />
+          {/*Reclamo*/}
+          <Route path="/Reclamo" element={<Reclamo />} />
+          {/*Terminos*/}
+          <Route path="/Terminos" element={<Terminos />} />
+          {/*Carreras*/}
+          <Route path="/Trabajo" element={<Trabajo />} />
 
         </Routes>
       </Router>
