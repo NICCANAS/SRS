@@ -30,7 +30,6 @@ function Comunicar() {
                     </form>
                 </div>
             </div></>
-
     )
 }
 const mapStateToProps = state => ({

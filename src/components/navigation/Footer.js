@@ -112,11 +112,6 @@ function Footer() {
                       Reclamo
                     </Link>
                   </li>
-                  <li hrefclassName="text-base text-gray-500 hover:text-gray-900" >
-                    <Link to="/Terminos" className="text-base text-gray-500 hover:text-gray-900">
-                      Terminos de condiciones y privacidad
-                    </Link>
-                  </li>
                 </ul>
               </div>
             </div>
