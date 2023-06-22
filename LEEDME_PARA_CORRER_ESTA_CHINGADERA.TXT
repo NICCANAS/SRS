@@ -27,6 +27,10 @@ npm i tw-elements --force
 npm install dayjs --force
 npm install @mui/x-date-pickers --force
 
+//Instrucciones para cypress
+npm install cypress --save-dev --force
+npx cypress open
+
 ////Paquetes para backend
 Django 4.2 | pip install django
 Django-cors-headers 3.14.0 | pip install django-cors-headers (para hacer la conexion entre frontend y backend)
