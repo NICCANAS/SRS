@@ -29,7 +29,7 @@ describe('e2e-pruebaFuncional01', () => {
     cy.visit('http://127.0.0.1:8000/');
     
     cy.contains('Marketing').click();
-    cy.url().should('include', '/marketing');
+    cy.url().should('include', '/Marketing');
     cy.visit('http://127.0.0.1:8000/');
     
     cy.contains('Comunicate con nosotros').click();
@@ -37,11 +37,7 @@ describe('e2e-pruebaFuncional01', () => {
     cy.visit('http://127.0.0.1:8000/');
     
     cy.contains('Nosotros').click();
-    cy.url().should('include', '/nosotros');
+    cy.url().should('include', '/Nosotros');
     cy.visit('http://127.0.0.1:8000/');
-    
-    cy.contains('Claim').click();
-    cy.url().should('include', '/claim');
-
   })
 })

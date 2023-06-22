@@ -20,19 +20,24 @@ describe('e2e-pruebaFuncional01', () => {
     //Dentro del menu de la empresa
     cy.contains('Modificar Servicios').click();
     //Modificar un servicio
-    cy.get('absolute inset-0 bg-amber-600 opacity-50 rounded-full').click();
+    cy.get('[name="idModificarA"]:first').click();
 
     //Datos para modificar el servicio
     //Nombre
-    cy.get('input[id="nombre_serv"]').type('Prueba Modificación 1');
+    cy.get('input[name="nombre_serv"]').clear();
+    cy.get('input[name="nombre_serv"]').type('Prueba Modificación 1');
     //Descripcion
-    cy.get('input[id="descrp_serv"]').type('Esta es una prueba de modificación');
+    cy.get('input[name="descrp_serv"]').clear();
+    cy.get('input[name="descrp_serv"]').type('Esta es una prueba de modificación');
     //Valor servicio
-    cy.get('input[id="valor_serv"]').type('34000');
+    cy.get('input[name="valor_serv"]').clear();
+    cy.get('input[name="valor_serv"]').type('34000');
     //Direccion
-    cy.get('input[id="Dirección"]').type('Los Geranios 106');
+    cy.get('input[name="Dirección"]').clear();
+    cy.get('input[name="Dirección"]').type('Los Geranios 106');
     //Dias disponibles
-    cy.get('input[id="Dia_serv"]').type('Viernes 21 de Julio');
+    cy.get('input[name="Dia_serv"]').clear();
+    cy.get('input[name="Dia_serv"]').type('Viernes 21 de Julio');
 
     //Guardar los cambios
     cy.contains('Guardar nuevos cambios').click();

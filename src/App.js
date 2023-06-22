@@ -61,7 +61,7 @@ function App() {
           {/*nosotros*/}
           <Route path="/nosotros" element={<Nosotros />} />
           {/*Comunicar*/}
-          <Route path="/Comunicar" element={<Comunicar />} />
+          <Route path="/contacto" element={<Comunicar />} />
           {/*NavBarFooter*/}
           <Route path="/NavbarFooter" element={<NavbarFooter />} />
           {/*Privacidad*/}
@@ -72,6 +72,8 @@ function App() {
           <Route path="/Terminos" element={<Terminos />} />
           {/*Carreras*/}
           <Route path="/Trabajo" element={<Trabajo />} />
+          {/* Marketing */}
+          <Route path="/Marketing" element={<Trabajo />} />
 
         </Routes>
       </Router>
