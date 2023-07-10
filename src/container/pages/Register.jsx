@@ -3,7 +3,7 @@ import Register from "../../components/register/register"
 import { useNavigate } from 'react-router-dom';
 
 function Registro () {
-    const userType = localStorage.getItem('loggedType');
+    /*const userType = localStorage.getItem('loggedType');
     //Redireccion
     const navigate = useNavigate();
 
@@ -16,7 +16,7 @@ function Registro () {
     else if (userType == "emp") {
         //Si esta logueado como empresa, mandarlo a su respectivo contenedor
         navigate('/Empresa');
-    }
+    }*/
     return (
         <Layout>
             <Register/>
